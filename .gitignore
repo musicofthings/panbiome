@@ -1,0 +1,20 @@
+# Book manuscript and drafts — not for public repo
+panbiome-book-all-chapters.txt
+panbiome-compiled-book-v1.md
+panbiome-compiled-book-v2.md
+PANBIOME_Recipe_Book.md
+REVIEW_REPORT.md
+REVIEW_REPORT_v2.md
+build_kindle_docx.py
+session_handover.md
+Panbiome chapter blueprint.txt
+
+# Build outputs
+*.docx
+*.epub
+*.kpf
+*.kcf
+
+# macOS
+.DS_Store
+__pycache__/

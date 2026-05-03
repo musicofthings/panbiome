@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PANBIOME — International Recipe Book</title>
+<style>
+  :root {
+    --si-primary: #c0392b;
+    --si-light: #fdf3f2;
+    --si-accent: #e8a090;
+    --med-primary: #2980b9;
+    --med-light: #f0f7fd;
+    --med-accent: #7fb3d3;
+    --oki-primary: #27ae60;
+    --oki-light: #f0faf4;
+    --oki-accent: #82c99a;
+    --text: #1a1a1a;
+    --muted: #555;
+    --border: #e0e0e0;
+    --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    --radius: 16px;
+    --font-body: 'Georgia', 'Times New Roman', serif;
+    --font-ui: -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background: #fafaf8;
+    line-height: 1.7;
+  }
+
+  /* ── Cover ─────────────────────────────────────────── */
+  .cover {
+    background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1400') center/cover;
+    opacity: 0.15;
+  }
+  .cover-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+  .cover-eyebrow {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 20px;
+  }
+  .cover h1 {
+    font-size: clamp(42px, 8vw, 72px);
+    font-weight: bold;
+    letter-spacing: 6px;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .cover-tagline {
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 8px;
+  }
+  .cover-sub {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 40px;
+  }
+  .cover-pills {
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    margin-bottom: 40px;
+  }
+  .cover-pill {
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .pill-si  { background: var(--si-primary);  color: white; }
+  .pill-med { background: var(--med-primary); color: white; }
+  .pill-oki { background: var(--oki-primary); color: white; }
+  .cover-meta {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 24px;
+  }
+
+  /* ── Nav ────────────────────────────────────────────── */
+  .toc {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 40px;
+    display: flex; gap: 32px; flex-wrap: wrap; align-items: center;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .toc-brand {
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .toc a {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: background 0.2s;
+  }
+  .toc a.si  { color: var(--si-primary);  background: var(--si-light);  }
+  .toc a.med { color: var(--med-primary); background: var(--med-light); }
+  .toc a.oki { color: var(--oki-primary); background: var(--oki-light); }
+  .toc a:hover { filter: brightness(0.92); }
+
+  /* ── Intro ──────────────────────────────────────────── */
+  .intro {
+    max-width: 760px; margin: 60px auto; padding: 0 32px;
+    text-align: center;
+  }
+  .intro h2 { font-size: 28px; margin-bottom: 16px; }
+  .intro p  { font-size: 17px; color: var(--muted); margin-bottom: 12px; }
+  .intro .goal-box {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 18px 32px;
+    background: linear-gradient(135deg, #fff8f0, #fff);
+    border: 2px solid #f5cba0;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #8b4513;
+  }
+  .goal-box strong { font-size: 22px; display: block; color: #c0392b; }
+
+  /* ── Section header ─────────────────────────────────── */
+  .section-header {
+    padding: 56px 40px 32px;
+    position: relative;
+  }
+  .section-header::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .section-si  { background: var(--si-light);  }
+  .section-med { background: var(--med-light); }
+  .section-oki { background: var(--oki-light); }
+  .section-si::before  { background: var(--si-primary);  }
+  .section-med::before { background: var(--med-primary); }
+  .section-oki::before { background: var(--oki-primary); }
+
+  .section-header .label {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .si .label  { color: var(--si-primary);  }
+  .med .label { color: var(--med-primary); }
+  .oki .label { color: var(--oki-primary); }
+
+  .section-header h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .section-header p {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 600px;
+  }
+  .section-emoji { font-size: 40px; margin-bottom: 12px; display: block; }
+
+  /* ── Recipe grid ────────────────────────────────────── */
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 32px;
+    padding: 0 40px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── Recipe card ────────────────────────────────────── */
+  .card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.13);
+  }
+
+  .card-img-wrap {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: #f0ede8;
+  }
+  .card-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+  .card:hover .card-img-wrap img { transform: scale(1.04); }
+
+  .card-num {
+    position: absolute;
+    top: 14px; left: 14px;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+  }
+  .si-num  { background: var(--si-primary);  }
+  .med-num { background: var(--med-primary); }
+  .oki-num { background: var(--oki-primary); }
+
+  .card-meta-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 10px 14px;
+    display: flex; gap: 10px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.55));
+  }
+  .meta-pill {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    padding: 3px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .card-body { padding: 22px 24px; flex: 1; display: flex; flex-direction: column; }
+
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  .benefit-badge {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .benefit-badge .icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .si-badge  { background: var(--si-light);  color: #8b1a1a; }
+  .med-badge { background: var(--med-light); color: #1a4f7a; }
+  .oki-badge { background: var(--oki-light); color: #1a5e35; }
+
+  .card-section-label {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 6px;
+    margin-top: 14px;
+  }
+
+  .ingredients-list {
+    list-style: none;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .ingredients-list li {
+    padding: 3px 0;
+    padding-left: 14px;
+    position: relative;
+    color: var(--muted);
+  }
+  .ingredients-list li::before {
+    content: '·';
+    position: absolute; left: 0;
+    font-weight: bold;
+  }
+  .si-dot  li::before { color: var(--si-primary);  }
+  .med-dot li::before { color: var(--med-primary); }
+  .oki-dot li::before { color: var(--oki-primary); }
+
+  .steps-list {
+    list-style: none;
+    font-size: 14px;
+    counter-reset: step;
+  }
+  .steps-list li {
+    counter-increment: step;
+    padding: 5px 0 5px 28px;
+    position: relative;
+    color: var(--muted);
+  }
+  .steps-list li::before {
+    content: counter(step);
+    position: absolute; left: 0;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    top: 7px;
+  }
+  .si-steps  li::before { background: var(--si-primary);  }
+  .med-steps li::before { background: var(--med-primary); }
+  .oki-steps li::before { background: var(--oki-primary); }
+
+  .tip-box {
+    margin-top: 14px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--muted);
+    display: flex; gap: 8px; align-items: flex-start;
+  }
+  .si-tip  { background: #fef9f8; border-left: 3px solid var(--si-accent);  }
+  .med-tip { background: #f5faff; border-left: 3px solid var(--med-accent); }
+  .oki-tip { background: #f4fbf6; border-left: 3px solid var(--oki-accent); }
+
+  /* ── How to use ─────────────────────────────────────── */
+  .how-to {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .how-to h2 { font-size: 30px; margin-bottom: 8px; }
+  .how-to p  { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 36px; }
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto 40px;
+  }
+  .how-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 24px 20px;
+  }
+  .how-card .icon { font-size: 28px; margin-bottom: 10px; }
+  .how-card h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    font-family: var(--font-ui);
+    font-weight: 700;
+  }
+  .how-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin: 0;
+  }
+  .closing {
+    font-style: italic;
+    font-size: 18px;
+    color: rgba(255,255,255,0.85);
+    max-width: 600px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 32px;
+  }
+
+  /* ── Footer ─────────────────────────────────────────── */
+  footer {
+    text-align: center;
+    padding: 24px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: #aaa;
+    background: #111;
+  }
+
+  /* ── Responsive ─────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .toc { padding: 14px 20px; gap: 12px; }
+    .recipe-grid { padding: 0 20px 40px; }
+    .section-header { padding: 40px 20px 24px; }
+    .how-to { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ COVER ═══════════════════ -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-eyebrow">Bonus Companion · Free with PANBIOME</div>
+    <h1>PANBIOME</h1>
+    <div class="cover-tagline">Global Rainforests in Your Kitchen</div>
+    <div class="cover-sub">International Recipe Book · 24 Microbiome-Friendly Recipes</div>
+    <div class="cover-pills">
+      <span class="cover-pill pill-si">🌿 South Indian</span>
+      <span class="cover-pill pill-med">🫒 Mediterranean</span>
+      <span class="cover-pill pill-oki">🌊 Okinawan</span>
+    </div>
+    <div class="cover-meta">
+      By Dr. Shibichakravarthy Kannan, MBBS, PhD · Medical Geneticist &amp; Diagnostics Specialist
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav class="toc">
+  <a class="toc-brand" href="#">PANBIOME</a>
+  <a class="si"  href="#south-indian">🌿 South Indian</a>
+  <a class="med" href="#mediterranean">🫒 Mediterranean</a>
+  <a class="oki" href="#okinawan">🌊 Okinawan</a>
+</nav>
+
+<!-- ═══════════════════ INTRO ═══════════════════ -->
+<div class="intro">
+  <h2>Your Kitchen Is a Laboratory</h2>
+  <p>Every recipe in this collection is designed around one principle: <em>feed your microbes, and they will feed you back.</em></p>
+  <p>These 24 dishes span South Indian, Mediterranean, and Okinawan traditions — three of the most microbiome-friendly food cultures on earth. All are high in plant diversity, prebiotic fibre, fermented foods, and healthy fats.</p>
+  <div class="goal-box">
+    <strong>30+</strong>
+    different plant types per week — the target for a thriving Panbiome.<br>
+    Pick 2–3 recipes from each section and you'll hit it naturally.
+  </div>
+</div>
+
+<!-- ═══════════════════ SOUTH INDIAN ═══════════════════ -->
+<section id="south-indian">
+  <div class="section-header section-si si">
+    <span class="section-emoji">🌿</span>
+    <div class="label">Part One</div>
+    <h2>South Indian Panbiome Recipes</h2>
+    <p>Fermented batters, spiced lentils, and ancient grains — South Indian cuisine is one of the world's oldest microbiome-nourishing traditions.</p>
+  </div>
+
+  <div class="recipe-grid">
+
+    <!-- R1 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/20422121/pexels-photo-20422121.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Idli with Coconut Chutney and Sambar"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num si-num">1</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">35 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Soft Idli with Coconut Chutney &amp; Drumstick Sambar</div>
+        <div class="benefit-badge si-badge"><span class="icon">🦠</span>Natural fermentation creates probiotics; drumstick &amp; vegetables provide prebiotic fibre.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list si-dot"><li>Idli batter (rice + urad dal)</li><li>Fresh coconut, green chillies, curry leaves</li><li>Toor dal, drumstick, tomato, spinach</li><li>Tamarind, sambar powder</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list si-steps"><li>Steam idlis 12 min.</li><li>Blend coconut chutney with chillies and curry leaves.</li><li>Simmer sambar with vegetables 20 min.</li></ol>
+        <div class="tip-box si-tip">💡 Use millet idli batter for extra fibre.</div>
+      </div>
+    </div>
+
+    <!-- R2 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/8414675/pexels-photo-8414675.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Ragi Upma"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num si-num">2</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">20 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Ragi Upma with Peas &amp; Curry Leaves</div>
+        <div class="benefit-badge si-badge"><span class="icon">🦠</span>Ragi is high in resistant starch that feeds butyrate-producing bacteria.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list si-dot"><li>Ragi flour</li><li>Peas, tomato, curry leaves</li><li>Mustard seeds, turmeric</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list si-steps"><li>Roast ragi flour until fragrant.</li><li>Temper mustard seeds, sauté vegetables.</li><li>Cook like upma — add water gradually, stir well.</li></ol>
+        <div class="tip-box si-tip">💡 Add grated carrot for colour and extra plants.</div>
+      </div>
+    </div>
+
+    <!-- R3 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/5434693/pexels-photo-5434693.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Methi Sabzi with Bajra Roti"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num si-num">3</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">25 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Methi Sabzi with Bajra Roti</div>
+        <div class="benefit-badge si-badge"><span class="icon">🦠</span>Fenugreek leaves are prebiotic and anti-inflammatory.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list si-dot"><li>Fresh methi (fenugreek) leaves</li><li>Onion, tomato, spices</li><li>Bajra (pearl millet) flour</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list si-steps"><li>Stir-fry methi sabzi with onion, tomato, and spices.</li><li>Cook bajra rotis on a hot tawa.</li></ol>
+        <div class="tip-box si-tip">💡 Swap methi with spinach or gongura for variety.</div>
+      </div>
+    </div>
+
+    <!-- R4 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/33203198/pexels-photo-33203198.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Banana Stem Thoran"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num si-num">4</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">20 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Banana Stem Thoran</div>
+        <div class="benefit-badge si-badge"><span class="icon">🦠</span>High insoluble fibre improves gut motility.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list si-dot"><li>Banana stem, grated coconut</li><li>Curry leaves, mustard seeds</li><li>Turmeric, salt</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list si-steps"><li>Chop banana stem finely (remove fibrous strands).</li><li>Stir-fry with mustard and curry leaves.</li><li>Finish with grated coconut.</li></ol>
+        <div class="tip-box si-tip">💡 Banana stem is common in South Indian markets — ask for <em>vazhai thandu</em>.</div>
+      </div>
+    </div>
+
+    <!-- R5 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/35041658/pexels-photo-35041658.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Mixed Dal Sambar"
+             onerror="this.src='https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num si-num">5</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">25 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Mixed Dal Sambar with Gongura Leaves</div>
+        <div class="benefit-badge si-badge"><span class="icon">🦠</span>Multiple dals + sour greens create diverse prebiotics.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list si-dot"><li>Mung + masoor dal</li><li>Gongura (sorrel) leaves, mixed vegetables</li><li>Sambar powder, tamarind</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list si-steps"><li>Pressure-cook dals until soft.</li><li>Add gongura, vegetables, and sambar powder.</li><li>Temper with mustard seeds and curry leaves.</li></ol>
+        <div class="tip-box si-tip">💡 Gongura adds tangy probiotic support — it's a sour-leaf staple of Andhra kitchens.</div>
+      </div>
+    </div>
+
+    <!-- R6 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/6613054/pexels-photo-6613054.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Sprouted Mung Bean Salad"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num si-num">6</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">10 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Sprouted Mung Bean Salad</div>
+        <div class="benefit-badge si-badge"><span class="icon">🦠</span>Sprouting increases bioavailability and live enzymes.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list si-dot"><li>Sprouted mung beans</li><li>Cucumber, tomato, coriander</li><li>Lemon juice, salt</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list si-steps"><li>Toss all ingredients raw.</li><li>Squeeze lemon and serve immediately.</li></ol>
+        <div class="tip-box si-tip">💡 Sprout at home — soak overnight, rinse twice daily for 2 days.</div>
+      </div>
+    </div>
+
+    <!-- R7 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/35175194/pexels-photo-35175194.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Curd Rice"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num si-num">7</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">10 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Curd Rice with Roasted Jeera</div>
+        <div class="benefit-badge si-badge"><span class="icon">🦠</span>Probiotic curd + resistant starch from cooled rice.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list si-dot"><li>Cooled cooked rice</li><li>Fresh curd (yogurt)</li><li>Roasted cumin, curry leaves, salt</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list si-steps"><li>Mix cooled rice with curd until creamy.</li><li>Temper mustard and curry leaves, stir in.</li><li>Top with roasted cumin.</li></ol>
+        <div class="tip-box si-tip">💡 Use brown rice for extra fibre. Cooling rice overnight doubles its resistant starch.</div>
+      </div>
+    </div>
+
+    <!-- R8 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/36854501/pexels-photo-36854501.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Adai Mixed Lentil Dosa"
+             onerror="this.src='https://images.pexels.com/photos/20422121/pexels-photo-20422121.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num si-num">8</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">25 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Adai (Mixed Lentil Dosa)</div>
+        <div class="benefit-badge si-badge"><span class="icon">🦠</span>Multiple dals provide complete protein and prebiotic fibre.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list si-dot"><li>Rice, mixed dals (chana, toor, urad, masoor)</li><li>Dried red chillies, spices, curry leaves</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list si-steps"><li>Soak rice and dals together 4–6 hours.</li><li>Grind coarsely with spices.</li><li>Make thick dosas on a hot tawa.</li></ol>
+        <div class="tip-box si-tip">💡 Ferment overnight for extra probiotics — batter becomes slightly sour and more gut-friendly.</div>
+      </div>
+    </div>
+
+  </div><!-- end grid -->
+</section>
+
+<!-- ═══════════════════ MEDITERRANEAN ═══════════════════ -->
+<section id="mediterranean">
+  <div class="section-header section-med med">
+    <span class="section-emoji">🫒</span>
+    <div class="label">Part Two</div>
+    <h2>Mediterranean Panbiome Recipes</h2>
+    <p>Extra-virgin olive oil, legumes, and wild herbs — the Mediterranean diet is the most studied diet for microbiome diversity and longevity.</p>
+  </div>
+
+  <div class="recipe-grid">
+
+    <!-- R9 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/4006347/pexels-photo-4006347.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Greek Yogurt Bowl"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num med-num">9</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">10 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Greek Yogurt Bowl with Olive Oil, Herbs &amp; Chickpeas</div>
+        <div class="benefit-badge med-badge"><span class="icon">🦠</span>EVOO polyphenols feed beneficial bacteria; chickpeas add prebiotic fibre.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list med-dot"><li>Thick Greek yogurt</li><li>Extra-virgin olive oil, chickpeas</li><li>Fresh dill or mint, garlic, lemon</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list med-steps"><li>Mix yogurt with herbs and crushed garlic.</li><li>Top with chickpeas.</li><li>Drizzle generously with olive oil.</li></ol>
+        <div class="tip-box med-tip">💡 Use as a dip or side dish alongside your Indian meal for a cross-cultural Panbiome plate.</div>
+      </div>
+    </div>
+
+    <!-- R10 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/35646479/pexels-photo-35646479.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Lentil Vegetable Stew"
+             onerror="this.src='https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num med-num">10</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">35 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Lentil &amp; Vegetable Stew</div>
+        <div class="benefit-badge med-badge"><span class="icon">🦠</span>High fibre from lentils + vegetables; olive oil polyphenols.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list med-dot"><li>Brown lentils</li><li>Eggplant, zucchini, tomato, onion</li><li>Extra-virgin olive oil, dried oregano</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list med-steps"><li>Sauté onion and vegetables in olive oil.</li><li>Add lentils and water, simmer 25 min.</li><li>Finish with a generous drizzle of fresh olive oil.</li></ol>
+        <div class="tip-box med-tip">💡 Serve with whole-grain bread. The second drizzle of raw EVOO at the end preserves its polyphenols.</div>
+      </div>
+    </div>
+
+    <!-- R11 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/2894651/pexels-photo-2894651.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Chickpea Salad"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num med-num">11</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">10 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Chickpea Salad with Olive Oil Dressing</div>
+        <div class="benefit-badge med-badge"><span class="icon">🦠</span>Legumes + raw veggies increase microbial diversity.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list med-dot"><li>Chickpeas (cooked or canned)</li><li>Cucumber, tomato, red onion, parsley</li><li>Extra-virgin olive oil, lemon juice</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list med-steps"><li>Toss all ingredients together raw.</li><li>Dress with olive oil and fresh lemon.</li></ol>
+        <div class="tip-box med-tip">💡 Add olives for extra polyphenols. This is a complete Panbiome meal in a bowl.</div>
+      </div>
+    </div>
+
+    <!-- R12 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/6275189/pexels-photo-6275189.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Baked Falafel Bowl"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num med-num">12</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">30 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Baked Falafel Bowl with Tahini-Yogurt Sauce</div>
+        <div class="benefit-badge med-badge"><span class="icon">🦠</span>Chickpea-based, baked (not fried), served with probiotic yogurt.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list med-dot"><li>Chickpeas, fresh parsley and coriander</li><li>Cumin, garlic, tahini, yogurt, lemon</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list med-steps"><li>Blend chickpeas with herbs and spices.</li><li>Shape into patties, bake at 200°C for 20 min.</li><li>Mix tahini and yogurt for sauce.</li></ol>
+        <div class="tip-box med-tip">💡 Use as a wrap filling or bowl topping over brown rice or whole-grain pitta.</div>
+      </div>
+    </div>
+
+    <!-- R13 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/4768952/pexels-photo-4768952.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Roasted Vegetable Plate"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num med-num">13</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">30 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Roasted Vegetable Plate with Olive Oil</div>
+        <div class="benefit-badge med-badge"><span class="icon">🦠</span>Polyphenols from olive oil + diverse roasted plants.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list med-dot"><li>Bell peppers, carrot, broccoli, cauliflower</li><li>Whole garlic cloves, extra-virgin olive oil</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list med-steps"><li>Toss vegetables with olive oil and garlic.</li><li>Roast at 200°C for 25 min.</li><li>Finish with fresh olive oil drizzle before serving.</li></ol>
+        <div class="tip-box med-tip">💡 Add whole garlic cloves — roasted garlic is a powerful prebiotic and becomes sweet and mild.</div>
+      </div>
+    </div>
+
+    <!-- R14 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/1358389/pexels-photo-1358389.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="White Bean Spinach Stew"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num med-num">14</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">25 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">White Bean &amp; Spinach Stew</div>
+        <div class="benefit-badge med-badge"><span class="icon">🦠</span>Beans + greens provide prebiotics and polyphenols.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list med-dot"><li>White beans (cannellini)</li><li>Spinach, garlic, tomato, fresh herbs</li><li>Extra-virgin olive oil</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list med-steps"><li>Sauté garlic, add tomato, beans, and water.</li><li>Simmer 20 min, stir in spinach and herbs.</li><li>Drizzle with olive oil.</li></ol>
+        <div class="tip-box med-tip">💡 Add a squeeze of lemon before serving to brighten the flavour and boost iron absorption.</div>
+      </div>
+    </div>
+
+    <!-- R15 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/30296687/pexels-photo-30296687.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Eggplant Tomato Bake"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num med-num">15</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">35 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Eggplant &amp; Tomato Bake with Olive Oil</div>
+        <div class="benefit-badge med-badge"><span class="icon">🦠</span>Eggplant fibre + tomato lycopene + olive oil polyphenols.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list med-dot"><li>Eggplant, tomato, onion</li><li>Extra-virgin olive oil, oregano, garlic</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list med-steps"><li>Layer sliced vegetables in a baking dish.</li><li>Drizzle generously with olive oil.</li><li>Bake at 180°C for 30 min.</li></ol>
+        <div class="tip-box med-tip">💡 Serve with a spoonful of yogurt on top — adding probiotic to every meal is a Panbiome habit.</div>
+      </div>
+    </div>
+
+    <!-- R16 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/29850843/pexels-photo-29850843.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Red Lentil Soup"
+             onerror="this.src='https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num med-num">16</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">30 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Red Lentil Soup with Olive Oil Drizzle</div>
+        <div class="benefit-badge med-badge"><span class="icon">🦠</span>Lentils + olive oil create a prebiotic-rich, satiating meal.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list med-dot"><li>Red lentils, carrot, onion, garlic</li><li>Cumin, spinach, extra-virgin olive oil</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list med-steps"><li>Sauté aromatics, add lentils and water.</li><li>Simmer 25 min, blend partially.</li><li>Add spinach; finish with olive oil drizzle.</li></ol>
+        <div class="tip-box med-tip">💡 Add a pinch of smoked paprika for depth. The raw olive oil drizzle added after cooking preserves its microbiome benefits.</div>
+      </div>
+    </div>
+
+  </div><!-- end grid -->
+</section>
+
+<!-- ═══════════════════ OKINAWAN ═══════════════════ -->
+<section id="okinawan">
+  <div class="section-header section-oki oki">
+    <span class="section-emoji">🌊</span>
+    <div class="label">Part Three</div>
+    <h2>Okinawan Panbiome Recipes</h2>
+    <p>Seaweed, fermented miso, and longevity vegetables — Okinawa's Blue Zone diet is extraordinary for gut health, particularly <em>Akkermansia muciniphila</em>.</p>
+  </div>
+
+  <div class="recipe-grid">
+
+    <!-- R17 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/31393432/pexels-photo-31393432.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Wakame Miso Soup"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num oki-num">17</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">15 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Wakame Miso Soup</div>
+        <div class="benefit-badge oki-badge"><span class="icon">🦠</span>Fucoidan in wakame feeds <em>Akkermansia muciniphila</em>; miso is a fermented probiotic food.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list oki-dot"><li>Dried wakame seaweed</li><li>Miso paste (white or red), silken tofu</li><li>Green onion, kombu or vegetable stock</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list oki-steps"><li>Soak wakame 5 min, drain and chop.</li><li>Heat stock gently; add tofu and wakame.</li><li>Remove from heat; dissolve miso in a ladle of soup, stir in.</li><li>Top with green onion.</li></ol>
+        <div class="tip-box oki-tip">💡 Never boil after adding miso — heat kills the probiotic cultures.</div>
+      </div>
+    </div>
+
+    <!-- R18 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/33176798/pexels-photo-33176798.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Goya Champuru Bitter Melon"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num oki-num">18</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">20 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Goya Champuru (Bitter Melon Stir-Fry)</div>
+        <div class="benefit-badge oki-badge"><span class="icon">🦠</span>Bitter melon supports blood-sugar balance and feeds beneficial gut bacteria.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list oki-dot"><li>Bitter melon (karela)</li><li>Firm tofu, carrot, onion</li><li>Turmeric, light soy sauce</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list oki-steps"><li>Slice bitter melon; soak in salted water 10 min, drain.</li><li>Press and cube tofu.</li><li>Stir-fry onion and carrot 3 min, add tofu and bitter melon, cook 8 min.</li><li>Season with turmeric and soy sauce.</li></ol>
+        <div class="tip-box oki-tip">💡 Karela (bitter melon) is common in South Indian kitchens — this dish bridges both traditions beautifully.</div>
+      </div>
+    </div>
+
+    <!-- R19 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/9602615/pexels-photo-9602615.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Purple Sweet Potato Mash"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num oki-num">19</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">25 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Purple Sweet Potato Mash with Nori Flakes</div>
+        <div class="benefit-badge oki-badge"><span class="icon">🦠</span>Resistant starch + anthocyanins + seaweed prebiotic fibre from nori.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list oki-dot"><li>Purple sweet potatoes</li><li>Dried nori flakes</li><li>A little olive oil, salt</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list oki-steps"><li>Boil sweet potatoes until tender, drain.</li><li>Mash with a drizzle of olive oil and salt.</li><li>Sprinkle generously with nori flakes.</li></ol>
+        <div class="tip-box oki-tip">💡 Orange sweet potatoes work if purple is unavailable — same prebiotic benefit, fewer anthocyanins.</div>
+      </div>
+    </div>
+
+    <!-- R20 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/31317030/pexels-photo-31317030.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Kombu Vegetable Clear Soup"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num oki-num">20</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">20 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Kombu Vegetable Clear Soup</div>
+        <div class="benefit-badge oki-badge"><span class="icon">🦠</span>Kombu polysaccharides are powerful prebiotics; mineral-rich and deeply nourishing.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list oki-dot"><li>Dried kombu</li><li>Daikon or carrot, spinach, mushrooms</li><li>Light miso or salt</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list oki-steps"><li>Soak kombu 10 min; bring to gentle simmer, remove before boiling.</li><li>Add sliced vegetables and mushrooms; simmer 10 min.</li><li>Season with miso or salt. Add spinach last.</li></ol>
+        <div class="tip-box oki-tip">💡 Save the soaked kombu — slice thin and add to rice or stir-fries for extra prebiotic benefit.</div>
+      </div>
+    </div>
+
+    <!-- R21 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/8956831/pexels-photo-8956831.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Seaweed Salad"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num oki-num">21</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">10 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Seaweed Salad (Mozuku or Nori)</div>
+        <div class="benefit-badge oki-badge"><span class="icon">🦠</span>One of the richest natural sources of fucoidan — feeds <em>Akkermansia muciniphila</em> directly.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list oki-dot"><li>Rehydrated mozuku or nori sheets</li><li>Cucumber, light rice vinegar</li><li>Sesame seeds</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list oki-steps"><li>Rehydrate dried seaweed in cold water 5 min, drain.</li><li>Slice cucumber thin.</li><li>Toss with vinegar and sesame seeds.</li></ol>
+        <div class="tip-box oki-tip">💡 Serve as a refreshing side dish — a tablespoon of seaweed a day is a Panbiome habit worth keeping.</div>
+      </div>
+    </div>
+
+    <!-- R22 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/5848469/pexels-photo-5848469.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Sweet Potato Tofu Stir-Fry"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num oki-num">22</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">20 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Sweet Potato &amp; Tofu Stir-Fry with Seaweed Garnish</div>
+        <div class="benefit-badge oki-badge"><span class="icon">🦠</span>Resistant starch + plant protein + seaweed prebiotic topping.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list oki-dot"><li>Sweet potato cubes, firm tofu</li><li>Mixed greens, turmeric</li><li>Dried seaweed flakes</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list oki-steps"><li>Press and cube tofu.</li><li>Stir-fry sweet potato until golden, add tofu and greens.</li><li>Season with turmeric. Plate and top with seaweed flakes.</li></ol>
+        <div class="tip-box oki-tip">💡 Add sliced bitter melon for extra Okinawan authenticity — and extra Panbiome benefit.</div>
+      </div>
+    </div>
+
+    <!-- R23 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/6607427/pexels-photo-6607427.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Miso Glazed Roasted Vegetables"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num oki-num">23</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">25 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Miso-Glazed Roasted Vegetables with Seaweed</div>
+        <div class="benefit-badge oki-badge"><span class="icon">🦠</span>Fermented miso glaze + seaweed prebiotics on diverse roasted plants.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list oki-dot"><li>Mixed vegetables (broccoli, carrot, sweet potato, pumpkin)</li><li>Miso paste, a little olive oil</li><li>Dried seaweed flakes</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list oki-steps"><li>Toss vegetables with olive oil; roast at 200°C for 20 min.</li><li>Mix miso paste with warm water to make glaze.</li><li>Brush on in the last 5 min of roasting.</li><li>Sprinkle with seaweed flakes before serving.</li></ol>
+        <div class="tip-box oki-tip">💡 Use sweet potato as the base for extra resistant starch — the Okinawan longevity staple.</div>
+      </div>
+    </div>
+
+    <!-- R24 -->
+    <div class="card">
+      <div class="card-img-wrap">
+        <img src="https://images.pexels.com/photos/13677969/pexels-photo-13677969.jpeg?auto=compress&cs=tinysrgb&w=800"
+             alt="Hijiki Seaweed Carrot Stir-Fry"
+             onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'">
+        <div class="card-num oki-num">24</div>
+        <div class="card-meta-bar">
+          <span class="meta-pill">Serves 4</span>
+          <span class="meta-pill">20 min</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Hijiki Seaweed &amp; Carrot Stir-Fry</div>
+        <div class="benefit-badge oki-badge"><span class="icon">🦠</span>Hijiki provides minerals, iron, and prebiotic fibre; carrot adds beta-carotene.</div>
+        <div class="card-section-label">Ingredients</div>
+        <ul class="ingredients-list oki-dot"><li>Dried hijiki seaweed</li><li>Carrot (julienned), firm tofu</li><li>Light soy sauce, sesame oil</li></ul>
+        <div class="card-section-label">Steps</div>
+        <ol class="steps-list oki-steps"><li>Soak hijiki 15 min, drain.</li><li>Stir-fry carrot 3 min; add tofu and hijiki.</li><li>Season with soy sauce and sesame oil; cook 5 min.</li></ol>
+        <div class="tip-box oki-tip">💡 This classic Okinawan side pairs beautifully with miso soup and brown rice — a complete Panbiome meal.</div>
+      </div>
+    </div>
+
+  </div><!-- end grid -->
+</section>
+
+<!-- ═══════════════════ HOW TO USE ═══════════════════ -->
+<div class="how-to">
+  <h2>How to Use This Recipe Companion</h2>
+  <p>Simple habits, compounded over weeks, transform your inner rainforest.</p>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="icon">🌿</div>
+      <h3>Weekly Goal</h3>
+      <p>Pick 2–3 recipes from each cuisine section to easily hit 30+ plants per week.</p>
+    </div>
+    <div class="how-card">
+      <div class="icon">🔀</div>
+      <h3>Mix &amp; Match</h3>
+      <p>Add South Indian spices to Mediterranean beans, or sprinkle Okinawan seaweed flakes on dal. Cross-tradition combinations are Panbiome gold.</p>
+    </div>
+    <div class="how-card">
+      <div class="icon">🫒</div>
+      <h3>Mediterranean Rule</h3>
+      <p>Always finish Mediterranean dishes with a drizzle of extra-virgin olive oil added raw after cooking.</p>
+    </div>
+    <div class="how-card">
+      <div class="icon">🌊</div>
+      <h3>Okinawan Rule</h3>
+      <p>Always finish Okinawan dishes with seaweed flakes or miso — and never boil after adding miso.</p>
+    </div>
+  </div>
+  <div class="closing">
+    Whether your rainforest grows with sambar, olive oil, or seaweed —<br>
+    the rules are the same: <strong>diversity, fibre, love, and respect.</strong>
+  </div>
+</div>
+
+<footer>
+  Images: Pexels (free to use, no attribution required) · PANBIOME International Recipe Book © 2026 Dr. Shibichakravarthy Kannan · Bonus companion to <em>PANBIOME</em>
+</footer>
+
+</body>
+</html>
