@@ -6,8 +6,11 @@ PANBIOME_Recipe_Book.md
 REVIEW_REPORT.md
 REVIEW_REPORT_v2.md
 build_kindle_docx.py
-session_handover.md
 Panbiome chapter blueprint.txt
+
+# Session state — local only
+session_handover.md
+.claude/
 
 # Build outputs
 *.docx
