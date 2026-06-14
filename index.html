@@ -94,6 +94,30 @@
   .btn-ghost { background: rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.35); }
   .cta-note { font-family: var(--font-ui); font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 16px; }
 
+  /* ── Hero with cover ──────────────────────────────── */
+  .hero-grid { display:flex; align-items:center; justify-content:center; gap:56px; flex-wrap:wrap; text-align:left; max-width:1000px; }
+  .book-cover { flex:0 0 auto; }
+  .book-cover img {
+    width:340px; max-width:72vw; height:auto; border-radius:6px; display:block;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.55), 0 2px 10px rgba(0,0,0,0.45);
+  }
+  .hero-text { flex:1 1 360px; max-width:460px; }
+  .hero-text .eyebrow { text-align:left; margin-bottom:14px; }
+  .hero-tag { font-size:24px; line-height:1.45; color:#f1ece0; margin:0 0 26px; }
+  .hero-tag em { color:#ffd9a0; font-style:italic; }
+  .hero-text .author { text-align:left; }
+  .hero-text .pillbar, .hero-text .cta-row { justify-content:flex-start; }
+  .hero-text .cta-note { text-align:left; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+  @media (max-width:760px){
+    .hero-grid { text-align:center; gap:36px; }
+    .hero-text { flex-basis:100%; }
+    .hero-text .eyebrow { text-align:center; }
+    .hero-text .author { text-align:center; }
+    .hero-text .pillbar, .hero-text .cta-row { justify-content:center; }
+    .hero-text .cta-note { text-align:center; }
+  }
+
   /* ── Sections ─────────────────────────────────────── */
   section { padding: 64px 0; }
   section.alt { background: #fff; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
@@ -150,24 +174,30 @@
 
   <!-- HERO -->
   <header class="hero">
-    <div class="hero-inner">
-      <div class="eyebrow">A New Science of Health</div>
-      <h1>PANBIOME</h1>
-      <div class="subtitle">Nurturing Your Inner Ecosystem for Lifelong Health</div>
-      <div class="author">Dr. Shibichakravarthy Kannan
-        <span>MBBS, PhD &nbsp;·&nbsp; Medical Geneticist &amp; Diagnostics Specialist</span>
+    <div class="hero-inner hero-grid">
+      <div class="book-cover">
+        <img src="cover-web.jpg" width="625" height="1000"
+             alt="PANBIOME — Nurturing Your Inner Ecosystem for Lifelong Health, by Dr. Shibichakravarthy Kannan">
       </div>
-      <div class="pillbar">
-        <span class="pill">Microbiome</span>
-        <span class="pill">Gut Health</span>
-        <span class="pill">Metabolism</span>
-        <span class="pill">Immunity</span>
+      <div class="hero-text">
+        <h1 class="sr-only">PANBIOME — Nurturing Your Inner Ecosystem for Lifelong Health</h1>
+        <div class="eyebrow">A New Science of Health</div>
+        <div class="hero-tag">You are not just <em>you</em>. You are a living ecosystem — and this is the guide to restoring it.</div>
+        <div class="author">Dr. Shibichakravarthy Kannan
+          <span>MBBS, PhD &nbsp;·&nbsp; Medical Geneticist &amp; Diagnostics Specialist</span>
+        </div>
+        <div class="pillbar">
+          <span class="pill">Microbiome</span>
+          <span class="pill">Gut Health</span>
+          <span class="pill">Metabolism</span>
+          <span class="pill">Immunity</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#book">Discover the Book</a>
+          <a class="btn btn-ghost" href="PANBIOME_Recipe_Book.html">Free Recipe Companion</a>
+        </div>
+        <div class="cta-note">Coming soon to Amazon Kindle &amp; paperback.</div>
       </div>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#book">Discover the Book</a>
-        <a class="btn btn-ghost" href="PANBIOME_Recipe_Book.html">Free Recipe Companion</a>
-      </div>
-      <div class="cta-note">Coming soon to Amazon Kindle &amp; paperback.</div>
     </div>
   </header>
 
