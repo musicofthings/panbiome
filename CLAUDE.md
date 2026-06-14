@@ -43,7 +43,7 @@ Health/wellness non-fiction book by **Dr. Shibichakravarthy Kannan, MBBS, PhD** 
 Author's Note (composite patient disclosure)
 ## PROLOGUE — The Invisible Organ
 ## INTRODUCTION
-## Chapter 1–16
+## Chapter 1–18
 ## EPILOGUE — Becoming a Better Host
 ## ABBREVIATIONS
 ## BIBLIOGRAPHY & REFERENCES
@@ -51,11 +51,12 @@ Author's Note (composite patient disclosure)
   [Dedication section]
 ```
 
-**16 chapters across 4 parts:**
+**18 chapters across 4 parts + 2 special chapters:**
 - Part I (Ch 1–5): The hidden world, ecosystem, second brain, immunity, metabolism
 - Part II (Ch 6–8): Modern lifestyle traps
 - Part III (Ch 9–13): Action plan, gut reset, dashboard, mind-gut, supplements
 - Part IV (Ch 14–16): Personalised medicine, next decade, Mediterranean/Okinawan traditions
+- Special chapters (Ch 17–18): Female microbiome; First 1,000 days — written in **first-person doctor-narrator** voice (not the Priya-family vignette style) because the topics are sensitive. Sit between Ch 16 and the Epilogue.
 
 ---
 
@@ -67,7 +68,7 @@ nano "panbiome-book-all-chapters.txt"
 
 # Rebuild DOCX
 python3 build_kindle_docx.py
-# → Saved: PANBIOME_KindleCreate.docx (784 paragraphs)
+# → Saved: PANBIOME_KindleCreate.docx (862 paragraphs)
 
 # Push recipe book updates
 git add index.html PANBIOME_Recipe_Book.html
