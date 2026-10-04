@@ -1,23 +1,51 @@
-# Book manuscript and drafts — not for public repo
+# Book manuscript, sources, and draft notes (Private / Not for public repo)
 panbiome-book-all-chapters.txt
 panbiome-compiled-book-v1.md
 panbiome-compiled-book-v2.md
+panbiome-compiled-book*.md
 PANBIOME_Recipe_Book.md
 REVIEW_REPORT.md
 REVIEW_REPORT_v2.md
+REVIEW_REPORT*.md
 build_kindle_docx.py
 Panbiome chapter blueprint.txt
+*blueprint*.txt
+*manuscript*
+*.draft
 
-# Session state — local only
+# Session and AI agent state
 session_handover.md
+session_handover.md*
 .claude/
+.gemini/
+.agents/
+.cursor/
+.vscode/
+.idea/
 
-# Build outputs
+# KDP and build outputs
 *.docx
 *.epub
 *.kpf
 *.kcf
+*.mobi
+*.pdf
 
-# macOS
-.DS_Store
+# Python & Environment
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.env.*
+*.log
+scratch/
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
