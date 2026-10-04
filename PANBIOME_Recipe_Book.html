@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PANBIOME — International Recipe Book &amp; 30-Plant Gut Companion</title>
-<meta name="description" content="36 authentic microbiome-healing recipes across South Indian, Mediterranean, and Okinawan longevity traditions. Includes 30-plant weekly tracker, 7-day gut reset meal planner, and dynamic serving scaler.">
+<title>PANBIOME — Master International Recipe Book &amp; Clinical Gut Companion</title>
+<meta name="description" content="48 authentic gut-healing recipes across South Indian, Mediterranean, Okinawan, Nordic, and Mesoamerican longevity traditions. Includes 30-plant weekly tracker, Bristol stool diagnostic logger, 7-day gut reset planner, and dynamic serving scaler.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&display=swap" rel="stylesheet">
@@ -13,17 +13,22 @@
     --si-primary: #b83826;
     --si-light: #fef4f2;
     --si-accent: #f09586;
-    --si-border: #f8cec7;
 
     --med-primary: #1d6fa5;
     --med-light: #f1f7fd;
     --med-accent: #6aa8d8;
-    --med-border: #cbe1f5;
 
     --oki-primary: #1f8a4c;
     --oki-light: #f0faf4;
     --oki-accent: #6ec08f;
-    --oki-border: #c8ebd4;
+
+    --nordic-primary: #34495e;
+    --nordic-light: #f4f6f8;
+    --nordic-accent: #5d6d7e;
+
+    --meso-primary: #b9770e;
+    --meso-light: #fef9e7;
+    --meso-accent: #d68910;
 
     --bg-page: #faf9f6;
     --bg-card: #ffffff;
@@ -73,16 +78,13 @@
     text-decoration: underline;
     font-weight: 600;
   }
-
-  .top-banner a:hover {
-    color: #ffffff;
-  }
+  .top-banner a:hover { color: #ffffff; }
 
   .site-header {
     position: sticky;
     top: 0;
     z-index: 900;
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-soft);
@@ -102,8 +104,8 @@
   }
 
   .brand-logo {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     background: linear-gradient(135deg, #1d6fa5, #1f8a4c);
     color: white;
     border-radius: 8px;
@@ -130,14 +132,15 @@
     text-transform: uppercase;
     display: none;
   }
-  @media (min-width: 680px) {
+  @media (min-width: 768px) {
     .brand-sub { display: inline; }
   }
 
   .header-nav {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
+    overflow-x: auto;
   }
 
   .nav-link {
@@ -146,6 +149,7 @@
     font-size: 14px;
     font-weight: 600;
     transition: color 0.15s ease;
+    white-space: nowrap;
   }
   .nav-link:hover { color: var(--text-main); }
 
@@ -168,6 +172,7 @@
     text-decoration: none;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     transition: all 0.2s ease;
+    white-space: nowrap;
   }
   .btn-kdp-top:hover {
     background: var(--primary-amazon-hover);
@@ -189,14 +194,15 @@
     position: absolute;
     inset: 0;
     background: radial-gradient(circle at 75% 20%, rgba(31, 138, 76, 0.25), transparent 45%),
-                radial-gradient(circle at 25% 80%, rgba(29, 111, 165, 0.25), transparent 45%);
+                radial-gradient(circle at 25% 80%, rgba(29, 111, 165, 0.25), transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(185, 119, 14, 0.15), transparent 60%);
     pointer-events: none;
   }
 
   .hero-inner {
     position: relative;
     z-index: 1;
-    max-width: 860px;
+    max-width: 920px;
     margin: 0 auto;
   }
 
@@ -234,7 +240,7 @@
   .hero-subtitle {
     font-size: clamp(16px, 2.2vw, 19px);
     color: #c9d8e5;
-    max-width: 720px;
+    max-width: 780px;
     margin: 0 auto 32px;
     font-weight: 400;
   }
@@ -243,13 +249,13 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 28px;
+    gap: 24px;
     padding: 24px 20px;
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 20px;
     backdrop-filter: blur(10px);
-    max-width: 760px;
+    max-width: 820px;
     margin: 0 auto 36px;
   }
 
@@ -257,7 +263,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 120px;
+    min-width: 110px;
   }
 
   .stat-val {
@@ -270,7 +276,7 @@
   }
 
   .stat-lbl {
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #a4bacd;
@@ -281,16 +287,16 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
   }
 
   .tradition-pill {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 18px;
+    gap: 6px;
+    padding: 7px 14px;
     border-radius: 99px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     border: 1px solid rgba(255, 255, 255, 0.15);
   }
@@ -298,10 +304,12 @@
   .pill-si { background: rgba(184, 56, 38, 0.35); color: #ffd6cf; border-color: rgba(240, 149, 134, 0.5); }
   .pill-med { background: rgba(29, 111, 165, 0.35); color: #cbe1f5; border-color: rgba(106, 168, 216, 0.5); }
   .pill-oki { background: rgba(31, 138, 76, 0.35); color: #c8ebd4; border-color: rgba(110, 192, 143, 0.5); }
+  .pill-nordic { background: rgba(52, 73, 94, 0.55); color: #d5dbdb; border-color: rgba(93, 109, 126, 0.5); }
+  .pill-meso { background: rgba(185, 119, 14, 0.4); color: #f9e79f; border-color: rgba(214, 137, 16, 0.5); }
 
-  /* ── Main Container ───────────────────────────────────────────── */
+  /* ── Main Workspace ───────────────────────────────────────────── */
   .container {
-    max-width: 1240px;
+    max-width: 1260px;
     margin: 0 auto;
     padding: 0 20px;
   }
@@ -347,7 +355,7 @@
   .tracker-info p {
     font-size: 14px;
     color: var(--text-muted);
-    max-width: 640px;
+    max-width: 680px;
   }
 
   .tracker-metrics {
@@ -474,9 +482,9 @@
 
   .tab-btn {
     font-family: var(--font-sans);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
-    padding: 12px 20px;
+    padding: 12px 18px;
     border: none;
     background: transparent;
     color: var(--text-muted);
@@ -486,16 +494,13 @@
     transition: all 0.2s ease;
     white-space: nowrap;
   }
-
   .tab-btn:hover {
     color: var(--text-main);
     background: rgba(0,0,0,0.02);
   }
-
   .tab-btn.active {
     color: #1d6fa5;
   }
-
   .tab-btn.active::after {
     content: '';
     position: absolute;
@@ -507,7 +512,7 @@
     border-radius: 3px 3px 0 0;
   }
 
-  /* ── Filter & Search Control Panel ───────────────────────────── */
+  /* ── Filter & Search Controls ────────────────────────────────── */
   .controls-card {
     background: var(--bg-card);
     border: 1px solid var(--border-soft);
@@ -554,15 +559,33 @@
     box-shadow: 0 0 0 3px rgba(29, 111, 165, 0.12);
   }
 
+  .booklet-quick-btn {
+    background: #111b2d;
+    color: white;
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+  }
+  .booklet-quick-btn:hover {
+    background: #1e2c45;
+  }
+
   .filter-groups-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 16px;
   }
 
   .filter-group label {
     display: block;
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: 700;
@@ -580,9 +603,9 @@
     background: #edf2f7;
     border: 1px solid transparent;
     color: var(--text-muted);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-    padding: 6px 12px;
+    padding: 5px 11px;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.15s ease;
@@ -625,9 +648,7 @@
     margin-bottom: 60px;
   }
   @media (max-width: 480px) {
-    .recipes-grid {
-      grid-template-columns: 1fr;
-    }
+    .recipes-grid { grid-template-columns: 1fr; }
   }
 
   .recipe-card {
@@ -678,6 +699,8 @@
   .tag-si { background: rgba(184, 56, 38, 0.9); }
   .tag-med { background: rgba(29, 111, 165, 0.9); }
   .tag-oki { background: rgba(31, 138, 76, 0.9); }
+  .tag-nordic { background: rgba(52, 73, 94, 0.9); }
+  .tag-meso { background: rgba(185, 119, 14, 0.9); }
 
   .card-time-badge {
     position: absolute;
@@ -715,6 +738,7 @@
   .recipe-diet-tags {
     display: flex;
     gap: 4px;
+    flex-wrap: wrap;
   }
 
   .diet-mini-tag {
@@ -725,6 +749,16 @@
     background: #edf2f7;
     border-radius: 4px;
     color: var(--text-muted);
+  }
+
+  .clinical-mini-tag {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    background: #e8f4fd;
+    border-radius: 4px;
+    color: #176292;
   }
 
   .recipe-title {
@@ -752,6 +786,7 @@
     margin-bottom: 6px;
     font-size: 12px;
     font-weight: 600;
+    flex-wrap: wrap;
   }
   .science-badge-row:last-child { margin-bottom: 0; }
 
@@ -816,18 +851,14 @@
     cursor: pointer;
     transition: all 0.1s ease;
   }
-  .scale-btn:hover {
-    background: #f1f5f9;
-  }
+  .scale-btn:hover { background: #f1f5f9; }
   .scale-btn.active {
     background: #111b2d;
     color: white;
     border-color: #111b2d;
   }
 
-  .ingredients-section {
-    margin-bottom: 18px;
-  }
+  .ingredients-section { margin-bottom: 18px; }
 
   .section-subhead {
     font-size: 12px;
@@ -838,10 +869,7 @@
     margin-bottom: 8px;
   }
 
-  .ingredient-list {
-    list-style: none;
-    padding: 0;
-  }
+  .ingredient-list { list-style: none; padding: 0; }
 
   .ingredient-item {
     font-size: 13px;
@@ -851,16 +879,13 @@
     align-items: baseline;
     gap: 6px;
   }
-
   .ingredient-item::before {
     content: "•";
     color: #1d6fa5;
     font-weight: bold;
   }
 
-  .steps-section {
-    margin-bottom: 18px;
-  }
+  .steps-section { margin-bottom: 18px; }
 
   .step-list {
     padding-left: 20px;
@@ -868,10 +893,7 @@
     color: var(--text-muted);
     line-height: 1.6;
   }
-
-  .step-list li {
-    margin-bottom: 8px;
-  }
+  .step-list li { margin-bottom: 8px; }
 
   .doctor-tip-box {
     background: #fff9ed;
@@ -909,9 +931,7 @@
     gap: 6px;
     transition: background 0.15s ease;
   }
-  .btn-add-plants:hover {
-    background: #176f3c;
-  }
+  .btn-add-plants:hover { background: #176f3c; }
 
   .btn-card-print {
     background: transparent;
@@ -926,6 +946,150 @@
   .btn-card-print:hover {
     background: #f1f5f9;
     color: var(--text-main);
+  }
+
+  /* ── Bristol Stool & Symptom Diagnostic Tracker ──────────────── */
+  .bristol-section-wrap {
+    display: none;
+    margin-bottom: 60px;
+  }
+
+  .bristol-chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .bristol-card {
+    background: white;
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  .bristol-card:hover {
+    border-color: #1d6fa5;
+    transform: translateY(-2px);
+  }
+  .bristol-card.selected {
+    border: 2px solid #1d6fa5;
+    background: #f4f9fd;
+  }
+
+  .bristol-type-num {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .bristol-status-tag {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  .status-alert { background: #fee2e2; color: #991b1b; }
+  .status-warning { background: #fef3c7; color: #92400e; }
+  .status-good { background: #e0f2fe; color: #075985; }
+  .status-optimal { background: #dcfce7; color: #166534; }
+
+  .bristol-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    line-height: 1.45;
+  }
+
+  .bristol-advice-box {
+    background: white;
+    border-left: 3px solid #1d6fa5;
+    padding: 8px 10px;
+    font-size: 12px;
+    color: #1e3b52;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .bristol-logger-card {
+    background: white;
+    border: 1px solid var(--border-soft);
+    border-radius: 18px;
+    padding: 28px 32px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 36px;
+  }
+
+  .logger-form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: flex-end;
+  }
+
+  .form-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .form-field select, .form-field input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    outline: none;
+  }
+  .form-field select:focus, .form-field input:focus {
+    border-color: #1d6fa5;
+  }
+
+  .btn-log-entry {
+    background: #1d6fa5;
+    color: white;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .btn-log-entry:hover { background: #155580; }
+
+  .bristol-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 20px;
+  }
+  .bristol-history-table th, .bristol-history-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border-soft);
+    text-align: left;
+  }
+  .bristol-history-table th {
+    background: #f8fafc;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
   }
 
   /* ── 7-Day Reset View ─────────────────────────────────────────── */
@@ -1079,9 +1243,7 @@
     gap: 6px;
     transition: all 0.15s ease;
   }
-  .btn-shop-action:hover {
-    background: #f1f5f9;
-  }
+  .btn-shop-action:hover { background: #f1f5f9; }
 
   .categories-accordion {
     display: grid;
@@ -1107,9 +1269,7 @@
     border-bottom: 2px solid var(--border-soft);
   }
 
-  .shopping-items-list {
-    list-style: none;
-  }
+  .shopping-items-list { list-style: none; }
 
   .shopping-item-row {
     display: flex;
@@ -1133,9 +1293,7 @@
   }
 
   /* ── Master Book Upsell Card ──────────────────────────────────── */
-  .book-upsell-wrap {
-    margin: 60px 0 80px;
-  }
+  .book-upsell-wrap { margin: 60px 0 80px; }
 
   .book-upsell-card {
     background: linear-gradient(135deg, #0e1726 0%, #152438 50%, #133346 100%);
@@ -1291,7 +1449,6 @@
     text-align: center;
     border-top: 1px solid #162030;
   }
-
   footer a {
     color: #ffd285;
     text-decoration: none;
@@ -1355,13 +1512,14 @@
     <div class="brand-logo">P</div>
     <div>
       <div class="brand-name">PANBIOME</div>
-      <div class="brand-sub">Companion Recipe Book</div>
+      <div class="brand-sub">Companion Recipe &amp; Clinical Suite</div>
     </div>
   </a>
 
   <nav class="header-nav">
-    <a href="#recipes-anchor" class="nav-link" onclick="switchMainTab('recipes')">36 Recipes</a>
+    <a href="#recipes-anchor" class="nav-link" onclick="switchMainTab('recipes')">48 Recipes</a>
     <a href="#tracker-anchor" class="nav-link" onclick="scrollToTracker()">30-Plant Tracker</a>
+    <a href="#bristol-anchor" class="nav-link" onclick="switchMainTab('bristol')">Bristol Diagnostics</a>
     <a href="#reset-anchor" class="nav-link" onclick="switchMainTab('reset')">7-Day Reset</a>
     <a href="#shopping-anchor" class="nav-link" onclick="switchMainTab('shopping')">Shopping List</a>
   </nav>
@@ -1376,23 +1534,27 @@
 <!-- ── Hero Cover ───────────────────────────────────────────────── -->
 <section class="hero-cover">
   <div class="hero-inner">
-    <div class="hero-eyebrow">The Living Ecosystem Kitchen</div>
+    <div class="hero-eyebrow">The Living Ecosystem Kitchen &amp; Diagnostic Suite</div>
     <h1 class="hero-title">Food for Your <span>Inner Rainforest</span></h1>
     <p class="hero-subtitle">
-      36 authentic, evidence-backed culinary formulations across South Indian, Mediterranean, and Okinawan longevity traditions. Engineered to boost short-chain fatty acids, repair the mucin barrier, and feed over 1,000 bacterial species.
+      48 authentic, evidence-backed culinary formulations across 5 world longevity traditions: South Indian, Mediterranean, Okinawan, Nordic, and Mesoamerican. Engineered to optimize short-chain fatty acids, restore the mucin barrier, and feed over 1,000 bacterial species.
     </p>
 
     <div class="hero-stats-bar">
       <div class="stat-block">
-        <div class="stat-val">36</div>
+        <div class="stat-val">48</div>
         <div class="stat-lbl">Microbial Recipes</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-val">5</div>
+        <div class="stat-lbl">World Traditions</div>
       </div>
       <div class="stat-block">
         <div class="stat-val">30+</div>
         <div class="stat-lbl">Weekly Plant Goal</div>
       </div>
       <div class="stat-block">
-        <div class="stat-val">120+</div>
+        <div class="stat-val">140+</div>
         <div class="stat-lbl">Botanical Plants</div>
       </div>
       <div class="stat-block">
@@ -1404,7 +1566,9 @@
     <div class="hero-badges-row">
       <div class="tradition-pill pill-si">🌶️ 12 South Indian (Ferments &amp; Pulses)</div>
       <div class="tradition-pill pill-med">🫒 12 Mediterranean (Polyphenols &amp; Legumes)</div>
-      <div class="tradition-pill pill-oki">🌊 12 Okinawan (Sea Minerals &amp; Resistant Starch)</div>
+      <div class="tradition-pill pill-oki">🌊 12 Okinawan (Marine Fucoidan &amp; RS3)</div>
+      <div class="tradition-pill pill-nordic">🌾 6 Nordic (Whole Rye &amp; Wild Berries)</div>
+      <div class="tradition-pill pill-meso">🌽 6 Mesoamerican (Nixtamalized Maize &amp; Cacao)</div>
     </div>
   </div>
 </section>
@@ -1419,7 +1583,7 @@
         <div class="tracker-info">
           <h2>🌿 Interactive 30-Plant Weekly Goal Tracker</h2>
           <p>
-            The American Gut Project proved that individuals consuming <strong>30 or more distinct plant types per week</strong> harbor significantly more diverse microbiomes and lower antimicrobial resistance markers. Click "+ Add Plants" on any recipe below or manually track them here.
+            The American Gut Project demonstrated that consuming <strong>30 or more distinct plant types per week</strong> fosters a dramatically more resilient microbiome and lower antibiotic resistance gene burdens. Click "+ Add Plants" on any recipe card below to effortlessly track your weekly diversity.
           </p>
         </div>
         <div class="tracker-metrics">
@@ -1448,7 +1612,8 @@
 
   <!-- ── Section Navigation Tabs ─────────────────────────────────── -->
   <div class="section-nav-tabs">
-    <button id="tab-btn-recipes" class="tab-btn active" onclick="switchMainTab('recipes')">📖 All Recipes (36)</button>
+    <button id="tab-btn-recipes" class="tab-btn active" onclick="switchMainTab('recipes')">📖 48 Recipes Catalog</button>
+    <button id="tab-btn-bristol" class="tab-btn" onclick="switchMainTab('bristol')">📊 Bristol Stool &amp; Symptom Tracker</button>
     <button id="tab-btn-reset" class="tab-btn" onclick="switchMainTab('reset')">🗓️ 7-Day Gut Reset Planner</button>
     <button id="tab-btn-shopping" class="tab-btn" onclick="switchMainTab('shopping')">🛒 Categorized Shopping List</button>
   </div>
@@ -1464,18 +1629,23 @@
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          <input type="text" id="recipe-search-input" class="search-input" placeholder="Search by ingredient, plant, condition, or target microbe (e.g. Akkermansia, toor dal, kale)..." oninput="applyFilters()">
+          <input type="text" id="recipe-search-input" class="search-input" placeholder="Search by ingredient, plant, condition, or target microbe (e.g. Akkermansia, rye, cacao, low-fodmap)..." oninput="applyFilters()">
         </div>
+        <button class="booklet-quick-btn" onclick="openPrintableBooklet()">
+          📖 Open Printable Recipe Booklet
+        </button>
       </div>
 
       <div class="filter-groups-grid">
         <div class="filter-group">
           <label>Tradition</label>
           <div class="filter-chips">
-            <button class="filter-chip active" data-filter="cuisine" data-val="all" onclick="setChipFilter(this)">All (36)</button>
+            <button class="filter-chip active" data-filter="cuisine" data-val="all" onclick="setChipFilter(this)">All (48)</button>
             <button class="filter-chip" data-filter="cuisine" data-val="si" onclick="setChipFilter(this)">South Indian (12)</button>
             <button class="filter-chip" data-filter="cuisine" data-val="med" onclick="setChipFilter(this)">Mediterranean (12)</button>
             <button class="filter-chip" data-filter="cuisine" data-val="oki" onclick="setChipFilter(this)">Okinawan (12)</button>
+            <button class="filter-chip" data-filter="cuisine" data-val="nordic" onclick="setChipFilter(this)">Nordic (6)</button>
+            <button class="filter-chip" data-filter="cuisine" data-val="meso" onclick="setChipFilter(this)">Mesoamerican (6)</button>
           </div>
         </div>
 
@@ -1483,9 +1653,20 @@
           <label>Dietary Restrictions</label>
           <div class="filter-chips">
             <button class="filter-chip active" data-filter="diet" data-val="all" onclick="setChipFilter(this)">All Diets</button>
-            <button class="filter-chip" data-filter="diet" data-val="vegan" onclick="setChipFilter(this)">Vegan (33)</button>
-            <button class="filter-chip" data-filter="diet" data-val="gf" onclick="setChipFilter(this)">Gluten-Free (33)</button>
-            <button class="filter-chip" data-filter="diet" data-val="df" onclick="setChipFilter(this)">Dairy-Free (35)</button>
+            <button class="filter-chip" data-filter="diet" data-val="vegan" onclick="setChipFilter(this)">Vegan (43)</button>
+            <button class="filter-chip" data-filter="diet" data-val="gf" onclick="setChipFilter(this)">Gluten-Free (41)</button>
+            <button class="filter-chip" data-filter="diet" data-val="df" onclick="setChipFilter(this)">Dairy-Free (47)</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Clinical Guidance Tags</label>
+          <div class="filter-chips">
+            <button class="filter-chip active" data-filter="clinical" data-val="all" onclick="setChipFilter(this)">All Clinical</button>
+            <button class="filter-chip" data-filter="clinical" data-val="anti-inflammatory" onclick="setChipFilter(this)">Anti-Inflammatory</button>
+            <button class="filter-chip" data-filter="clinical" data-val="low-fodmap" onclick="setChipFilter(this)">Low-FODMAP</button>
+            <button class="filter-chip" data-filter="clinical" data-val="sibo-friendly" onclick="setChipFilter(this)">SIBO-Friendly</button>
+            <button class="filter-chip" data-filter="clinical" data-val="histamine-conscious" onclick="setChipFilter(this)">Histamine-Conscious</button>
           </div>
         </div>
 
@@ -1503,7 +1684,7 @@
       </div>
 
       <div class="results-meta-bar">
-        <span id="results-count-text">Showing all 36 gut-healing recipes</span>
+        <span id="results-count-text">Showing all 48 gut-healing recipes</span>
         <button class="btn-clear-filters" onclick="resetAllFilters()">Reset All Filters</button>
       </div>
     </div>
@@ -1514,13 +1695,105 @@
     </div>
   </section>
 
-  <!-- ══════════════════ TAB 2: 7-DAY GUT RESET ═══════════════════ -->
+  <!-- ══════════════════ TAB 2: BRISTOL STOOL & SYMPTOM TRACKER ════ -->
+  <section id="tab-bristol" class="bristol-section-wrap">
+    <div class="reset-intro-banner">
+      <div class="reset-intro-text">
+        <h2>📊 Bristol Stool &amp; Gut Transit Diagnostics</h2>
+        <p>
+          Derived directly from <strong>Chapter 11 of PANBIOME</strong>. Stool form and transit time offer an immediate, non-invasive biofeedback window into colonic hydration, mucosal inflammation, and short-chain fatty acid production.
+        </p>
+      </div>
+      <div>
+        <a href="https://www.amazon.in/dp/B0H5BPJ8D7" target="_blank" rel="noopener noreferrer" class="btn-amazon-primary">
+          Read Diagnostic Chapter in Book →
+        </a>
+      </div>
+    </div>
+
+    <!-- Bristol Scale Cards Reference -->
+    <h3 style="font-family: var(--font-heading); font-size: 20px; margin-bottom: 16px;">The 7 Bristol Stool Classifications</h3>
+    <div class="bristol-chart-grid" id="bristol-reference-grid">
+      <!-- Rendered by JS -->
+    </div>
+
+    <!-- Daily Log Entry Form -->
+    <div class="bristol-logger-card">
+      <h3 style="font-family: var(--font-heading); font-size: 20px; margin-bottom: 8px;">Log Today's Microbiome Biofeedback</h3>
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">
+        Track your stool type, bloating sensation, and energy levels over 7 to 14 days to observe your personal response to the 30-plant challenge.
+      </p>
+
+      <form id="bristol-form" onsubmit="handleBristolSubmit(event)">
+        <div class="logger-form-row">
+          <div class="form-field">
+            <label>Date</label>
+            <input type="date" id="log-date" required>
+          </div>
+
+          <div class="form-field">
+            <label>Bristol Stool Type (1 to 7)</label>
+            <select id="log-bristol-type" required>
+              <option value="1">Type 1: Hard lumps (Severe Constipation)</option>
+              <option value="2">Type 2: Lumpy sausage (Mild Constipation)</option>
+              <option value="3">Type 3: Sausage with surface cracks (Normal)</option>
+              <option value="4" selected>Type 4: Smooth soft snake (Optimal Eubiosis 🌟)</option>
+              <option value="5">Type 5: Soft blobs (Low Bulking Fibre)</option>
+              <option value="6">Type 6: Mushy fluffy stool (Mild Inflammation)</option>
+              <option value="7">Type 7: Entirely liquid (Acute Dysbiosis)</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label>Bloating (0 = None, 10 = Severe)</label>
+            <input type="number" id="log-bloat" min="0" max="10" value="1" required>
+          </div>
+
+          <div class="form-field">
+            <label>Energy Level (1 = Exhausted, 10 = Vibrant)</label>
+            <input type="number" id="log-energy" min="1" max="10" value="8" required>
+          </div>
+
+          <div>
+            <button type="submit" class="btn-log-entry">💾 Save Daily Entry</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- History Table -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 30px;">
+        <h4 style="font-family: var(--font-heading); font-size: 17px;">Your Logged Progress History</h4>
+        <button onclick="clearBristolLog()" style="background: none; border: none; color: #b83826; font-size: 12px; font-weight: 600; cursor: pointer;">Clear History</button>
+      </div>
+
+      <div style="overflow-x: auto;">
+        <table class="bristol-history-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Stool Type</th>
+              <th>Clinical Assessment</th>
+              <th>Bloat (0-10)</th>
+              <th>Energy (1-10)</th>
+            </tr>
+          </thead>
+          <tbody id="bristol-history-tbody">
+            <tr>
+              <td colspan="5" style="text-align: center; color: var(--text-faint); padding: 20px;">No entries logged yet. Record your first biofeedback log above!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TAB 3: 7-DAY GUT RESET ═══════════════════ -->
   <section id="tab-reset" class="reset-plan-wrap">
     <div class="reset-intro-banner">
       <div class="reset-intro-text">
         <h2>7-Day Microbiome Reset Protocol</h2>
         <p>
-          Derived directly from <strong>Chapter 10 of PANBIOME</strong>. This protocol alternates between gentle mucin-coating broths, diverse pulse seeding, anthocyanin polyphenol showers, and retrograded resistant starch loading to gently restore high-diversity eubiosis in 7 days.
+          Derived directly from <strong>Chapter 10 of PANBIOME</strong>. This protocol alternates between gentle mucin-coating broths, diverse pulse seeding, anthocyanin polyphenol showers, and retrograded resistant starch loading to restore high-diversity eubiosis.
         </p>
       </div>
       <div>
@@ -1535,13 +1808,13 @@
     </div>
   </section>
 
-  <!-- ══════════════════ TAB 3: MASTER SHOPPING LIST ═══════════════ -->
+  <!-- ══════════════════ TAB 4: MASTER SHOPPING LIST ═══════════════ -->
   <section id="tab-shopping" class="shopping-list-wrap">
     <div class="shopping-header-bar">
       <div>
         <h2 style="font-family: var(--font-heading); font-size: 26px; margin-bottom: 4px;">🛒 Categorized Panbiome Shopping List</h2>
         <p style="font-size: 14px; color: var(--text-muted);">
-          Stock your pantry, fridge, and spice shelf with the foundational building blocks of the world's most resilient microbiomes.
+          Stock your kitchen with the foundational building blocks of the world's most resilient longevity microbiomes.
         </p>
       </div>
       <div class="shopping-actions">
@@ -1562,7 +1835,7 @@
       <div class="upsell-badge">THE MASTER CLINICAL TEXT · NOW AVAILABLE WORLDWIDE</div>
       <h2>Loved the Recipes? Unlock the Complete Science in <em>PANBIOME</em>.</h2>
       <p class="upsell-lead">
-        These 36 recipes feed your inner rainforest — but knowing <em>why</em>, <em>how</em>, and <em>when</em> transforms your health for decades. In the complete book, Dr. Shibichakravarthy Kannan delivers an authoritative, actionable guide to the entire human microbial ecosystem.
+        These 48 recipes feed your inner rainforest — but knowing <em>why</em>, <em>how</em>, and <em>when</em> transforms your health for decades. In the complete book, Dr. Shibichakravarthy Kannan delivers an authoritative, actionable guide to the entire human microbial ecosystem.
       </p>
 
       <div class="upsell-highlights">
@@ -1619,7 +1892,7 @@
 <!-- ── Footer ───────────────────────────────────────────────────── -->
 <footer>
   <p style="margin-bottom: 8px;">
-    <strong>PANBIOME International Recipe Book</strong> © 2026 Dr. Shibichakravarthy Kannan · Companion to <em>PANBIOME: Nurturing Your Microbial Ecosystem for Lifelong Health</em>.
+    <strong>PANBIOME Master Recipe Book &amp; Clinical Companion</strong> © 2026 Dr. Shibichakravarthy Kannan · Companion to <em>PANBIOME: Nurturing Your Microbial Ecosystem for Lifelong Health</em>.
   </p>
   <p>
     Direct Book Purchase: 
@@ -1631,13 +1904,15 @@
 
 <!-- ── Embedded Logic & Reactive State ───────────────────────────── -->
 <script>
-  const ALL_RECIPES = [{"id": "r1", "num": 1, "cuisine": "si", "cuisineName": "South Indian", "title": "Classic Drumstick & Shallot Sambar", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Resistant lentil starch + shallot FOS feed butyrate-producing *Faecalibacterium prausnitzii*.", "microbe": "Faecalibacterium prausnitzii", "prebiotic": "Resistant Starch & FOS", "plantPoints": 7, "plants": ["Toor Dal (Pigeon Peas)", "Shallots", "Drumstick (Moringa)", "Tomatoes", "Tamarind", "Coriander", "Cumin"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/9609848/pexels-photo-9609848.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "cup", "name": "toor dal (pigeon peas), rinsed"}, {"qty": 10, "unit": "whole", "name": "shallots (sambar onions), peeled"}, {"qty": 2, "unit": "stalks", "name": "fresh drumsticks (moringa), cut into 2-inch pieces"}, {"qty": 2, "unit": "medium", "name": "ripe tomatoes, chopped"}, {"qty": 1, "unit": "tbsp", "name": "tamarind pulp dissolved in warm water"}, {"qty": 1.5, "unit": "tbsp", "name": "sambar powder (coriander, cumin, fenugreek, red chilli)"}, {"qty": 0.5, "unit": "tsp", "name": "turmeric powder & pinch of hing (asafoetida)"}, {"qty": 1, "unit": "tbsp", "name": "sesame or coconut oil with mustard seeds & curry leaves"}], "steps": ["Pressure cook or boil toor dal with turmeric until soft and creamy; mash gently.", "In a clay pot or saucepan, simmer shallots, drumstick pieces, and tomatoes in tamarind water with sambar powder for 10 min.", "Stir in cooked dal, season with salt, simmer 5 min, then finish with oil tempered with mustard seeds and fresh curry leaves."], "tip": "Moringa pods are packed with bioactive polyphenols and insoluble fibre; don't skip sucking the rich internal marrow!"}, {"id": "r2", "num": 2, "cuisine": "si", "cuisineName": "South Indian", "title": "Traditional Fermented Idli with Fresh Coconut Chutney", "meal": "breakfast", "diet": ["vegan", "gf", "df"], "benefit": "Wild fermentation by *Leuconostoc mesenteroides* & *Lactobacillus* increases B-vitamins and degrades antinutrients.", "microbe": "Lactobacillus & Bifidobacterium", "prebiotic": "Fermented Amylose & Lauric Acid", "plantPoints": 6, "plants": ["Parboiled Rice", "Urad Dal", "Fenugreek Seeds", "Fresh Coconut", "Green Chillies", "Ginger"], "servings": 4, "time": "20 min (+ fermentation)", "img": "https://images.pexels.com/photos/4331490/pexels-photo-4331490.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 3, "unit": "cups", "name": "parboiled idli rice"}, {"qty": 1, "unit": "cup", "name": "whole skinned urad dal (black gram)"}, {"qty": 1, "unit": "tsp", "name": "methi (fenugreek) seeds"}, {"qty": 1, "unit": "cup", "name": "freshly grated coconut"}, {"qty": 2, "unit": "whole", "name": "roasted gram dal & green chillies with fresh ginger slice"}, {"qty": 1, "unit": "tsp", "name": "mustard seeds & curry leaves for tempering"}], "steps": ["Soak rice and dal separately with fenugreek for 5 hours; grind into smooth, aerated batter and ferment overnight for 12\u201314 hours.", "Steam fermented batter in lightly oiled idli moulds for 10\u201312 minutes until fluffy.", "Blend fresh coconut, ginger, green chillies, and roasted dal with a pinch of salt; temper with mustard and curry leaves."], "tip": "Cooling steamed idlis slightly before eating boosts resistant starch (RS3), reducing glucose spikes and feeding colonocytes."}, {"id": "r3", "num": 3, "cuisine": "si", "cuisineName": "South Indian", "title": "Pepper Cumin Digestive Rasam", "meal": "soup", "diet": ["vegan", "gf", "df"], "benefit": "Piperine + thymol stimulate gastric motility and bile acid secretion, resetting slow transit times.", "microbe": "Bacteroides & Akkermansia", "prebiotic": "Polyphenols & Pectin", "plantPoints": 6, "plants": ["Black Peppercorns", "Cumin Seeds", "Tomatoes", "Garlic", "Curry Leaves", "Tamarind"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "tbsp", "name": "whole black peppercorns & cumin seeds (coarsely crushed)"}, {"qty": 2, "unit": "ripe", "name": "tomatoes, crushed by hand"}, {"qty": 4, "unit": "cloves", "name": "garlic, crushed with skin on"}, {"qty": 1, "unit": "small", "name": "lemon-sized tamarind ball extracted in 2 cups warm water"}, {"qty": 1, "unit": "sprig", "name": "fresh curry leaves & chopped coriander stems"}, {"qty": 1, "unit": "tsp", "name": "ghee or coconut oil with mustard seeds & asafoetida"}], "steps": ["Crush garlic, black pepper, and cumin in a mortar and pestle.", "Simmer tamarind extract with crushed tomatoes, garlic mixture, curry leaves, and turmeric until raw scent dissipates (8 min).", "Pour in 1 cup water, bring to a gentle frothy boil (do not overboil), and immediately turn off heat. Temper with ghee and mustard."], "tip": "Sip hot rasam 15 minutes before a heavier meal to prepare gastric enzyme output and prime microbial digestion."}, {"id": "r4", "num": 4, "cuisine": "si", "cuisineName": "South Indian", "title": "Ash Gourd Mor Kuzhambu (Cooling Buttermilk Stew)", "meal": "main", "diet": ["gf"], "benefit": "Live lactic acid bacteria in cultured buttermilk paired with alkaline prebiotic ash gourd soothe gut mucosal lining.", "microbe": "Lactobacillus acidophilus", "prebiotic": "Alkaline Pectin & Soluble Fibre", "plantPoints": 7, "plants": ["Ash Gourd (Winter Melon)", "Coconut", "Ginger", "Coriander Seeds", "Cumin", "Turmeric", "Curry Leaves"], "servings": 4, "time": "20 min", "img": "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "cups", "name": "ash gourd (winter melon) cubes"}, {"qty": 1.5, "unit": "cups", "name": "whisked fresh sour curd / buttermilk"}, {"qty": 0.5, "unit": "cup", "name": "grated coconut"}, {"qty": 2, "unit": "whole", "name": "green chillies, 1 tsp cumin seeds & 1 tsp soaked toor dal"}, {"qty": 0.5, "unit": "inch", "name": "fresh ginger root"}, {"qty": 1, "unit": "tsp", "name": "coconut oil, mustard seeds, fenugreek seeds, curry leaves"}], "steps": ["Boil ash gourd cubes in salted water with turmeric until translucent and tender (7 min).", "Grind grated coconut, cumin, ginger, soaked dal, and green chillies into a silky paste.", "Add paste to cooked gourd, lower heat to minimum, stir in whisked curd gently until warm and frothy \u2014 never allow to boil."], "tip": "Keep heat low once buttermilk is added to preserve the delicate live probiotic cultures from heat denaturation."}, {"id": "r5", "num": 5, "cuisine": "si", "cuisineName": "South Indian", "title": "Tempered Amaranth Greens (Keerai Poriyal)", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Rich in sulforaphanes and insoluble cellulose that expand stool volume and feed distal colonic bacteria.", "microbe": "Bifidobacterium & Roseburia", "prebiotic": "Insoluble Cellulose & Chlorophyll", "plantPoints": 6, "plants": ["Amaranth Greens (Keerai)", "Shallots", "Coconut", "Mustard Seeds", "Urad Dal", "Red Chilli"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 4, "unit": "cups", "name": "fresh tender amaranth leaves (keerai), washed and finely chopped"}, {"qty": 6, "unit": "whole", "name": "shallots, finely sliced"}, {"qty": 3, "unit": "tbsp", "name": "fresh grated coconut"}, {"qty": 1, "unit": "tsp", "name": "mustard seeds & 1 tsp split urad dal for crunch"}, {"qty": 2, "unit": "dry", "name": "red chillies & a pinch of turmeric"}, {"qty": 1, "unit": "tbsp", "name": "cold-pressed sesame (gingelly) oil"}], "steps": ["Heat sesame oil in a kadai; splutter mustard seeds, urad dal, and dried red chillies until golden.", "Add sliced shallots and saut\u00e9 for 2 min until soft and translucent.", "Toss in chopped amaranth greens and salt; cook without lid on medium heat for 4\u20135 min. Finish with fresh coconut."], "tip": "Cooking leafy greens uncovered keeps their chlorophyll intact and avoids trapping volatile organic acids."}, {"id": "r6", "num": 6, "cuisine": "si", "cuisineName": "South Indian", "title": "Fermented Pearl Millet Porridge (Kambu Koozh)", "meal": "breakfast", "diet": ["gf"], "benefit": "Ancient Tamil probiotic super-porridge; rich in polyphenols, magnesium, and active lactic cultures.", "microbe": "Leuconostoc & Lactobacillus", "prebiotic": "Millet Beta-Glucan & Resistant Starch", "plantPoints": 6, "plants": ["Pearl Millet (Bajra/Kambu)", "Shallots", "Cultured Buttermilk", "Curry Leaves", "Green Chilli", "Moringa Leaves"], "servings": 4, "time": "25 min (+ overnight ferment)", "img": "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "cup", "name": "pearl millet (kambu) flour or cracked grits"}, {"qty": 4, "unit": "cups", "name": "water for cooking"}, {"qty": 1, "unit": "cup", "name": "churned sour buttermilk"}, {"qty": 6, "unit": "whole", "name": "raw shallots, crushed"}, {"qty": 1, "unit": "whole", "name": "green chilli, finely slit, and fresh curry leaves"}, {"qty": 0.5, "unit": "tsp", "name": "sea salt"}], "steps": ["Mix millet flour in water without lumps; cook on low heat stirring constantly until thick and glossy (15 min).", "Transfer to a clay pot, cover with water surface, and let ferment at room temperature overnight (10\u201312 hours).", "In the morning, whisk the fermented porridge with chilled sour buttermilk, crushed raw shallots, and green chilli."], "tip": "Clay pot fermentation naturally regulates ambient temperature and introduces beneficial environmental microflora."}, {"id": "r7", "num": 7, "cuisine": "si", "cuisineName": "South Indian", "title": "Ragi (Finger Millet) Kali with Spiced Sprouted Dal", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Finger millet contains high calcium and slow-digesting complex amylose that fuels distal colon SCFA release.", "microbe": "Faecalibacterium & Roseburia", "prebiotic": "Type-2 Resistant Starch", "plantPoints": 7, "plants": ["Finger Millet (Ragi)", "Sprouted Green Gram", "Tomatoes", "Onions", "Cumin", "Ginger", "Curry Leaves"], "servings": 4, "time": "25 min", "img": "https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "cup", "name": "ragi (finger millet) flour"}, {"qty": 2.5, "unit": "cups", "name": "water"}, {"qty": 1, "unit": "cup", "name": "sprouted green moong dal"}, {"qty": 1, "unit": "medium", "name": "onion and 1 tomato, finely chopped"}, {"qty": 1, "unit": "tsp", "name": "cumin powder, coriander powder, and turmeric"}, {"qty": 1, "unit": "tbsp", "name": "cold-pressed coconut oil"}], "steps": ["Boil 2 cups water; mix 2 tbsp ragi flour in remaining water, pour in, and let boil.", "Sprinkle remaining ragi flour over bubbling water; do not stir for 3 min, then vigorously roll with wooden spatula into smooth kali ball.", "Saut\u00e9 onions, tomatoes, and sprouted moong in coconut oil with spices for 10 min to serve alongside."], "tip": "Finger millet has an exceptionally low glycemic index and provides prebiotic arabinoxylans that support mucosal wall thickness."}, {"id": "r8", "num": 8, "cuisine": "si", "cuisineName": "South Indian", "title": "Vendakkai (Okra) Pachadi with Whipped Curd", "meal": "side", "diet": ["gf"], "benefit": "Okra mucilage is a natural water-soluble polysaccharide that coats the epithelium and fuels *Akkermansia muciniphila*.", "microbe": "Akkermansia muciniphila", "prebiotic": "Mucilage & Rhamnogalacturonan", "plantPoints": 6, "plants": ["Okra (Ladies' Finger)", "Cultured Yoghurt", "Mustard Seeds", "Curry Leaves", "Green Chilli", "Ginger"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 250, "unit": "g", "name": "fresh tender okra (vendakkai), cut into thin rounds"}, {"qty": 1.5, "unit": "cups", "name": "thick fresh curd (plain yoghurt), whisked smooth"}, {"qty": 1, "unit": "tbsp", "name": "sesame oil for pan-roasting"}, {"qty": 1, "unit": "tsp", "name": "mustard seeds & 1 slit green chilli"}, {"qty": 0.5, "unit": "tsp", "name": "grated ginger & pinch of asafoetida"}, {"qty": 1, "unit": "sprig", "name": "curry leaves"}], "steps": ["Pan-roast sliced okra in sesame oil on medium heat until crisp, golden, and non-sticky (8 min).", "Whisk curd with salt and grated ginger in a serving bowl.", "Fold roasted okra into curd and immediately top with mustard seeds, chilli, and curry leaves tempered in hot oil."], "tip": "Pan-roasting okra lightly crisps the exterior while locking in the precious internal mucilage fibres."}, {"id": "r9", "num": 9, "cuisine": "si", "cuisineName": "South Indian", "title": "Spiced Horse Gram (Kollu) Broth", "meal": "soup", "diet": ["vegan", "gf", "df"], "benefit": "Horse gram is loaded with slow-digesting resistant starch, polyphenols, and phytosterols that modulate gut lipids.", "microbe": "Bacteroides & Akkermansia", "prebiotic": "Galactooligosaccharides & Polyphenols", "plantPoints": 7, "plants": ["Horse Gram (Kollu)", "Garlic", "Black Pepper", "Cumin", "Tomatoes", "Coriander", "Curry Leaves"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 0.5, "unit": "cup", "name": "horse gram (kollu), soaked 4 hours"}, {"qty": 4, "unit": "cups", "name": "water for boiling"}, {"qty": 4, "unit": "cloves", "name": "garlic & 1 tsp cumin seeds"}, {"qty": 1, "unit": "tsp", "name": "black peppercorns, crushed"}, {"qty": 1, "unit": "medium", "name": "tomato, chopped"}, {"qty": 1, "unit": "tbsp", "name": "cold-pressed gingelly oil, mustard, curry leaves"}], "steps": ["Pressure-cook soaked horse gram in 4 cups water for 5 whistles; strain and reserve the nutrient-rich brown broth.", "Crush 2 tbsp of the cooked horse gram with garlic, cumin, pepper, and tomato into a coarse paste.", "Simmer the paste with reserved broth for 6 min, season with salt, and finish with a crackling mustard-curry leaf temper."], "tip": "Save the remaining whole cooked horse gram for a dry sundal snack with coconut \u2014 zero waste, double fibre!"}, {"id": "r10", "num": 10, "cuisine": "si", "cuisineName": "South Indian", "title": "Fermented Kanchipuram Dosa with Curry Leaf Podi", "meal": "breakfast", "diet": ["vegan", "gf", "df"], "benefit": "Thick spiced fermented pancake tempered with whole black pepper and ginger; supports natural microbial diversity.", "microbe": "Leuconostoc & Lactobacillus", "prebiotic": "Fermented Legume Starch & Piperine", "plantPoints": 7, "plants": ["Raw Rice", "Boiled Rice", "Urad Dal", "Black Peppercorns", "Cumin", "Dry Ginger", "Curry Leaves"], "servings": 4, "time": "25 min (+ ferment)", "img": "https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "cups", "name": "dosa batter (fermented rice and urad dal, slightly coarse)"}, {"qty": 1, "unit": "tsp", "name": "whole black pepper, coarsely bruised"}, {"qty": 1, "unit": "tsp", "name": "cumin seeds & 0.5 tsp dry ginger powder (sukku)"}, {"qty": 2, "unit": "tbsp", "name": "fresh curry leaves, chopped fine"}, {"qty": 1, "unit": "tbsp", "name": "sesame oil or ghee for cooking"}, {"qty": 2, "unit": "tbsp", "name": "curry leaf podi for sprinkling"}], "steps": ["Fold crushed peppercorns, cumin, dry ginger powder, and fresh curry leaves directly into the fermented batter.", "Pour a ladleful onto a hot cast-iron tawa; spread gently into a thick, spongy pancake.", "Drizzle sesame oil around the edges, cook until crisp beneath, flip for 1 min, and serve with curry leaf podi."], "tip": "Curry leaves contain carbazole alkaloids that possess potent antimicrobial activity against enteric pathogens."}, {"id": "r11", "num": 11, "cuisine": "si", "cuisineName": "South Indian", "title": "Whole Green Moong Sprout Sundal", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Sprouting decreases phytic acid and unleashes prebiotic oligosaccharides that boost *Bifidobacteria* levels.", "microbe": "Bifidobacterium longum", "prebiotic": "Oligosaccharides & Resistant Starch", "plantPoints": 6, "plants": ["Whole Green Gram (Moong)", "Grated Coconut", "Fresh Ginger", "Mustard Seeds", "Curry Leaves", "Lemon Juice"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/7474251/pexels-photo-7474251.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "cups", "name": "whole green moong, sprouted (2 days)"}, {"qty": 3, "unit": "tbsp", "name": "freshly grated coconut"}, {"qty": 1, "unit": "tsp", "name": "mustard seeds, split urad dal, and hing"}, {"qty": 1, "unit": "tsp", "name": "minced ginger and 1 slit green chilli"}, {"qty": 1, "unit": "tbsp", "name": "fresh lemon juice & coriander leaves"}, {"qty": 1, "unit": "tsp", "name": "cold-pressed coconut oil"}], "steps": ["Steam sprouted moong for 5\u20136 min until tender but still retaining a pleasant crunch.", "Heat coconut oil in a pan; splutter mustard seeds, urad dal, green chilli, ginger, and curry leaves.", "Toss in steamed sprouts and salt; stir for 2 min. Turn off heat, fold in grated coconut and fresh lemon juice."], "tip": "Sprouting triples the availability of antioxidant vitamin C and polyphenols compared to unsprouted dry beans."}, {"id": "r12", "num": 12, "cuisine": "si", "cuisineName": "South Indian", "title": "Beetroot & Crushed Mustard Seed Kanji (Fermented Tonic)", "meal": "tonic", "diet": ["vegan", "gf", "df"], "benefit": "Wild lacto-fermented brine containing betalains and mustard isothiocyanates; enhances gut wall microcirculation.", "microbe": "Lactobacillus plantarum", "prebiotic": "Betalains & Glucosinolates", "plantPoints": 5, "plants": ["Beetroot", "Black Mustard Seeds", "Black Salt (Kala Namak)", "Carrots", "Water"], "servings": 6, "time": "10 min (+ 3 days ferment)", "img": "https://images.pexels.com/photos/4198135/pexels-photo-4198135.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "medium", "name": "beetroots, peeled and cut into batons"}, {"qty": 2, "unit": "medium", "name": "purple or orange carrots, batoned"}, {"qty": 2, "unit": "tbsp", "name": "black mustard seeds, coarsely ground into powder (rai)"}, {"qty": 1, "unit": "tsp", "name": "kala namak (Himalayan black mineral salt)"}, {"qty": 1, "unit": "tsp", "name": "sea salt and pinch of red chilli powder"}, {"qty": 6, "unit": "cups", "name": "boiled and cooled mineral water"}], "steps": ["Combine sliced beetroots, carrots, ground mustard seeds, black salt, and sea salt in a clean glass jar.", "Pour in cooled boiled water, stir with a non-metallic spoon, and cover neck with a breathable muslin cloth.", "Leave in a warm sunny spot for 3\u20134 days to naturally ferment until tangy and effervescent. Chill and sip 100ml daily."], "tip": "The mustard powder acts as the natural bacterial culture starter while beet betacyanins protect against colonic oxidative damage."}, {"id": "r13", "num": 13, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Greek Briam (Slow-Baked Rainbow Summer Casserole)", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Massive plant polyphenol density bathed in extra-virgin olive oil increases microbial gene richness.", "microbe": "Bifidobacterium & Akkermansia", "prebiotic": "Polyphenols & Inulin", "plantPoints": 8, "plants": ["Zucchini", "Eggplant", "Red Onion", "Bell Peppers", "Tomatoes", "Garlic", "Oregano", "Parsley"], "servings": 4, "time": "50 min", "img": "https://images.pexels.com/photos/1640775/pexels-photo-1640775.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "medium", "name": "zucchini, sliced into rounds"}, {"qty": 1, "unit": "large", "name": "eggplant, cubed"}, {"qty": 2, "unit": "large", "name": "potatoes, cut into chunks"}, {"qty": 1, "unit": "large", "name": "red onion and 2 bell peppers (red & green)"}, {"qty": 4, "unit": "cloves", "name": "garlic, sliced, & 2 ripe tomatoes blended"}, {"qty": 0.33, "unit": "cup", "name": "cold-pressed extra-virgin olive oil"}, {"qty": 1, "unit": "tbsp", "name": "dried Greek oregano and fresh flat-leaf parsley"}], "steps": ["Toss zucchini, eggplant, potatoes, peppers, onions, and garlic in a deep baking dish.", "Pour blended tomatoes and olive oil liberally over vegetables; season generously with oregano, sea salt, and black pepper.", "Bake uncovered at 200\u00b0C (400\u00b0F) for 45\u201350 min until tender and caramelized with golden crust edges."], "tip": "EVOO polyphenols act as protective carriers that prevent gut inflammation and enhance fat-soluble antioxidant absorption."}, {"id": "r14", "num": 14, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Gigantes Plaki (Greek Slow-Baked Giant White Beans)", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Gigante beans provide massive doses of fermentable resistant starch and soluble pectin that fuel colonocytes.", "microbe": "Faecalibacterium prausnitzii", "prebiotic": "Resistant Starch & Arabinogalactan", "plantPoints": 7, "plants": ["Gigante / Butter Beans", "Tomatoes", "Yellow Onion", "Celery", "Garlic", "Parsley", "Extra Virgin Olive Oil"], "servings": 4, "time": "45 min", "img": "https://images.pexels.com/photos/1640771/pexels-photo-1640771.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 3, "unit": "cups", "name": "cooked gigante or butter beans"}, {"qty": 1, "unit": "large", "name": "yellow onion, sliced into rings"}, {"qty": 2, "unit": "stalks", "name": "celery, sliced, & 3 cloves garlic minced"}, {"qty": 1.5, "unit": "cups", "name": "crushed San Marzano tomatoes"}, {"qty": 0.25, "unit": "cup", "name": "extra-virgin olive oil"}, {"qty": 1, "unit": "tbsp", "name": "fresh dill & chopped fresh parsley"}], "steps": ["Saut\u00e9 sliced onions, celery, and garlic in 2 tbsp olive oil until translucent and fragrant (8 min).", "Stir in crushed tomatoes, a splash of water, sea salt, pepper, and simmer for 10 min to create a rich sauce.", "Transfer beans and sauce to an earthenware baking dish, drizzle with remaining olive oil, bake at 190\u00b0C for 30 min, and garnish with dill."], "tip": "Refrigerating leftover baked beans for 24 hours increases their resistant starch content by an additional 15\u201320%."}, {"id": "r15", "num": 15, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Authentic Herb-Heavy Tabbouleh", "meal": "side", "diet": ["vegan", "df"], "benefit": "High herb-to-grain ratio provides massive concentrations of apigenin and luteolin flavonoids that protect epithelial tight junctions.", "microbe": "Akkermansia & Bifidobacteria", "prebiotic": "Luteolin, Apigenin & Insoluble Fibre", "plantPoints": 7, "plants": ["Flat-Leaf Parsley", "Fresh Mint", "Bulgur Wheat", "Tomatoes", "Scallions", "Lemon", "Olive Oil"], "servings": 4, "time": "20 min", "img": "https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 3, "unit": "large bunches", "name": "flat-leaf parsley, washed, dried thoroughly, and finely minced"}, {"qty": 0.5, "unit": "cup", "name": "fresh mint leaves, finely chopped"}, {"qty": 0.25, "unit": "cup", "name": "fine bulgur wheat, soaked in water 15 min and squeezed dry"}, {"qty": 3, "unit": "firm", "name": "tomatoes, seeds removed and finely diced"}, {"qty": 4, "unit": "stalks", "name": "scallions (spring onions), sliced thin"}, {"qty": 0.33, "unit": "cup", "name": "fresh lemon juice & 0.33 cup extra-virgin olive oil"}], "steps": ["Ensure herbs are bone-dry before chopping with a very sharp chef's knife to prevent bruising and bitterness.", "Combine minced parsley, mint, scallions, diced tomatoes, and rehydrated bulgur in a large salad bowl.", "Whisk fresh lemon juice with extra-virgin olive oil and sea salt; toss gently right before serving."], "tip": "Parsley is a medicinal green, not a garnish. In the Levant, tabbouleh is celebrated as a healing parsley salad with just a whisper of grain."}, {"id": "r16", "num": 16, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Wild Greens (Horta) with Lemon & Cold-Pressed Olive Oil", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Bitter sesquiterpenes and polyphenols in wild greens stimulate digestive enzyme cascades and healthy gallbladder bile flow.", "microbe": "Bacteroides thetaiotaomicron", "prebiotic": "Bitter Polyphenols & Cellulose", "plantPoints": 5, "plants": ["Dandelion Greens", "Chicory / Escarole", "Lemon", "Garlic", "Extra Virgin Olive Oil"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 500, "unit": "g", "name": "mixed bitter greens (dandelion, chicory, escarole, or mustard greens)"}, {"qty": 1, "unit": "whole", "name": "juicy organic lemon"}, {"qty": 0.25, "unit": "cup", "name": "cold-pressed unrefined extra-virgin olive oil"}, {"qty": 1, "unit": "clove", "name": "garlic, crushed (optional)"}, {"qty": 1, "unit": "tsp", "name": "coarse sea salt flakes"}], "steps": ["Wash bitter greens thoroughly in cold water to remove any garden grit.", "Drop greens into a large pot of boiling salted water; cook 5\u20137 minutes until tender yet vibrantly green.", "Drain well, transfer to a platter, and while still warm, bathe generously in raw olive oil and fresh lemon juice."], "tip": "Drink the warm, olive-green cooking broth (zomos) with a squeeze of lemon as an ancient Cretan digestive tonic."}, {"id": "r17", "num": 17, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Shakshuka with Braised Greens & Poached Eggs", "meal": "breakfast", "diet": ["gf", "df"], "benefit": "Lycopene from slow-cooked tomatoes combined with allium prebiotic fibres shields gut tissues against oxidative stress.", "microbe": "Lactobacillus & Bifidobacteria", "prebiotic": "Inulin, Lycopene & Lutein", "plantPoints": 8, "plants": ["Tomatoes", "Bell Peppers", "Spinach", "Yellow Onion", "Garlic", "Cumin", "Paprika", "Coriander"], "servings": 4, "time": "25 min", "img": "https://images.pexels.com/photos/718742/pexels-photo-718742.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 4, "unit": "large", "name": "pasture-raised eggs (or cooked chickpeas for vegan)"}, {"qty": 4, "unit": "cups", "name": "crushed ripe tomatoes"}, {"qty": 1, "unit": "large", "name": "red bell pepper, sliced into strips"}, {"qty": 2, "unit": "cups", "name": "baby spinach or swiss chard"}, {"qty": 1, "unit": "medium", "name": "onion and 3 cloves garlic minced"}, {"qty": 1, "unit": "tbsp", "name": "ground cumin, smoked paprika, and pinch of cayenne"}, {"qty": 2, "unit": "tbsp", "name": "extra-virgin olive oil"}], "steps": ["Saut\u00e9 sliced onion and bell peppers in olive oil until soft; stir in garlic, cumin, and smoked paprika.", "Add crushed tomatoes and simmer on low for 12 min until sauce is thick and fragrant; fold in spinach until wilted.", "Make 4 small wells in the sauce, crack eggs in, cover skillet with lid, and cook on low heat for 5\u20137 min until whites set."], "tip": "Heat increases the bio-availability of tomato lycopene by transforming trans-lycopene into the more absorbable cis-isomer."}, {"id": "r18", "num": 18, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Puy Lentil & Toasted Walnut Warm Salad", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Walnut ellagitannins are metabolized by gut bacteria into urolithins, powerful anti-aging microbial metabolites.", "microbe": "Roseburia & Faecalibacterium", "prebiotic": "Ellagitannins & Soluble Fibre", "plantPoints": 7, "plants": ["French Puy Lentils", "Walnuts", "Shallots", "Dijon Mustard Seed", "Red Wine Vinegar", "Parsley", "Olive Oil"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1.5, "unit": "cups", "name": "Puy or black Beluga lentils, rinsed"}, {"qty": 0.75, "unit": "cup", "name": "raw walnut halves, lightly toasted in a dry pan"}, {"qty": 2, "unit": "small", "name": "shallots, finely diced"}, {"qty": 0.5, "unit": "cup", "name": "fresh flat-leaf parsley, chopped"}, {"qty": 1, "unit": "tbsp", "name": "whole-grain Dijon mustard"}, {"qty": 2, "unit": "tbsp", "name": "red wine vinegar & 3 tbsp cold-pressed EVOO"}], "steps": ["Simmer Puy lentils in water with a bay leaf for 20\u201325 min until tender with an al dente bite; drain well.", "Whisk Dijon mustard, red wine vinegar, shallots, sea salt, and EVOO to create an emulsion dressing.", "Toss warm lentils with dressing so flavours absorb deeply; fold in toasted walnuts and fresh parsley before serving."], "tip": "Puy lentils retain their structural shape and high resistant starch level better than red or yellow split lentils."}, {"id": "r19", "num": 19, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Sicilian Caponata with Pine Nuts & Capers", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Capers provide nature's highest dietary concentration of quercetin, which strengthens mucosal barrier function.", "microbe": "Lactobacillus reuteri", "prebiotic": "Quercetin & Pectin", "plantPoints": 8, "plants": ["Eggplant", "Celery", "Capers", "Pine Nuts", "Tomatoes", "Onion", "Green Olives", "Basil"], "servings": 4, "time": "35 min", "img": "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "medium", "name": "eggplants, cut into 1-inch cubes"}, {"qty": 2, "unit": "stalks", "name": "celery, chopped into 1/2-inch pieces"}, {"qty": 2, "unit": "tbsp", "name": "salted capers, rinsed and drained"}, {"qty": 0.33, "unit": "cup", "name": "pitted green olives, sliced"}, {"qty": 2, "unit": "tbsp", "name": "pine nuts, toasted"}, {"qty": 1.5, "unit": "cups", "name": "tomato passata & 1 tbsp raw apple cider vinegar"}], "steps": ["Pan-roast eggplant cubes in olive oil until golden and velvety; set aside.", "Blanch celery in boiling water for 3 min, drain, then saut\u00e9 with onions, capers, and olives in olive oil.", "Pour in tomato passata and vinegar; simmer 10 min. Fold in roasted eggplant and toasted pine nuts; serve warm or chilled."], "tip": "Caponata actually tastes better the second day as the organic acids and polyphenols intermingle."}, {"id": "r20", "num": 20, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Braised Whole Artichokes in Lemon & Extra Virgin Olive Oil", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Artichokes are the plant kingdom's richest source of prebiotic inulin, directly triggering exponential *Bifidobacterium* growth.", "microbe": "Bifidobacterium adolescentis", "prebiotic": "Inulin (Fructans)", "plantPoints": 6, "plants": ["Globe Artichokes", "Fresh Lemons", "Garlic", "Fresh Mint", "Fresh Dill", "Extra Virgin Olive Oil"], "servings": 4, "time": "35 min", "img": "https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 4, "unit": "whole", "name": "globe artichokes, trimmed and halved"}, {"qty": 2, "unit": "whole", "name": "lemons, 1 sliced and 1 juiced"}, {"qty": 4, "unit": "cloves", "name": "garlic, peeled and smashed"}, {"qty": 0.33, "unit": "cup", "name": "extra-virgin olive oil"}, {"qty": 1, "unit": "cup", "name": "vegetable broth or water"}, {"qty": 2, "unit": "tbsp", "name": "fresh dill and mint, chopped"}], "steps": ["Trim outer tough leaves of artichokes and rub cut edges immediately with lemon to prevent oxidation.", "Arrange artichokes cut-side down in a heavy braising pan with garlic, lemon slices, olive oil, and broth.", "Cover tightly and braise on low heat for 25\u201330 minutes until a knife easily pierces the tender heart. Garnish with fresh dill."], "tip": "A single globe artichoke provides up to 7 grams of inulin \u2014 the holy grail prebiotic for probiotic bifidobacteria."}, {"id": "r21", "num": 21, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Crisp Fennel, Orange & Kalamata Olive Salad", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Fennel essential oils (anethole, fenchone) relax intestinal smooth muscle and reduce fermentation bloating.", "microbe": "Lactobacillus & Enterococcus", "prebiotic": "Anethole, Hesperidin & Pectin", "plantPoints": 5, "plants": ["Fennel Bulb", "Oranges", "Kalamata Olives", "Red Onion", "Extra Virgin Olive Oil"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "medium", "name": "fennel bulbs, fronds reserved, shaved paper-thin"}, {"qty": 2, "unit": "medium", "name": "juicy navel or blood oranges, segmented with juices caught"}, {"qty": 0.5, "unit": "cup", "name": "Kalamata olives, pitted and halved"}, {"qty": 0.25, "unit": "small", "name": "red onion, sliced razor-thin"}, {"qty": 3, "unit": "tbsp", "name": "extra-virgin olive oil & 1 tbsp fresh orange juice"}, {"qty": 0.5, "unit": "tsp", "name": "sea salt flakes & cracked black pepper"}], "steps": ["Shave trimmed fennel using a mandoline or very sharp knife; soak in iced water for 5 min for extreme crunch, then drain.", "Segment oranges over a bowl to collect all natural juices.", "Arrange fennel, orange segments, olives, and red onion on a plate; whisk olive oil with reserved orange juice and drizzle over."], "tip": "Save the delicate feathery fennel fronds to chop as an aromatic herb topping rich in digestive bioflavonoids."}, {"id": "r22", "num": 22, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Turkish Red Lentil & Mint Soup (Mercimek \u00c7orbas\u0131)", "meal": "soup", "diet": ["vegan", "gf", "df"], "benefit": "Gentle, non-bloating soluble lentil fibres combined with carminative dried mint soothe irritated mucosal linings.", "microbe": "Bifidobacteria & Prevotella", "prebiotic": "Soluble Fibre & Menthol Flavonoids", "plantPoints": 7, "plants": ["Red Split Lentils", "Carrots", "Onion", "Garlic", "Dried Spearmint", "Aleppo Pepper", "Lemon"], "servings": 4, "time": "25 min", "img": "https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1.5, "unit": "cups", "name": "red split lentils, washed until water runs clear"}, {"qty": 1, "unit": "medium", "name": "yellow onion and 1 carrot, chopped"}, {"qty": 2, "unit": "cloves", "name": "garlic and 1 tbsp tomato paste"}, {"qty": 5, "unit": "cups", "name": "vegetable broth or water"}, {"qty": 1.5, "unit": "tbsp", "name": "dried mint leaves (nane)"}, {"qty": 1, "unit": "tsp", "name": "Aleppo pepper or sweet paprika & fresh lemon wedges"}], "steps": ["Saut\u00e9 onion, carrot, and garlic in olive oil for 5 min; stir in tomato paste and cumin.", "Add red lentils and broth; bring to a boil, then simmer on low for 18 min until lentils completely dissolve.", "Puree with immersion blender until silky; heat 2 tbsp olive oil with dried mint and Aleppo pepper, swirling over bowls with lemon."], "tip": "Red split lentils have had their outer hulls polished away, making them the gentlest legume choice for sensitive gut resets."}, {"id": "r23", "num": 23, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Smoky Roasted Baba Ganoush with Pomegranate Jewels", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Sesame seed lignans and pomegranate punicalagins selectively enrich healthy *Akkermansia* populations.", "microbe": "Akkermansia & Roseburia", "prebiotic": "Lignans & Punicalagins", "plantPoints": 6, "plants": ["Eggplant", "Tahini (Sesame)", "Garlic", "Lemon", "Pomegranate Seeds", "Parsley"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "large", "name": "globe eggplants"}, {"qty": 0.33, "unit": "cup", "name": "pure hulled sesame tahini paste"}, {"qty": 2, "unit": "cloves", "name": "garlic, grated"}, {"qty": 3, "unit": "tbsp", "name": "fresh lemon juice & 2 tbsp extra-virgin olive oil"}, {"qty": 0.33, "unit": "cup", "name": "fresh pomegranate seeds for garnish"}, {"qty": 2, "unit": "tbsp", "name": "chopped fresh parsley and pinch of smoked paprika"}], "steps": ["Char whole eggplants over an open flame or under a broiler for 15\u201320 min, turning occasionally until skin is blackened and flesh is completely tender.", "Slit eggplant open, scrape out silky smoky flesh into a colander, and let drain for 10 min to remove bitter juices.", "Mash flesh with a fork (keep texture); whisk in tahini, garlic, lemon juice, and sea salt. Plate with olive oil and pomegranate seeds."], "tip": "Pomegranate arils provide ellagic acid, which gut microbes transform into urolithin A \u2014 a compound that cleans out damaged mitochondria."}, {"id": "r24", "num": 24, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Wild Herb & Raw Olive Lacto-Ferment", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Traditional salt-brined olives deliver wild strains of *Lactobacillus plantarum* and *L. pentosus* straight to the microbiome.", "microbe": "Lactobacillus plantarum", "prebiotic": "Olive Polyphenols & Oleuropein", "plantPoints": 6, "plants": ["Kalamata & Green Olives", "Wild Oregano", "Rosemary", "Garlic", "Lemon Peel", "Chilli Flakes"], "servings": 8, "time": "10 min", "img": "https://images.pexels.com/photos/1640771/pexels-photo-1640771.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "cups", "name": "unpasteurized mixed whole olives (Kalamata, Castelvetrano, green)"}, {"qty": 3, "unit": "cloves", "name": "fresh garlic, crushed"}, {"qty": 2, "unit": "sprigs", "name": "fresh rosemary & fresh wild oregano"}, {"qty": 2, "unit": "strips", "name": "organic lemon peel"}, {"qty": 0.5, "unit": "tsp", "name": "crushed red pepper flakes & 1 tsp fennel seeds"}, {"qty": 0.5, "unit": "cup", "name": "cold-pressed extra-virgin olive oil to submerge"}], "steps": ["Gently crush whole olives with the flat side of a chef's knife to crack open and allow marinade penetration.", "Layer olives in a clean glass jar with crushed garlic, rosemary sprigs, oregano, lemon peel, and fennel seeds.", "Pour in extra-virgin olive oil until olives are completely submerged; seal jar and let steep at room temp for 48 hours."], "tip": "Unpasteurized, naturally cured olives are true probiotic reservoirs; avoid cheap supermarket canned olives that are heat-sterilized."}, {"id": "r25", "num": 25, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Goya Champuru (Bitter Melon & Tofu Longevity Stir-Fry)", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Bitter cucurbitacins and charantin stimulate insulin sensitivity and stimulate protective *Akkermansia* mucus production.", "microbe": "Akkermansia muciniphila", "prebiotic": "Charantin & Bitter Cucurbitacins", "plantPoints": 6, "plants": ["Bitter Melon (Goya)", "Firm Tofu (Shima-Tofu)", "Garlic", "Ginger", "Sesame Oil", "Spring Onion"], "servings": 4, "time": "20 min", "img": "https://images.pexels.com/photos/5848469/pexels-photo-5848469.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "medium", "name": "Okinawan bitter melon (goya), seeded and sliced thin"}, {"qty": 300, "unit": "g", "name": "firm Okinawan or pressed tofu, torn into chunks"}, {"qty": 2, "unit": "cloves", "name": "garlic and 1 tsp grated ginger"}, {"qty": 2, "unit": "tbsp", "name": "toasted dark sesame oil"}, {"qty": 1.5, "unit": "tbsp", "name": "tamari (gluten-free soy sauce) or naturally brewed shoyu"}, {"qty": 2, "unit": "stalks", "name": "scallions & 1 tbsp dried bonito flakes or nori seaweed shreds"}], "steps": ["Slice bitter melon in half, scrape out white pith and seeds with a spoon, and slice into 1/4-inch crescents. Salt lightly for 10 min, then pat dry.", "In a hot wok, sear torn tofu chunks in sesame oil until golden on all sides; remove and set aside.", "Stir-fry bitter melon with garlic and ginger on high heat for 3 min; return tofu, splash with tamari, and toss with scallions."], "tip": "The Okinawan philosophy of 'Nuchigusui' (food as medicine) celebrates bitter melon as the supreme guardian of healthy blood sugar."}, {"id": "r26", "num": 26, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Steamed Purple Sweet Potato (Beni Imo) with Toasted Black Sesame", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Contains 150% more anthocyanin antioxidants than blueberries; provides resistant starch that fuels *Roseburia* butyrate production.", "microbe": "Roseburia & Eubacterium", "prebiotic": "Anthocyanins & Resistant Starch", "plantPoints": 4, "plants": ["Purple Sweet Potato (Beni Imo)", "Black Sesame Seeds", "Sea Salt", "Coconut Oil"], "servings": 4, "time": "25 min", "img": "https://images.pexels.com/photos/6607427/pexels-photo-6607427.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 4, "unit": "medium", "name": "purple sweet potatoes (beni imo or Stokes purple)"}, {"qty": 2, "unit": "tbsp", "name": "black sesame seeds, lightly toasted"}, {"qty": 1, "unit": "tsp", "name": "Okinawan sea salt (Nuchimasu or sea salt)"}, {"qty": 1, "unit": "tsp", "name": "unrefined coconut oil or sesame oil"}], "steps": ["Scrub purple sweet potatoes thoroughly, keeping the antioxidant-rich skins on.", "Steam whole over boiling water for 20\u201325 minutes until a bamboo skewer slides through effortlessly.", "Split warm potatoes open, brush lightly with cold-pressed oil, and sprinkle generously with toasted black sesame and sea salt."], "tip": "Beni Imo provided over 60% of daily calories for traditional centenarian Okinawans before the mid-20th century."}, {"id": "r27", "num": 27, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Longevity Miso Soup with Shiitake & Wakame", "meal": "soup", "diet": ["vegan", "gf", "df"], "benefit": "Fermented miso brings live *Aspergillus oryzae* enzymes; shiitake delivers immune-modulating beta-glucans.", "microbe": "Aspergillus oryzae & Bifidobacteria", "prebiotic": "Beta-Glucan & Fucoidan", "plantPoints": 6, "plants": ["Soy Miso Paste", "Dried Shiitake Mushrooms", "Wakame Seaweed", "Silken Tofu", "Scallions", "Kombu Kelp"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/8956831/pexels-photo-8956831.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 4, "unit": "cups", "name": "water with 1 strip kombu and 4 dried shiitake mushrooms (dashi base)"}, {"qty": 3, "unit": "tbsp", "name": "unpasteurized organic miso paste (red or brown)"}, {"qty": 2, "unit": "tbsp", "name": "dried wakame seaweed, rehydrated"}, {"qty": 200, "unit": "g", "name": "silken tofu, cut into small cubes"}, {"qty": 2, "unit": "stalks", "name": "scallions, finely sliced"}], "steps": ["Steep kombu and dried shiitake in water for 15 min; bring to gentle simmer, remove kombu just before boil, and slice rehydrated shiitake.", "Add silken tofu cubes and rehydrated wakame seaweed; simmer on very low heat for 2 min.", "Turn off heat completely. Ladle a little hot broth into a bowl, dissolve miso paste until smooth, and stir back into pot. Never boil."], "tip": "Boiling miso instantly destroys its live koji fermentation enzymes and delicate aromatic probiotics; always dissolve off the heat."}, {"id": "r28", "num": 28, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Mozuku Seaweed Vinegar Salad (Sunomono)", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Mozuku is the earth's richest natural source of fucoidan \u2014 a sulfated polysaccharide that directly feeds *Akkermansia*.", "microbe": "Akkermansia muciniphila", "prebiotic": "Sulfated Fucoidan & Alginate", "plantPoints": 4, "plants": ["Mozuku / Nori Seaweed", "Japanese Cucumber", "Rice Vinegar", "Ginger"], "servings": 4, "time": "10 min", "img": "https://images.pexels.com/photos/8956831/pexels-photo-8956831.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 150, "unit": "g", "name": "fresh or salted mozuku seaweed (or rehydrated wakame/nori sheets)"}, {"qty": 1, "unit": "medium", "name": "Japanese or Persian cucumber, shaved paper-thin"}, {"qty": 3, "unit": "tbsp", "name": "unseasoned rice vinegar (or apple cider vinegar)"}, {"qty": 1, "unit": "tbsp", "name": "tamari & 1 tsp grated fresh ginger"}, {"qty": 1, "unit": "tsp", "name": "toasted white sesame seeds"}], "steps": ["If using salted mozuku, rinse in fresh cold water 3 times and drain thoroughly.", "Toss thin cucumber slices with a pinch of sea salt, let sit 5 min, then gently squeeze out excess liquid.", "Combine mozuku and cucumber in small glass bowls; whisk rice vinegar, tamari, and grated ginger, pour over, and top with sesame."], "tip": "Studies show fucoidan from brown seaweeds thickens the intestinal mucus layer and prevents bacterial translocation into bloodstream."}, {"id": "r29", "num": 29, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Simmered Kombu Kelp with Shiitake (Tsukudani)", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Laminarin and alginate prebiotic fibres act as gentle bulking agents and bind heavy metals and excess bile.", "microbe": "Bacteroides & Bifidobacteria", "prebiotic": "Laminarin & Alginate", "plantPoints": 5, "plants": ["Kombu Kelp", "Shiitake Mushrooms", "Tamari", "Mirin (Rice Ferment)", "Sesame Seeds"], "servings": 6, "time": "30 min", "img": "https://images.pexels.com/photos/5848469/pexels-photo-5848469.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 50, "unit": "g", "name": "dried kombu (dashi kelp), rehydrated and cut into small squares"}, {"qty": 4, "unit": "whole", "name": "rehydrated shiitake mushroom caps, thinly sliced"}, {"qty": 1, "unit": "cup", "name": "kombu soaking water"}, {"qty": 3, "unit": "tbsp", "name": "gluten-free tamari or soy sauce"}, {"qty": 2, "unit": "tbsp", "name": "mirin (naturally fermented sweet cooking wine)"}, {"qty": 1, "unit": "tbsp", "name": "rice vinegar & toasted white sesame seeds"}], "steps": ["Soak dried kombu in water for 20 min; slice into 1-inch squares.", "In a small saucepan, combine kombu, sliced shiitake, kombu soaking water, tamari, mirin, and rice vinegar.", "Simmer on low heat for 25 minutes until liquid is reduced to a glossy glaze. Toss with toasted sesame seeds and store in jar."], "tip": "Eat one tablespoon daily as an umami-rich condiment over rice or bowls to deliver steady marine trace minerals to microbes."}, {"id": "r30", "num": 30, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Buckwheat Soba in Healing Dashi with Wild Mugwort (Fuchiba)", "meal": "main", "diet": ["vegan", "df"], "benefit": "Buckwheat rutin strengthens capillary and microvascular blood flow to intestinal villi; mugwort reduces dysbiotic inflammation.", "microbe": "Lactobacillus & Akkermansia", "prebiotic": "Rutin & Cineole Terpenes", "plantPoints": 7, "plants": ["100% Buckwheat (Juwari Soba)", "Kombu", "Shiitake", "Mugwort (or Fresh Spinach)", "Scallions", "Ginger", "Nori"], "servings": 4, "time": "20 min", "img": "https://images.pexels.com/photos/13677969/pexels-photo-13677969.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 300, "unit": "g", "name": "100% pure buckwheat soba noodles"}, {"qty": 4, "unit": "cups", "name": "rich kombu-shiitake dashi broth"}, {"qty": 1, "unit": "cup", "name": "fresh Okinawan mugwort (fuchiba) or baby spinach/arugula"}, {"qty": 2, "unit": "tbsp", "name": "tamari & 1 tsp grated ginger"}, {"qty": 2, "unit": "stalks", "name": "scallions & toasted nori strips for topping"}], "steps": ["Cook buckwheat noodles in boiling water for 4\u20135 min; drain and immediately rinse thoroughly under cold running water to remove excess starch.", "Heat kombu-shiitake dashi with tamari and ginger until piping hot.", "Place cold soba in deep bowls, drape fresh mugwort leaves over noodles, and ladle boiling dashi on top to gently wilt the greens."], "tip": "Pure 100% buckwheat (Juwari Soba) is naturally gluten-free and contains resistant protein (rutin) that acts like prebiotic fibre."}, {"id": "r31", "num": 31, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Roasted Sweet Potato & Firm Tofu with Nori Flakes", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Plant protein from whole fermented soybean curd + slow-carb sweet potato resistant starch; a complete Panbiome meal.", "microbe": "Bifidobacteria & Prevotella", "prebiotic": "Type-3 Resistant Starch & Minerals", "plantPoints": 6, "plants": ["Sweet Potato", "Firm Tofu", "Nori Seaweed", "Turmeric", "Sesame Oil", "Garlic"], "servings": 4, "time": "25 min", "img": "https://images.pexels.com/photos/5848469/pexels-photo-5848469.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "medium", "name": "sweet potatoes (orange or purple), cut into 1/2-inch cubes"}, {"qty": 300, "unit": "g", "name": "firm tofu, pressed and cubed"}, {"qty": 2, "unit": "tbsp", "name": "cold-pressed sesame oil"}, {"qty": 1, "unit": "tsp", "name": "turmeric powder and 1 tsp grated fresh ginger"}, {"qty": 2, "unit": "sheets", "name": "roasted nori seaweed, crumbled into flakes"}, {"qty": 1, "unit": "tbsp", "name": "tamari"}], "steps": ["Toss sweet potato cubes with 1 tbsp sesame oil and roast in 200\u00b0C oven for 20 min until caramelized.", "Pan-sear tofu cubes in remaining oil with turmeric and ginger until all sides are crisp and golden.", "Toss roasted sweet potatoes and tofu together with a splash of tamari; garnish heavily with crumbled nori seaweed flakes."], "tip": "The combination of marine seaweed minerals (iodine, magnesium) and root vegetables mirrors the Okinawan coastal soil balance."}, {"id": "r32", "num": 32, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Miso-Glazed Roasted Pumpkin (Kabocha) & Daikon Radish", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Kabocha beta-carotene and daikon digestive enzymes (diastase) accelerate gastric breakdown and nourish mucosal surfaces.", "microbe": "Akkermansia & Faecalibacterium", "prebiotic": "Beta-Carotene & Diastase Enzymes", "plantPoints": 6, "plants": ["Kabocha Pumpkin", "Daikon Radish", "Miso Paste", "Ginger", "Sesame Oil", "Sesame Seeds"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/6607427/pexels-photo-6607427.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 400, "unit": "g", "name": "Kabocha pumpkin, washed, seeds removed, sliced into wedges with skin on"}, {"qty": 200, "unit": "g", "name": "daikon radish, sliced into rounds"}, {"qty": 2, "unit": "tbsp", "name": "brown rice miso paste"}, {"qty": 1, "unit": "tbsp", "name": "warm water & 1 tsp grated fresh ginger"}, {"qty": 1, "unit": "tbsp", "name": "sesame oil"}, {"qty": 1, "unit": "tbsp", "name": "toasted white sesame seeds"}], "steps": ["Toss pumpkin wedges and daikon rounds with sesame oil; roast at 200\u00b0C (400\u00b0F) for 20 min until edges turn golden.", "Whisk miso paste with warm water and grated ginger into a smooth brushing glaze.", "Brush glaze generously over vegetables during the last 5 minutes of roasting; sprinkle with toasted sesame seeds before serving."], "tip": "Always eat the green skin of Kabocha pumpkin \u2014 it is rich in prebiotic insoluble fibres and chlorophyll."}, {"id": "r33", "num": 33, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Hijiki Seaweed & Julienned Carrot Stir-Fry", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Concentrated marine minerals (calcium, iron, magnesium) combined with carrot beta-carotene; stimulates tight-junction protein synthesis.", "microbe": "Akkermansia & Bacteroides", "prebiotic": "Alginates & Soluble Carotenoid Fibre", "plantPoints": 5, "plants": ["Dried Hijiki Seaweed", "Carrot", "Firm Tofu", "Tamari", "Sesame Oil"], "servings": 4, "time": "20 min", "img": "https://images.pexels.com/photos/13677969/pexels-photo-13677969.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 25, "unit": "g", "name": "dried hijiki seaweed (soaks up to 5x in volume)"}, {"qty": 1, "unit": "large", "name": "carrot, julienned into matchsticks"}, {"qty": 150, "unit": "g", "name": "firm tofu, pressed and cut into thin strips"}, {"qty": 1, "unit": "tbsp", "name": "toasted sesame oil"}, {"qty": 1.5, "unit": "tbsp", "name": "tamari & 1 tbsp mirin"}], "steps": ["Soak dried hijiki in cold water for 15 minutes; drain thoroughly in a fine-mesh sieve and rinse well.", "Heat sesame oil in a skillet; stir-fry julienned carrots for 2 min until just softened.", "Add hijiki and tofu strips; season with tamari and mirin, cooking on medium-low for 5 min until flavors integrate."], "tip": "A classic Okinawan side dish served alongside brown rice and miso soup for a complete centenarian longevity lunch."}, {"id": "r34", "num": 34, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Marinated Silken Tofu in Rice Koji & Tamari (Tofuyo Style)", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Microbially pre-digested soy proteins and bioactive isoflavone aglycones with exceptional gut bioavailability.", "microbe": "Aspergillus & Lactobacillus", "prebiotic": "Isoflavone Aglycones & Peptides", "plantPoints": 4, "plants": ["Silken Tofu", "Rice Koji / Shio Koji", "Tamari", "Scallions"], "servings": 4, "time": "10 min (+ 24h marinade)", "img": "https://images.pexels.com/photos/4331490/pexels-photo-4331490.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 300, "unit": "g", "name": "silken or soft tofu, gently pressed for 30 min"}, {"qty": 2, "unit": "tbsp", "name": "shio koji (fermented rice koji paste)"}, {"qty": 1, "unit": "tbsp", "name": "tamari (gluten-free soy sauce)"}, {"qty": 1, "unit": "tsp", "name": "mirin and a dash of grated fresh ginger"}, {"qty": 1, "unit": "stalk", "name": "scallion, finely minced for garnish"}], "steps": ["Wrap pressed silken tofu in paper towels to absorb excess surface moisture, then cut into bite-sized cubes.", "Mix shio koji with tamari, mirin, and grated ginger.", "Coat tofu cubes gently in the koji marinade, cover, and refrigerate for 24 hours. The texture becomes rich and creamy like cheese."], "tip": "Inspired by Okinawan royal 'Tofuyo' \u2014 the rice koji enzymes break down complex plant proteins into easily absorbed free amino acids."}, {"id": "r35", "num": 35, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Uchinanchu Longevity Tonic (Turmeric, Ginger & Citrus)", "meal": "tonic", "diet": ["vegan", "gf", "df"], "benefit": "Curcumin and nobiletin flavonoids suppress enteric pathogen colonization while protecting mucosal blood vessels.", "microbe": "Akkermansia & Bifidobacteria", "prebiotic": "Curcumin, Gingerol & Nobiletin", "plantPoints": 4, "plants": ["Fresh Wild Turmeric (Ukon)", "Fresh Ginger", "Shikuwasa / Calamansi / Lime", "Black Peppercorns"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "inches", "name": "fresh turmeric root (ukon), grated or thinly sliced"}, {"qty": 2, "unit": "inches", "name": "fresh ginger root, bruised and sliced"}, {"qty": 4, "unit": "whole", "name": "black peppercorns (activates curcumin by 2,000%)"}, {"qty": 4, "unit": "cups", "name": "filtered spring water"}, {"qty": 2, "unit": "tbsp", "name": "fresh Okinawan shikuwasa juice, calamansi, or lime juice"}, {"qty": 1, "unit": "tsp", "name": "raw unheated honey (optional)"}], "steps": ["In a small pot, simmer sliced fresh turmeric, bruised ginger, and cracked peppercorns in water for 12\u201315 min.", "Strain golden liquor into ceramic cups.", "Allow to cool to warm drinking temperature before stirring in fresh citrus juice and honey (to preserve heat-sensitive enzymes)."], "tip": "Black pepper contains piperine, which blocks hepatic glucuronidation of curcumin, increasing systemic bioavailability up to 2,000%."}, {"id": "r36", "num": 36, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Okinawan Slow Daikon & Kombu Mineral Broth", "meal": "soup", "diet": ["vegan", "gf", "df"], "benefit": "Soluble alginates and daikon potassium create an alkaline, soothing gut bath that accelerates mucosal healing.", "microbe": "Faecalibacterium & Akkermansia", "prebiotic": "Alginates & Insoluble Lignin", "plantPoints": 5, "plants": ["Daikon Radish", "Kombu Kelp", "Ginger", "Tamari", "Scallions"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "large", "name": "daikon radish, peeled and cut into thick 1-inch rounds"}, {"qty": 1, "unit": "large strip", "name": "kombu kelp (about 4x4 inches)"}, {"qty": 1, "unit": "inch", "name": "ginger, sliced into coins"}, {"qty": 5, "unit": "cups", "name": "filtered water"}, {"qty": 2, "unit": "tbsp", "name": "tamari & pinch of sea salt"}, {"qty": 2, "unit": "stalks", "name": "scallions for serving"}], "steps": ["Score an 'X' into the flat surfaces of the daikon rounds so the seaweed dashi penetrates to the core.", "Place daikon, kombu, and ginger in a pot with water; bring to gentle boil, then turn down heat to low.", "Simmer covered for 25\u201330 min until daikon turns completely translucent and fork-tender. Season with tamari and scallions."], "tip": "Daikon radish absorbs the sea-mineral essence of kombu like a sponge; ideal during recovery after antibiotics or stomach upset."}];
-  const MEAL_PLAN = [{"day": 1, "theme": "The Soothing Inoculation", "focus": "Warm, pre-digested, easy-to-absorb foods that calm mucosal inflammation and introduce gentle ferments.", "microbe": "Lactobacillus & Akkermansia", "meals": [{"time": "Morning Tonic", "title": "Uchinanchu Longevity Turmeric Tonic", "recipeId": "r35"}, {"time": "Breakfast", "title": "Traditional Fermented Idli with Coconut Chutney", "recipeId": "r2"}, {"time": "Lunch", "title": "Classic Drumstick & Shallot Sambar with Steamed Brown Rice", "recipeId": "r1"}, {"time": "Digestive Sip", "title": "Pepper Cumin Digestive Rasam", "recipeId": "r3"}, {"time": "Dinner", "title": "Okinawan Slow Daikon & Kombu Mineral Broth with Tofu", "recipeId": "r36"}]}, {"day": 2, "theme": "Lentil & Fibre Seeding", "focus": "Diverse legumes and slow-cooked pulses seeding butyrate production across your colonic transit.", "microbe": "Faecalibacterium prausnitzii & Roseburia", "meals": [{"time": "Breakfast", "title": "Greek Mountain Wild Greens & Leek Scramble", "recipeId": "r18"}, {"time": "Lunch", "title": "Greek Village Bean Soup (Fasolada) with EVOO", "recipeId": "r13"}, {"time": "Snack", "title": "Crispy Spiced Roasted Chickpeas with Za'atar", "recipeId": "r21"}, {"time": "Dinner", "title": "Mung Dal & Ash Gourd Kootu with Fresh Coconut", "recipeId": "r6"}]}, {"day": 3, "theme": "Polyphenol Rainbow Shower", "focus": "Deeply pigmented anthocyanins, oleuropein, and carotenoids feeding mucus-dwelling Akkermansia.", "microbe": "Akkermansia muciniphila", "meals": [{"time": "Breakfast", "title": "Catalan Pan con Tomate with Crushed Garlic & EVOO", "recipeId": "r17"}, {"time": "Lunch", "title": "Sicilian Eggplant Caponata with Pine Nuts & Capers", "recipeId": "r15"}, {"time": "Digestive Sip", "title": "Warm Sideritis Greek Mountain Herb Infusion", "recipeId": "r23"}, {"time": "Dinner", "title": "Okinawan Goya Chanpuru (Bitter Melon & Tofu Stir-Fry)", "recipeId": "r25"}]}, {"day": 4, "theme": "Resistant Starch Deep Loading", "focus": "Retrograded type-3 resistant starches and tubers feeding distal colon microbes to maximize SCFA yield.", "microbe": "Ruminococcus & Bifidobacterium", "meals": [{"time": "Breakfast", "title": "Fermented Adai Multi-Lentil Protein Crepe", "recipeId": "r9"}, {"time": "Lunch", "title": "Spanish Escatxada Salt Cod & White Bean Salad with Black Olives", "recipeId": "r22"}, {"time": "Dinner", "title": "Roasted Sweet Potato & Turmeric Tofu Bowl with Nori", "recipeId": "r31"}]}, {"day": 5, "theme": "Multi-Strain Fermentation Flood", "focus": "Live probiotics from wild fermentations paired with soluble plant substrates.", "microbe": "Leuconostoc, Pediococcus & Lactobacillus", "meals": [{"time": "Breakfast", "title": "Traditional Fermented Idli with Fresh Coconut Chutney", "recipeId": "r2"}, {"time": "Lunch", "title": "Ash Gourd Mor Kuzhambu (Cooling Buttermilk Stew)", "recipeId": "r4"}, {"time": "Snack / Side", "title": "Marinated Silken Tofu in Rice Koji & Tamari (Tofuyo Style)", "recipeId": "r34"}, {"time": "Dinner", "title": "Miso-Glazed Roasted Pumpkin (Kabocha) & Daikon Radish", "recipeId": "r32"}]}, {"day": 6, "theme": "Ocean Minerals & Fucoidan Shield", "focus": "Sulfated polysaccharides (fucoidan and alginates) strengthening the colonic mucin barrier.", "microbe": "Bacteroides thetaiotaomicron & Akkermansia", "meals": [{"time": "Breakfast", "title": "Okinawan Awamori-Style Miso Vegetable Soup with Wakame", "recipeId": "r26"}, {"time": "Lunch", "title": "Chilled Mozuku Seaweed in Fermented Rice Vinegar", "recipeId": "r30"}, {"time": "Side Dish", "title": "Hijiki Seaweed & Julienned Carrot Stir-Fry", "recipeId": "r33"}, {"time": "Dinner", "title": "Soba Noodles in Shiitake-Kombu Dashi with Greens", "recipeId": "r28"}]}, {"day": 7, "theme": "The 30-Plant Celebration Feast", "focus": "Hitting and exceeding 30 plant species in a grand multi-culinary celebration of biodiversity.", "microbe": "The Entire Microbial Cloud (>1,000 Species)", "meals": [{"time": "Breakfast", "title": "Fermented Ragi & Whole Rice Porridge (Koozh)", "recipeId": "r10"}, {"time": "Midday Feast", "title": "Moroccan 7-Vegetable Chickpea Tagine with Preserved Lemon", "recipeId": "r14"}, {"time": "Salad Side", "title": "Tuscan Ribollita White Bean & Lacinato Kale Stew", "recipeId": "r16"}, {"time": "Dinner", "title": "Simmered Okinawan Sweet Potato & Green Papaya (Kuusabani)", "recipeId": "r29"}]}];
-  const SHOPPING_DATA = {"Fresh Produce (Vegetables, Greens & Roots)": ["Shallots (Sambar Onions) & Red Onions", "Fresh Drumsticks (Moringa Pods)", "Ash Gourd (Winter Melon / Petha)", "Bitter Melon (Goya / Karela)", "Sweet Potatoes (Purple or Orange)", "Kabocha Pumpkin / Butternut Squash", "Daikon Radish", "Green Papaya", "Lacinato (Dino) Kale & Wild Greens (Horta / Dandelion)", "Eggplants (Aubergines)", "Zucchini & Bell Peppers", "Ripe Vine Tomatoes & Cherry Tomatoes", "Garlic heads & Fresh Ginger roots", "Fresh Turmeric Root (Ukon)", "Fresh Herbs: Coriander (Cilantro), Curry Leaves, Parsley, Basil, Oregano", "Lemons, Limes & Shikuwasa / Calamansi"], "Legumes, Pulses & Whole Grains": ["Toor Dal (Yellow Pigeon Peas)", "Urad Dal (Split & Whole Skinned Black Gram)", "Yellow Moong Dal (Split Mung)", "Chana Dal (Bengal Gram) & Roasted Gram (Pottukadlai)", "Finger Millet (Ragi Flour / Grain)", "Dried Chickpeas (Garbanzo Beans)", "Dried White Cannellini Beans", "Dried Green or Brown Lentils", "Parboiled Idli Rice & Short-Grain Brown Rice", "100% Buckwheat Soba Noodles (Juwari Soba)", "Coarse Bulgur Wheat & Whole-Grain Couscous", "Artisanal Crusty Sourdough Bread"], "Seaweeds, Ferments & Cultured Foods": ["Kombu Kelp sheets (Dashi Grade)", "Dried Wakame Seaweed", "Dried Hijiki Seaweed", "Roasted Nori Seaweed sheets", "Fresh Mozuku or Arame Seaweed", "Traditional Brown Rice or Barley Miso Paste", "Shio Koji (Fermented Rice Koji Paste)", "Organic Cultured Buttermilk or Live Plain Yogurt", "Tamari (Gluten-Free Brewed Soy Sauce)", "Organic Apple Cider Vinegar & Aged Red Wine Vinegar"], "Oils, Nuts, Seeds & Superfood Spices": ["Cold-Pressed Extra Virgin Olive Oil (Single-Origin, High-Polyphenol)", "Cold-Pressed Sesame Oil & Virgin Coconut Oil", "Pine Nuts, Raw Walnuts & Golden Sesame Seeds", "Black Mustard Seeds, Cumin Seeds & Fenugreek (Methi) Seeds", "Whole Black Peppercorns & Coriander Seeds", "Sambar Powder & Rasam Powder", "Ground Turmeric & Asafoetida (Hing)", "Sumac & Za'atar spice blend", "Greek Mountain Tea (Sideritis) Dried Herb", "Kalamata Olives & Salt-Packed Capers"]};
+  const ALL_RECIPES = [{"id": "r1", "num": 1, "cuisine": "si", "cuisineName": "South Indian", "title": "Classic Drumstick & Shallot Sambar", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Resistant lentil starch + shallot FOS feed butyrate-producing *Faecalibacterium prausnitzii*.", "microbe": "Faecalibacterium prausnitzii", "prebiotic": "Resistant Starch & FOS", "plantPoints": 7, "plants": ["Toor Dal (Pigeon Peas)", "Shallots", "Drumstick (Moringa)", "Tomatoes", "Tamarind", "Coriander", "Cumin"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/9609848/pexels-photo-9609848.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "cup", "name": "toor dal (pigeon peas), rinsed"}, {"qty": 10, "unit": "whole", "name": "shallots (sambar onions), peeled"}, {"qty": 2, "unit": "stalks", "name": "fresh drumsticks (moringa), cut into 2-inch pieces"}, {"qty": 2, "unit": "medium", "name": "ripe tomatoes, chopped"}, {"qty": 1, "unit": "tbsp", "name": "tamarind pulp dissolved in warm water"}, {"qty": 1.5, "unit": "tbsp", "name": "sambar powder (coriander, cumin, fenugreek, red chilli)"}, {"qty": 0.5, "unit": "tsp", "name": "turmeric powder & pinch of hing (asafoetida)"}, {"qty": 1, "unit": "tbsp", "name": "sesame or coconut oil with mustard seeds & curry leaves"}], "steps": ["Pressure cook or boil toor dal with turmeric until soft and creamy; mash gently.", "In a clay pot or saucepan, simmer shallots, drumstick pieces, and tomatoes in tamarind water with sambar powder for 10 min.", "Stir in cooked dal, season with salt, simmer 5 min, then finish with oil tempered with mustard seeds and fresh curry leaves."], "tip": "Moringa pods are packed with bioactive polyphenols and insoluble fibre; don't skip sucking the rich internal marrow!", "clinical": ["anti-inflammatory"]}, {"id": "r2", "num": 2, "cuisine": "si", "cuisineName": "South Indian", "title": "Traditional Fermented Idli with Fresh Coconut Chutney", "meal": "breakfast", "diet": ["vegan", "gf", "df"], "benefit": "Wild fermentation by *Leuconostoc mesenteroides* & *Lactobacillus* increases B-vitamins and degrades antinutrients.", "microbe": "Lactobacillus & Bifidobacterium", "prebiotic": "Fermented Amylose & Lauric Acid", "plantPoints": 6, "plants": ["Parboiled Rice", "Urad Dal", "Fenugreek Seeds", "Fresh Coconut", "Green Chillies", "Ginger"], "servings": 4, "time": "20 min (+ fermentation)", "img": "https://images.pexels.com/photos/4331490/pexels-photo-4331490.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 3, "unit": "cups", "name": "parboiled idli rice"}, {"qty": 1, "unit": "cup", "name": "whole skinned urad dal (black gram)"}, {"qty": 1, "unit": "tsp", "name": "methi (fenugreek) seeds"}, {"qty": 1, "unit": "cup", "name": "freshly grated coconut"}, {"qty": 2, "unit": "whole", "name": "roasted gram dal & green chillies with fresh ginger slice"}, {"qty": 1, "unit": "tsp", "name": "mustard seeds & curry leaves for tempering"}], "steps": ["Soak rice and dal separately with fenugreek for 5 hours; grind into smooth, aerated batter and ferment overnight for 12\u201314 hours.", "Steam fermented batter in lightly oiled idli moulds for 10\u201312 minutes until fluffy.", "Blend fresh coconut, ginger, green chillies, and roasted dal with a pinch of salt; temper with mustard and curry leaves."], "tip": "Cooling steamed idlis slightly before eating boosts resistant starch (RS3), reducing glucose spikes and feeding colonocytes.", "clinical": ["anti-inflammatory", "low-fodmap"]}, {"id": "r3", "num": 3, "cuisine": "si", "cuisineName": "South Indian", "title": "Pepper Cumin Digestive Rasam", "meal": "soup", "diet": ["vegan", "gf", "df"], "benefit": "Piperine + thymol stimulate gastric motility and bile acid secretion, resetting slow transit times.", "microbe": "Bacteroides & Akkermansia", "prebiotic": "Polyphenols & Pectin", "plantPoints": 6, "plants": ["Black Peppercorns", "Cumin Seeds", "Tomatoes", "Garlic", "Curry Leaves", "Tamarind"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "tbsp", "name": "whole black peppercorns & cumin seeds (coarsely crushed)"}, {"qty": 2, "unit": "ripe", "name": "tomatoes, crushed by hand"}, {"qty": 4, "unit": "cloves", "name": "garlic, crushed with skin on"}, {"qty": 1, "unit": "small", "name": "lemon-sized tamarind ball extracted in 2 cups warm water"}, {"qty": 1, "unit": "sprig", "name": "fresh curry leaves & chopped coriander stems"}, {"qty": 1, "unit": "tsp", "name": "ghee or coconut oil with mustard seeds & asafoetida"}], "steps": ["Crush garlic, black pepper, and cumin in a mortar and pestle.", "Simmer tamarind extract with crushed tomatoes, garlic mixture, curry leaves, and turmeric until raw scent dissipates (8 min).", "Pour in 1 cup water, bring to a gentle frothy boil (do not overboil), and immediately turn off heat. Temper with ghee and mustard."], "tip": "Sip hot rasam 15 minutes before a heavier meal to prepare gastric enzyme output and prime microbial digestion.", "clinical": ["anti-inflammatory", "sibo-friendly"]}, {"id": "r4", "num": 4, "cuisine": "si", "cuisineName": "South Indian", "title": "Ash Gourd Mor Kuzhambu (Cooling Buttermilk Stew)", "meal": "main", "diet": ["gf"], "benefit": "Live lactic acid bacteria in cultured buttermilk paired with alkaline prebiotic ash gourd soothe gut mucosal lining.", "microbe": "Lactobacillus acidophilus", "prebiotic": "Alkaline Pectin & Soluble Fibre", "plantPoints": 7, "plants": ["Ash Gourd (Winter Melon)", "Coconut", "Ginger", "Coriander Seeds", "Cumin", "Turmeric", "Curry Leaves"], "servings": 4, "time": "20 min", "img": "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "cups", "name": "ash gourd (winter melon) cubes"}, {"qty": 1.5, "unit": "cups", "name": "whisked fresh sour curd / buttermilk"}, {"qty": 0.5, "unit": "cup", "name": "grated coconut"}, {"qty": 2, "unit": "whole", "name": "green chillies, 1 tsp cumin seeds & 1 tsp soaked toor dal"}, {"qty": 0.5, "unit": "inch", "name": "fresh ginger root"}, {"qty": 1, "unit": "tsp", "name": "coconut oil, mustard seeds, fenugreek seeds, curry leaves"}], "steps": ["Boil ash gourd cubes in salted water with turmeric until translucent and tender (7 min).", "Grind grated coconut, cumin, ginger, soaked dal, and green chillies into a silky paste.", "Add paste to cooked gourd, lower heat to minimum, stir in whisked curd gently until warm and frothy \u2014 never allow to boil."], "tip": "Keep heat low once buttermilk is added to preserve the delicate live probiotic cultures from heat denaturation.", "clinical": ["anti-inflammatory", "sibo-friendly"]}, {"id": "r5", "num": 5, "cuisine": "si", "cuisineName": "South Indian", "title": "Tempered Amaranth Greens (Keerai Poriyal)", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Rich in sulforaphanes and insoluble cellulose that expand stool volume and feed distal colonic bacteria.", "microbe": "Bifidobacterium & Roseburia", "prebiotic": "Insoluble Cellulose & Chlorophyll", "plantPoints": 6, "plants": ["Amaranth Greens (Keerai)", "Shallots", "Coconut", "Mustard Seeds", "Urad Dal", "Red Chilli"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 4, "unit": "cups", "name": "fresh tender amaranth leaves (keerai), washed and finely chopped"}, {"qty": 6, "unit": "whole", "name": "shallots, finely sliced"}, {"qty": 3, "unit": "tbsp", "name": "fresh grated coconut"}, {"qty": 1, "unit": "tsp", "name": "mustard seeds & 1 tsp split urad dal for crunch"}, {"qty": 2, "unit": "dry", "name": "red chillies & a pinch of turmeric"}, {"qty": 1, "unit": "tbsp", "name": "cold-pressed sesame (gingelly) oil"}], "steps": ["Heat sesame oil in a kadai; splutter mustard seeds, urad dal, and dried red chillies until golden.", "Add sliced shallots and saut\u00e9 for 2 min until soft and translucent.", "Toss in chopped amaranth greens and salt; cook without lid on medium heat for 4\u20135 min. Finish with fresh coconut."], "tip": "Cooking leafy greens uncovered keeps their chlorophyll intact and avoids trapping volatile organic acids.", "clinical": ["anti-inflammatory"]}, {"id": "r6", "num": 6, "cuisine": "si", "cuisineName": "South Indian", "title": "Fermented Pearl Millet Porridge (Kambu Koozh)", "meal": "breakfast", "diet": ["gf"], "benefit": "Ancient Tamil probiotic super-porridge; rich in polyphenols, magnesium, and active lactic cultures.", "microbe": "Leuconostoc & Lactobacillus", "prebiotic": "Millet Beta-Glucan & Resistant Starch", "plantPoints": 6, "plants": ["Pearl Millet (Bajra/Kambu)", "Shallots", "Cultured Buttermilk", "Curry Leaves", "Green Chilli", "Moringa Leaves"], "servings": 4, "time": "25 min (+ overnight ferment)", "img": "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "cup", "name": "pearl millet (kambu) flour or cracked grits"}, {"qty": 4, "unit": "cups", "name": "water for cooking"}, {"qty": 1, "unit": "cup", "name": "churned sour buttermilk"}, {"qty": 6, "unit": "whole", "name": "raw shallots, crushed"}, {"qty": 1, "unit": "whole", "name": "green chilli, finely slit, and fresh curry leaves"}, {"qty": 0.5, "unit": "tsp", "name": "sea salt"}], "steps": ["Mix millet flour in water without lumps; cook on low heat stirring constantly until thick and glossy (15 min).", "Transfer to a clay pot, cover with water surface, and let ferment at room temperature overnight (10\u201312 hours).", "In the morning, whisk the fermented porridge with chilled sour buttermilk, crushed raw shallots, and green chilli."], "tip": "Clay pot fermentation naturally regulates ambient temperature and introduces beneficial environmental microflora.", "clinical": ["anti-inflammatory"]}, {"id": "r7", "num": 7, "cuisine": "si", "cuisineName": "South Indian", "title": "Ragi (Finger Millet) Kali with Spiced Sprouted Dal", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Finger millet contains high calcium and slow-digesting complex amylose that fuels distal colon SCFA release.", "microbe": "Faecalibacterium & Roseburia", "prebiotic": "Type-2 Resistant Starch", "plantPoints": 7, "plants": ["Finger Millet (Ragi)", "Sprouted Green Gram", "Tomatoes", "Onions", "Cumin", "Ginger", "Curry Leaves"], "servings": 4, "time": "25 min", "img": "https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "cup", "name": "ragi (finger millet) flour"}, {"qty": 2.5, "unit": "cups", "name": "water"}, {"qty": 1, "unit": "cup", "name": "sprouted green moong dal"}, {"qty": 1, "unit": "medium", "name": "onion and 1 tomato, finely chopped"}, {"qty": 1, "unit": "tsp", "name": "cumin powder, coriander powder, and turmeric"}, {"qty": 1, "unit": "tbsp", "name": "cold-pressed coconut oil"}], "steps": ["Boil 2 cups water; mix 2 tbsp ragi flour in remaining water, pour in, and let boil.", "Sprinkle remaining ragi flour over bubbling water; do not stir for 3 min, then vigorously roll with wooden spatula into smooth kali ball.", "Saut\u00e9 onions, tomatoes, and sprouted moong in coconut oil with spices for 10 min to serve alongside."], "tip": "Finger millet has an exceptionally low glycemic index and provides prebiotic arabinoxylans that support mucosal wall thickness.", "clinical": ["anti-inflammatory"]}, {"id": "r8", "num": 8, "cuisine": "si", "cuisineName": "South Indian", "title": "Vendakkai (Okra) Pachadi with Whipped Curd", "meal": "side", "diet": ["gf"], "benefit": "Okra mucilage is a natural water-soluble polysaccharide that coats the epithelium and fuels *Akkermansia muciniphila*.", "microbe": "Akkermansia muciniphila", "prebiotic": "Mucilage & Rhamnogalacturonan", "plantPoints": 6, "plants": ["Okra (Ladies' Finger)", "Cultured Yoghurt", "Mustard Seeds", "Curry Leaves", "Green Chilli", "Ginger"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 250, "unit": "g", "name": "fresh tender okra (vendakkai), cut into thin rounds"}, {"qty": 1.5, "unit": "cups", "name": "thick fresh curd (plain yoghurt), whisked smooth"}, {"qty": 1, "unit": "tbsp", "name": "sesame oil for pan-roasting"}, {"qty": 1, "unit": "tsp", "name": "mustard seeds & 1 slit green chilli"}, {"qty": 0.5, "unit": "tsp", "name": "grated ginger & pinch of asafoetida"}, {"qty": 1, "unit": "sprig", "name": "curry leaves"}], "steps": ["Pan-roast sliced okra in sesame oil on medium heat until crisp, golden, and non-sticky (8 min).", "Whisk curd with salt and grated ginger in a serving bowl.", "Fold roasted okra into curd and immediately top with mustard seeds, chilli, and curry leaves tempered in hot oil."], "tip": "Pan-roasting okra lightly crisps the exterior while locking in the precious internal mucilage fibres.", "clinical": ["anti-inflammatory"]}, {"id": "r9", "num": 9, "cuisine": "si", "cuisineName": "South Indian", "title": "Spiced Horse Gram (Kollu) Broth", "meal": "soup", "diet": ["vegan", "gf", "df"], "benefit": "Horse gram is loaded with slow-digesting resistant starch, polyphenols, and phytosterols that modulate gut lipids.", "microbe": "Bacteroides & Akkermansia", "prebiotic": "Galactooligosaccharides & Polyphenols", "plantPoints": 7, "plants": ["Horse Gram (Kollu)", "Garlic", "Black Pepper", "Cumin", "Tomatoes", "Coriander", "Curry Leaves"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 0.5, "unit": "cup", "name": "horse gram (kollu), soaked 4 hours"}, {"qty": 4, "unit": "cups", "name": "water for boiling"}, {"qty": 4, "unit": "cloves", "name": "garlic & 1 tsp cumin seeds"}, {"qty": 1, "unit": "tsp", "name": "black peppercorns, crushed"}, {"qty": 1, "unit": "medium", "name": "tomato, chopped"}, {"qty": 1, "unit": "tbsp", "name": "cold-pressed gingelly oil, mustard, curry leaves"}], "steps": ["Pressure-cook soaked horse gram in 4 cups water for 5 whistles; strain and reserve the nutrient-rich brown broth.", "Crush 2 tbsp of the cooked horse gram with garlic, cumin, pepper, and tomato into a coarse paste.", "Simmer the paste with reserved broth for 6 min, season with salt, and finish with a crackling mustard-curry leaf temper."], "tip": "Save the remaining whole cooked horse gram for a dry sundal snack with coconut \u2014 zero waste, double fibre!", "clinical": ["anti-inflammatory"]}, {"id": "r10", "num": 10, "cuisine": "si", "cuisineName": "South Indian", "title": "Fermented Kanchipuram Dosa with Curry Leaf Podi", "meal": "breakfast", "diet": ["vegan", "gf", "df"], "benefit": "Thick spiced fermented pancake tempered with whole black pepper and ginger; supports natural microbial diversity.", "microbe": "Leuconostoc & Lactobacillus", "prebiotic": "Fermented Legume Starch & Piperine", "plantPoints": 7, "plants": ["Raw Rice", "Boiled Rice", "Urad Dal", "Black Peppercorns", "Cumin", "Dry Ginger", "Curry Leaves"], "servings": 4, "time": "25 min (+ ferment)", "img": "https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "cups", "name": "dosa batter (fermented rice and urad dal, slightly coarse)"}, {"qty": 1, "unit": "tsp", "name": "whole black pepper, coarsely bruised"}, {"qty": 1, "unit": "tsp", "name": "cumin seeds & 0.5 tsp dry ginger powder (sukku)"}, {"qty": 2, "unit": "tbsp", "name": "fresh curry leaves, chopped fine"}, {"qty": 1, "unit": "tbsp", "name": "sesame oil or ghee for cooking"}, {"qty": 2, "unit": "tbsp", "name": "curry leaf podi for sprinkling"}], "steps": ["Fold crushed peppercorns, cumin, dry ginger powder, and fresh curry leaves directly into the fermented batter.", "Pour a ladleful onto a hot cast-iron tawa; spread gently into a thick, spongy pancake.", "Drizzle sesame oil around the edges, cook until crisp beneath, flip for 1 min, and serve with curry leaf podi."], "tip": "Curry leaves contain carbazole alkaloids that possess potent antimicrobial activity against enteric pathogens.", "clinical": ["anti-inflammatory"]}, {"id": "r11", "num": 11, "cuisine": "si", "cuisineName": "South Indian", "title": "Whole Green Moong Sprout Sundal", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Sprouting decreases phytic acid and unleashes prebiotic oligosaccharides that boost *Bifidobacteria* levels.", "microbe": "Bifidobacterium longum", "prebiotic": "Oligosaccharides & Resistant Starch", "plantPoints": 6, "plants": ["Whole Green Gram (Moong)", "Grated Coconut", "Fresh Ginger", "Mustard Seeds", "Curry Leaves", "Lemon Juice"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/7474251/pexels-photo-7474251.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "cups", "name": "whole green moong, sprouted (2 days)"}, {"qty": 3, "unit": "tbsp", "name": "freshly grated coconut"}, {"qty": 1, "unit": "tsp", "name": "mustard seeds, split urad dal, and hing"}, {"qty": 1, "unit": "tsp", "name": "minced ginger and 1 slit green chilli"}, {"qty": 1, "unit": "tbsp", "name": "fresh lemon juice & coriander leaves"}, {"qty": 1, "unit": "tsp", "name": "cold-pressed coconut oil"}], "steps": ["Steam sprouted moong for 5\u20136 min until tender but still retaining a pleasant crunch.", "Heat coconut oil in a pan; splutter mustard seeds, urad dal, green chilli, ginger, and curry leaves.", "Toss in steamed sprouts and salt; stir for 2 min. Turn off heat, fold in grated coconut and fresh lemon juice."], "tip": "Sprouting triples the availability of antioxidant vitamin C and polyphenols compared to unsprouted dry beans.", "clinical": ["anti-inflammatory"]}, {"id": "r12", "num": 12, "cuisine": "si", "cuisineName": "South Indian", "title": "Beetroot & Crushed Mustard Seed Kanji (Fermented Tonic)", "meal": "tonic", "diet": ["vegan", "gf", "df"], "benefit": "Wild lacto-fermented brine containing betalains and mustard isothiocyanates; enhances gut wall microcirculation.", "microbe": "Lactobacillus plantarum", "prebiotic": "Betalains & Glucosinolates", "plantPoints": 5, "plants": ["Beetroot", "Black Mustard Seeds", "Black Salt (Kala Namak)", "Carrots", "Water"], "servings": 6, "time": "10 min (+ 3 days ferment)", "img": "https://images.pexels.com/photos/4198135/pexels-photo-4198135.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "medium", "name": "beetroots, peeled and cut into batons"}, {"qty": 2, "unit": "medium", "name": "purple or orange carrots, batoned"}, {"qty": 2, "unit": "tbsp", "name": "black mustard seeds, coarsely ground into powder (rai)"}, {"qty": 1, "unit": "tsp", "name": "kala namak (Himalayan black mineral salt)"}, {"qty": 1, "unit": "tsp", "name": "sea salt and pinch of red chilli powder"}, {"qty": 6, "unit": "cups", "name": "boiled and cooled mineral water"}], "steps": ["Combine sliced beetroots, carrots, ground mustard seeds, black salt, and sea salt in a clean glass jar.", "Pour in cooled boiled water, stir with a non-metallic spoon, and cover neck with a breathable muslin cloth.", "Leave in a warm sunny spot for 3\u20134 days to naturally ferment until tangy and effervescent. Chill and sip 100ml daily."], "tip": "The mustard powder acts as the natural bacterial culture starter while beet betacyanins protect against colonic oxidative damage.", "clinical": ["anti-inflammatory"]}, {"id": "r13", "num": 13, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Greek Briam (Slow-Baked Rainbow Summer Casserole)", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Massive plant polyphenol density bathed in extra-virgin olive oil increases microbial gene richness.", "microbe": "Bifidobacterium & Akkermansia", "prebiotic": "Polyphenols & Inulin", "plantPoints": 8, "plants": ["Zucchini", "Eggplant", "Red Onion", "Bell Peppers", "Tomatoes", "Garlic", "Oregano", "Parsley"], "servings": 4, "time": "50 min", "img": "https://images.pexels.com/photos/1640775/pexels-photo-1640775.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "medium", "name": "zucchini, sliced into rounds"}, {"qty": 1, "unit": "large", "name": "eggplant, cubed"}, {"qty": 2, "unit": "large", "name": "potatoes, cut into chunks"}, {"qty": 1, "unit": "large", "name": "red onion and 2 bell peppers (red & green)"}, {"qty": 4, "unit": "cloves", "name": "garlic, sliced, & 2 ripe tomatoes blended"}, {"qty": 0.33, "unit": "cup", "name": "cold-pressed extra-virgin olive oil"}, {"qty": 1, "unit": "tbsp", "name": "dried Greek oregano and fresh flat-leaf parsley"}], "steps": ["Toss zucchini, eggplant, potatoes, peppers, onions, and garlic in a deep baking dish.", "Pour blended tomatoes and olive oil liberally over vegetables; season generously with oregano, sea salt, and black pepper.", "Bake uncovered at 200\u00b0C (400\u00b0F) for 45\u201350 min until tender and caramelized with golden crust edges."], "tip": "EVOO polyphenols act as protective carriers that prevent gut inflammation and enhance fat-soluble antioxidant absorption.", "clinical": ["anti-inflammatory"]}, {"id": "r14", "num": 14, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Gigantes Plaki (Greek Slow-Baked Giant White Beans)", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Gigante beans provide massive doses of fermentable resistant starch and soluble pectin that fuel colonocytes.", "microbe": "Faecalibacterium prausnitzii", "prebiotic": "Resistant Starch & Arabinogalactan", "plantPoints": 7, "plants": ["Gigante / Butter Beans", "Tomatoes", "Yellow Onion", "Celery", "Garlic", "Parsley", "Extra Virgin Olive Oil"], "servings": 4, "time": "45 min", "img": "https://images.pexels.com/photos/1640771/pexels-photo-1640771.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 3, "unit": "cups", "name": "cooked gigante or butter beans"}, {"qty": 1, "unit": "large", "name": "yellow onion, sliced into rings"}, {"qty": 2, "unit": "stalks", "name": "celery, sliced, & 3 cloves garlic minced"}, {"qty": 1.5, "unit": "cups", "name": "crushed San Marzano tomatoes"}, {"qty": 0.25, "unit": "cup", "name": "extra-virgin olive oil"}, {"qty": 1, "unit": "tbsp", "name": "fresh dill & chopped fresh parsley"}], "steps": ["Saut\u00e9 sliced onions, celery, and garlic in 2 tbsp olive oil until translucent and fragrant (8 min).", "Stir in crushed tomatoes, a splash of water, sea salt, pepper, and simmer for 10 min to create a rich sauce.", "Transfer beans and sauce to an earthenware baking dish, drizzle with remaining olive oil, bake at 190\u00b0C for 30 min, and garnish with dill."], "tip": "Refrigerating leftover baked beans for 24 hours increases their resistant starch content by an additional 15\u201320%.", "clinical": ["anti-inflammatory"]}, {"id": "r15", "num": 15, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Authentic Herb-Heavy Tabbouleh", "meal": "side", "diet": ["vegan", "df"], "benefit": "High herb-to-grain ratio provides massive concentrations of apigenin and luteolin flavonoids that protect epithelial tight junctions.", "microbe": "Akkermansia & Bifidobacteria", "prebiotic": "Luteolin, Apigenin & Insoluble Fibre", "plantPoints": 7, "plants": ["Flat-Leaf Parsley", "Fresh Mint", "Bulgur Wheat", "Tomatoes", "Scallions", "Lemon", "Olive Oil"], "servings": 4, "time": "20 min", "img": "https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 3, "unit": "large bunches", "name": "flat-leaf parsley, washed, dried thoroughly, and finely minced"}, {"qty": 0.5, "unit": "cup", "name": "fresh mint leaves, finely chopped"}, {"qty": 0.25, "unit": "cup", "name": "fine bulgur wheat, soaked in water 15 min and squeezed dry"}, {"qty": 3, "unit": "firm", "name": "tomatoes, seeds removed and finely diced"}, {"qty": 4, "unit": "stalks", "name": "scallions (spring onions), sliced thin"}, {"qty": 0.33, "unit": "cup", "name": "fresh lemon juice & 0.33 cup extra-virgin olive oil"}], "steps": ["Ensure herbs are bone-dry before chopping with a very sharp chef's knife to prevent bruising and bitterness.", "Combine minced parsley, mint, scallions, diced tomatoes, and rehydrated bulgur in a large salad bowl.", "Whisk fresh lemon juice with extra-virgin olive oil and sea salt; toss gently right before serving."], "tip": "Parsley is a medicinal green, not a garnish. In the Levant, tabbouleh is celebrated as a healing parsley salad with just a whisper of grain.", "clinical": ["anti-inflammatory", "low-fodmap", "histamine-conscious"]}, {"id": "r16", "num": 16, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Wild Greens (Horta) with Lemon & Cold-Pressed Olive Oil", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Bitter sesquiterpenes and polyphenols in wild greens stimulate digestive enzyme cascades and healthy gallbladder bile flow.", "microbe": "Bacteroides thetaiotaomicron", "prebiotic": "Bitter Polyphenols & Cellulose", "plantPoints": 5, "plants": ["Dandelion Greens", "Chicory / Escarole", "Lemon", "Garlic", "Extra Virgin Olive Oil"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 500, "unit": "g", "name": "mixed bitter greens (dandelion, chicory, escarole, or mustard greens)"}, {"qty": 1, "unit": "whole", "name": "juicy organic lemon"}, {"qty": 0.25, "unit": "cup", "name": "cold-pressed unrefined extra-virgin olive oil"}, {"qty": 1, "unit": "clove", "name": "garlic, crushed (optional)"}, {"qty": 1, "unit": "tsp", "name": "coarse sea salt flakes"}], "steps": ["Wash bitter greens thoroughly in cold water to remove any garden grit.", "Drop greens into a large pot of boiling salted water; cook 5\u20137 minutes until tender yet vibrantly green.", "Drain well, transfer to a platter, and while still warm, bathe generously in raw olive oil and fresh lemon juice."], "tip": "Drink the warm, olive-green cooking broth (zomos) with a squeeze of lemon as an ancient Cretan digestive tonic.", "clinical": ["anti-inflammatory", "low-fodmap", "histamine-conscious"]}, {"id": "r17", "num": 17, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Shakshuka with Braised Greens & Poached Eggs", "meal": "breakfast", "diet": ["gf", "df"], "benefit": "Lycopene from slow-cooked tomatoes combined with allium prebiotic fibres shields gut tissues against oxidative stress.", "microbe": "Lactobacillus & Bifidobacteria", "prebiotic": "Inulin, Lycopene & Lutein", "plantPoints": 8, "plants": ["Tomatoes", "Bell Peppers", "Spinach", "Yellow Onion", "Garlic", "Cumin", "Paprika", "Coriander"], "servings": 4, "time": "25 min", "img": "https://images.pexels.com/photos/718742/pexels-photo-718742.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 4, "unit": "large", "name": "pasture-raised eggs (or cooked chickpeas for vegan)"}, {"qty": 4, "unit": "cups", "name": "crushed ripe tomatoes"}, {"qty": 1, "unit": "large", "name": "red bell pepper, sliced into strips"}, {"qty": 2, "unit": "cups", "name": "baby spinach or swiss chard"}, {"qty": 1, "unit": "medium", "name": "onion and 3 cloves garlic minced"}, {"qty": 1, "unit": "tbsp", "name": "ground cumin, smoked paprika, and pinch of cayenne"}, {"qty": 2, "unit": "tbsp", "name": "extra-virgin olive oil"}], "steps": ["Saut\u00e9 sliced onion and bell peppers in olive oil until soft; stir in garlic, cumin, and smoked paprika.", "Add crushed tomatoes and simmer on low for 12 min until sauce is thick and fragrant; fold in spinach until wilted.", "Make 4 small wells in the sauce, crack eggs in, cover skillet with lid, and cook on low heat for 5\u20137 min until whites set."], "tip": "Heat increases the bio-availability of tomato lycopene by transforming trans-lycopene into the more absorbable cis-isomer.", "clinical": ["anti-inflammatory"]}, {"id": "r18", "num": 18, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Puy Lentil & Toasted Walnut Warm Salad", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Walnut ellagitannins are metabolized by gut bacteria into urolithins, powerful anti-aging microbial metabolites.", "microbe": "Roseburia & Faecalibacterium", "prebiotic": "Ellagitannins & Soluble Fibre", "plantPoints": 7, "plants": ["French Puy Lentils", "Walnuts", "Shallots", "Dijon Mustard Seed", "Red Wine Vinegar", "Parsley", "Olive Oil"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1.5, "unit": "cups", "name": "Puy or black Beluga lentils, rinsed"}, {"qty": 0.75, "unit": "cup", "name": "raw walnut halves, lightly toasted in a dry pan"}, {"qty": 2, "unit": "small", "name": "shallots, finely diced"}, {"qty": 0.5, "unit": "cup", "name": "fresh flat-leaf parsley, chopped"}, {"qty": 1, "unit": "tbsp", "name": "whole-grain Dijon mustard"}, {"qty": 2, "unit": "tbsp", "name": "red wine vinegar & 3 tbsp cold-pressed EVOO"}], "steps": ["Simmer Puy lentils in water with a bay leaf for 20\u201325 min until tender with an al dente bite; drain well.", "Whisk Dijon mustard, red wine vinegar, shallots, sea salt, and EVOO to create an emulsion dressing.", "Toss warm lentils with dressing so flavours absorb deeply; fold in toasted walnuts and fresh parsley before serving."], "tip": "Puy lentils retain their structural shape and high resistant starch level better than red or yellow split lentils.", "clinical": ["anti-inflammatory"]}, {"id": "r19", "num": 19, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Sicilian Caponata with Pine Nuts & Capers", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Capers provide nature's highest dietary concentration of quercetin, which strengthens mucosal barrier function.", "microbe": "Lactobacillus reuteri", "prebiotic": "Quercetin & Pectin", "plantPoints": 8, "plants": ["Eggplant", "Celery", "Capers", "Pine Nuts", "Tomatoes", "Onion", "Green Olives", "Basil"], "servings": 4, "time": "35 min", "img": "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "medium", "name": "eggplants, cut into 1-inch cubes"}, {"qty": 2, "unit": "stalks", "name": "celery, chopped into 1/2-inch pieces"}, {"qty": 2, "unit": "tbsp", "name": "salted capers, rinsed and drained"}, {"qty": 0.33, "unit": "cup", "name": "pitted green olives, sliced"}, {"qty": 2, "unit": "tbsp", "name": "pine nuts, toasted"}, {"qty": 1.5, "unit": "cups", "name": "tomato passata & 1 tbsp raw apple cider vinegar"}], "steps": ["Pan-roast eggplant cubes in olive oil until golden and velvety; set aside.", "Blanch celery in boiling water for 3 min, drain, then saut\u00e9 with onions, capers, and olives in olive oil.", "Pour in tomato passata and vinegar; simmer 10 min. Fold in roasted eggplant and toasted pine nuts; serve warm or chilled."], "tip": "Caponata actually tastes better the second day as the organic acids and polyphenols intermingle.", "clinical": ["anti-inflammatory"]}, {"id": "r20", "num": 20, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Braised Whole Artichokes in Lemon & Extra Virgin Olive Oil", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Artichokes are the plant kingdom's richest source of prebiotic inulin, directly triggering exponential *Bifidobacterium* growth.", "microbe": "Bifidobacterium adolescentis", "prebiotic": "Inulin (Fructans)", "plantPoints": 6, "plants": ["Globe Artichokes", "Fresh Lemons", "Garlic", "Fresh Mint", "Fresh Dill", "Extra Virgin Olive Oil"], "servings": 4, "time": "35 min", "img": "https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 4, "unit": "whole", "name": "globe artichokes, trimmed and halved"}, {"qty": 2, "unit": "whole", "name": "lemons, 1 sliced and 1 juiced"}, {"qty": 4, "unit": "cloves", "name": "garlic, peeled and smashed"}, {"qty": 0.33, "unit": "cup", "name": "extra-virgin olive oil"}, {"qty": 1, "unit": "cup", "name": "vegetable broth or water"}, {"qty": 2, "unit": "tbsp", "name": "fresh dill and mint, chopped"}], "steps": ["Trim outer tough leaves of artichokes and rub cut edges immediately with lemon to prevent oxidation.", "Arrange artichokes cut-side down in a heavy braising pan with garlic, lemon slices, olive oil, and broth.", "Cover tightly and braise on low heat for 25\u201330 minutes until a knife easily pierces the tender heart. Garnish with fresh dill."], "tip": "A single globe artichoke provides up to 7 grams of inulin \u2014 the holy grail prebiotic for probiotic bifidobacteria.", "clinical": ["anti-inflammatory"]}, {"id": "r21", "num": 21, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Crisp Fennel, Orange & Kalamata Olive Salad", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Fennel essential oils (anethole, fenchone) relax intestinal smooth muscle and reduce fermentation bloating.", "microbe": "Lactobacillus & Enterococcus", "prebiotic": "Anethole, Hesperidin & Pectin", "plantPoints": 5, "plants": ["Fennel Bulb", "Oranges", "Kalamata Olives", "Red Onion", "Extra Virgin Olive Oil"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "medium", "name": "fennel bulbs, fronds reserved, shaved paper-thin"}, {"qty": 2, "unit": "medium", "name": "juicy navel or blood oranges, segmented with juices caught"}, {"qty": 0.5, "unit": "cup", "name": "Kalamata olives, pitted and halved"}, {"qty": 0.25, "unit": "small", "name": "red onion, sliced razor-thin"}, {"qty": 3, "unit": "tbsp", "name": "extra-virgin olive oil & 1 tbsp fresh orange juice"}, {"qty": 0.5, "unit": "tsp", "name": "sea salt flakes & cracked black pepper"}], "steps": ["Shave trimmed fennel using a mandoline or very sharp knife; soak in iced water for 5 min for extreme crunch, then drain.", "Segment oranges over a bowl to collect all natural juices.", "Arrange fennel, orange segments, olives, and red onion on a plate; whisk olive oil with reserved orange juice and drizzle over."], "tip": "Save the delicate feathery fennel fronds to chop as an aromatic herb topping rich in digestive bioflavonoids.", "clinical": ["anti-inflammatory"]}, {"id": "r22", "num": 22, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Turkish Red Lentil & Mint Soup (Mercimek \u00c7orbas\u0131)", "meal": "soup", "diet": ["vegan", "gf", "df"], "benefit": "Gentle, non-bloating soluble lentil fibres combined with carminative dried mint soothe irritated mucosal linings.", "microbe": "Bifidobacteria & Prevotella", "prebiotic": "Soluble Fibre & Menthol Flavonoids", "plantPoints": 7, "plants": ["Red Split Lentils", "Carrots", "Onion", "Garlic", "Dried Spearmint", "Aleppo Pepper", "Lemon"], "servings": 4, "time": "25 min", "img": "https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1.5, "unit": "cups", "name": "red split lentils, washed until water runs clear"}, {"qty": 1, "unit": "medium", "name": "yellow onion and 1 carrot, chopped"}, {"qty": 2, "unit": "cloves", "name": "garlic and 1 tbsp tomato paste"}, {"qty": 5, "unit": "cups", "name": "vegetable broth or water"}, {"qty": 1.5, "unit": "tbsp", "name": "dried mint leaves (nane)"}, {"qty": 1, "unit": "tsp", "name": "Aleppo pepper or sweet paprika & fresh lemon wedges"}], "steps": ["Saut\u00e9 onion, carrot, and garlic in olive oil for 5 min; stir in tomato paste and cumin.", "Add red lentils and broth; bring to a boil, then simmer on low for 18 min until lentils completely dissolve.", "Puree with immersion blender until silky; heat 2 tbsp olive oil with dried mint and Aleppo pepper, swirling over bowls with lemon."], "tip": "Red split lentils have had their outer hulls polished away, making them the gentlest legume choice for sensitive gut resets.", "clinical": ["anti-inflammatory"]}, {"id": "r23", "num": 23, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Smoky Roasted Baba Ganoush with Pomegranate Jewels", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Sesame seed lignans and pomegranate punicalagins selectively enrich healthy *Akkermansia* populations.", "microbe": "Akkermansia & Roseburia", "prebiotic": "Lignans & Punicalagins", "plantPoints": 6, "plants": ["Eggplant", "Tahini (Sesame)", "Garlic", "Lemon", "Pomegranate Seeds", "Parsley"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "large", "name": "globe eggplants"}, {"qty": 0.33, "unit": "cup", "name": "pure hulled sesame tahini paste"}, {"qty": 2, "unit": "cloves", "name": "garlic, grated"}, {"qty": 3, "unit": "tbsp", "name": "fresh lemon juice & 2 tbsp extra-virgin olive oil"}, {"qty": 0.33, "unit": "cup", "name": "fresh pomegranate seeds for garnish"}, {"qty": 2, "unit": "tbsp", "name": "chopped fresh parsley and pinch of smoked paprika"}], "steps": ["Char whole eggplants over an open flame or under a broiler for 15\u201320 min, turning occasionally until skin is blackened and flesh is completely tender.", "Slit eggplant open, scrape out silky smoky flesh into a colander, and let drain for 10 min to remove bitter juices.", "Mash flesh with a fork (keep texture); whisk in tahini, garlic, lemon juice, and sea salt. Plate with olive oil and pomegranate seeds."], "tip": "Pomegranate arils provide ellagic acid, which gut microbes transform into urolithin A \u2014 a compound that cleans out damaged mitochondria.", "clinical": ["anti-inflammatory"]}, {"id": "r24", "num": 24, "cuisine": "med", "cuisineName": "Mediterranean", "title": "Wild Herb & Raw Olive Lacto-Ferment", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Traditional salt-brined olives deliver wild strains of *Lactobacillus plantarum* and *L. pentosus* straight to the microbiome.", "microbe": "Lactobacillus plantarum", "prebiotic": "Olive Polyphenols & Oleuropein", "plantPoints": 6, "plants": ["Kalamata & Green Olives", "Wild Oregano", "Rosemary", "Garlic", "Lemon Peel", "Chilli Flakes"], "servings": 8, "time": "10 min", "img": "https://images.pexels.com/photos/1640771/pexels-photo-1640771.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "cups", "name": "unpasteurized mixed whole olives (Kalamata, Castelvetrano, green)"}, {"qty": 3, "unit": "cloves", "name": "fresh garlic, crushed"}, {"qty": 2, "unit": "sprigs", "name": "fresh rosemary & fresh wild oregano"}, {"qty": 2, "unit": "strips", "name": "organic lemon peel"}, {"qty": 0.5, "unit": "tsp", "name": "crushed red pepper flakes & 1 tsp fennel seeds"}, {"qty": 0.5, "unit": "cup", "name": "cold-pressed extra-virgin olive oil to submerge"}], "steps": ["Gently crush whole olives with the flat side of a chef's knife to crack open and allow marinade penetration.", "Layer olives in a clean glass jar with crushed garlic, rosemary sprigs, oregano, lemon peel, and fennel seeds.", "Pour in extra-virgin olive oil until olives are completely submerged; seal jar and let steep at room temp for 48 hours."], "tip": "Unpasteurized, naturally cured olives are true probiotic reservoirs; avoid cheap supermarket canned olives that are heat-sterilized.", "clinical": ["anti-inflammatory", "low-fodmap", "histamine-conscious"]}, {"id": "r25", "num": 25, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Goya Champuru (Bitter Melon & Tofu Longevity Stir-Fry)", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Bitter cucurbitacins and charantin stimulate insulin sensitivity and stimulate protective *Akkermansia* mucus production.", "microbe": "Akkermansia muciniphila", "prebiotic": "Charantin & Bitter Cucurbitacins", "plantPoints": 6, "plants": ["Bitter Melon (Goya)", "Firm Tofu (Shima-Tofu)", "Garlic", "Ginger", "Sesame Oil", "Spring Onion"], "servings": 4, "time": "20 min", "img": "https://images.pexels.com/photos/5848469/pexels-photo-5848469.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "medium", "name": "Okinawan bitter melon (goya), seeded and sliced thin"}, {"qty": 300, "unit": "g", "name": "firm Okinawan or pressed tofu, torn into chunks"}, {"qty": 2, "unit": "cloves", "name": "garlic and 1 tsp grated ginger"}, {"qty": 2, "unit": "tbsp", "name": "toasted dark sesame oil"}, {"qty": 1.5, "unit": "tbsp", "name": "tamari (gluten-free soy sauce) or naturally brewed shoyu"}, {"qty": 2, "unit": "stalks", "name": "scallions & 1 tbsp dried bonito flakes or nori seaweed shreds"}], "steps": ["Slice bitter melon in half, scrape out white pith and seeds with a spoon, and slice into 1/4-inch crescents. Salt lightly for 10 min, then pat dry.", "In a hot wok, sear torn tofu chunks in sesame oil until golden on all sides; remove and set aside.", "Stir-fry bitter melon with garlic and ginger on high heat for 3 min; return tofu, splash with tamari, and toss with scallions."], "tip": "The Okinawan philosophy of 'Nuchigusui' (food as medicine) celebrates bitter melon as the supreme guardian of healthy blood sugar.", "clinical": ["anti-inflammatory"]}, {"id": "r26", "num": 26, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Steamed Purple Sweet Potato (Beni Imo) with Toasted Black Sesame", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Contains 150% more anthocyanin antioxidants than blueberries; provides resistant starch that fuels *Roseburia* butyrate production.", "microbe": "Roseburia & Eubacterium", "prebiotic": "Anthocyanins & Resistant Starch", "plantPoints": 4, "plants": ["Purple Sweet Potato (Beni Imo)", "Black Sesame Seeds", "Sea Salt", "Coconut Oil"], "servings": 4, "time": "25 min", "img": "https://images.pexels.com/photos/6607427/pexels-photo-6607427.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 4, "unit": "medium", "name": "purple sweet potatoes (beni imo or Stokes purple)"}, {"qty": 2, "unit": "tbsp", "name": "black sesame seeds, lightly toasted"}, {"qty": 1, "unit": "tsp", "name": "Okinawan sea salt (Nuchimasu or sea salt)"}, {"qty": 1, "unit": "tsp", "name": "unrefined coconut oil or sesame oil"}], "steps": ["Scrub purple sweet potatoes thoroughly, keeping the antioxidant-rich skins on.", "Steam whole over boiling water for 20\u201325 minutes until a bamboo skewer slides through effortlessly.", "Split warm potatoes open, brush lightly with cold-pressed oil, and sprinkle generously with toasted black sesame and sea salt."], "tip": "Beni Imo provided over 60% of daily calories for traditional centenarian Okinawans before the mid-20th century.", "clinical": ["anti-inflammatory"]}, {"id": "r27", "num": 27, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Longevity Miso Soup with Shiitake & Wakame", "meal": "soup", "diet": ["vegan", "gf", "df"], "benefit": "Fermented miso brings live *Aspergillus oryzae* enzymes; shiitake delivers immune-modulating beta-glucans.", "microbe": "Aspergillus oryzae & Bifidobacteria", "prebiotic": "Beta-Glucan & Fucoidan", "plantPoints": 6, "plants": ["Soy Miso Paste", "Dried Shiitake Mushrooms", "Wakame Seaweed", "Silken Tofu", "Scallions", "Kombu Kelp"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/8956831/pexels-photo-8956831.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 4, "unit": "cups", "name": "water with 1 strip kombu and 4 dried shiitake mushrooms (dashi base)"}, {"qty": 3, "unit": "tbsp", "name": "unpasteurized organic miso paste (red or brown)"}, {"qty": 2, "unit": "tbsp", "name": "dried wakame seaweed, rehydrated"}, {"qty": 200, "unit": "g", "name": "silken tofu, cut into small cubes"}, {"qty": 2, "unit": "stalks", "name": "scallions, finely sliced"}], "steps": ["Steep kombu and dried shiitake in water for 15 min; bring to gentle simmer, remove kombu just before boil, and slice rehydrated shiitake.", "Add silken tofu cubes and rehydrated wakame seaweed; simmer on very low heat for 2 min.", "Turn off heat completely. Ladle a little hot broth into a bowl, dissolve miso paste until smooth, and stir back into pot. Never boil."], "tip": "Boiling miso instantly destroys its live koji fermentation enzymes and delicate aromatic probiotics; always dissolve off the heat.", "clinical": ["anti-inflammatory"]}, {"id": "r28", "num": 28, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Mozuku Seaweed Vinegar Salad (Sunomono)", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Mozuku is the earth's richest natural source of fucoidan \u2014 a sulfated polysaccharide that directly feeds *Akkermansia*.", "microbe": "Akkermansia muciniphila", "prebiotic": "Sulfated Fucoidan & Alginate", "plantPoints": 4, "plants": ["Mozuku / Nori Seaweed", "Japanese Cucumber", "Rice Vinegar", "Ginger"], "servings": 4, "time": "10 min", "img": "https://images.pexels.com/photos/8956831/pexels-photo-8956831.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 150, "unit": "g", "name": "fresh or salted mozuku seaweed (or rehydrated wakame/nori sheets)"}, {"qty": 1, "unit": "medium", "name": "Japanese or Persian cucumber, shaved paper-thin"}, {"qty": 3, "unit": "tbsp", "name": "unseasoned rice vinegar (or apple cider vinegar)"}, {"qty": 1, "unit": "tbsp", "name": "tamari & 1 tsp grated fresh ginger"}, {"qty": 1, "unit": "tsp", "name": "toasted white sesame seeds"}], "steps": ["If using salted mozuku, rinse in fresh cold water 3 times and drain thoroughly.", "Toss thin cucumber slices with a pinch of sea salt, let sit 5 min, then gently squeeze out excess liquid.", "Combine mozuku and cucumber in small glass bowls; whisk rice vinegar, tamari, and grated ginger, pour over, and top with sesame."], "tip": "Studies show fucoidan from brown seaweeds thickens the intestinal mucus layer and prevents bacterial translocation into bloodstream.", "clinical": ["anti-inflammatory", "low-fodmap", "histamine-conscious", "sibo-friendly"]}, {"id": "r29", "num": 29, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Simmered Kombu Kelp with Shiitake (Tsukudani)", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Laminarin and alginate prebiotic fibres act as gentle bulking agents and bind heavy metals and excess bile.", "microbe": "Bacteroides & Bifidobacteria", "prebiotic": "Laminarin & Alginate", "plantPoints": 5, "plants": ["Kombu Kelp", "Shiitake Mushrooms", "Tamari", "Mirin (Rice Ferment)", "Sesame Seeds"], "servings": 6, "time": "30 min", "img": "https://images.pexels.com/photos/5848469/pexels-photo-5848469.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 50, "unit": "g", "name": "dried kombu (dashi kelp), rehydrated and cut into small squares"}, {"qty": 4, "unit": "whole", "name": "rehydrated shiitake mushroom caps, thinly sliced"}, {"qty": 1, "unit": "cup", "name": "kombu soaking water"}, {"qty": 3, "unit": "tbsp", "name": "gluten-free tamari or soy sauce"}, {"qty": 2, "unit": "tbsp", "name": "mirin (naturally fermented sweet cooking wine)"}, {"qty": 1, "unit": "tbsp", "name": "rice vinegar & toasted white sesame seeds"}], "steps": ["Soak dried kombu in water for 20 min; slice into 1-inch squares.", "In a small saucepan, combine kombu, sliced shiitake, kombu soaking water, tamari, mirin, and rice vinegar.", "Simmer on low heat for 25 minutes until liquid is reduced to a glossy glaze. Toss with toasted sesame seeds and store in jar."], "tip": "Eat one tablespoon daily as an umami-rich condiment over rice or bowls to deliver steady marine trace minerals to microbes.", "clinical": ["anti-inflammatory", "low-fodmap", "histamine-conscious", "sibo-friendly"]}, {"id": "r30", "num": 30, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Buckwheat Soba in Healing Dashi with Wild Mugwort (Fuchiba)", "meal": "main", "diet": ["vegan", "df"], "benefit": "Buckwheat rutin strengthens capillary and microvascular blood flow to intestinal villi; mugwort reduces dysbiotic inflammation.", "microbe": "Lactobacillus & Akkermansia", "prebiotic": "Rutin & Cineole Terpenes", "plantPoints": 7, "plants": ["100% Buckwheat (Juwari Soba)", "Kombu", "Shiitake", "Mugwort (or Fresh Spinach)", "Scallions", "Ginger", "Nori"], "servings": 4, "time": "20 min", "img": "https://images.pexels.com/photos/13677969/pexels-photo-13677969.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 300, "unit": "g", "name": "100% pure buckwheat soba noodles"}, {"qty": 4, "unit": "cups", "name": "rich kombu-shiitake dashi broth"}, {"qty": 1, "unit": "cup", "name": "fresh Okinawan mugwort (fuchiba) or baby spinach/arugula"}, {"qty": 2, "unit": "tbsp", "name": "tamari & 1 tsp grated ginger"}, {"qty": 2, "unit": "stalks", "name": "scallions & toasted nori strips for topping"}], "steps": ["Cook buckwheat noodles in boiling water for 4\u20135 min; drain and immediately rinse thoroughly under cold running water to remove excess starch.", "Heat kombu-shiitake dashi with tamari and ginger until piping hot.", "Place cold soba in deep bowls, drape fresh mugwort leaves over noodles, and ladle boiling dashi on top to gently wilt the greens."], "tip": "Pure 100% buckwheat (Juwari Soba) is naturally gluten-free and contains resistant protein (rutin) that acts like prebiotic fibre.", "clinical": ["anti-inflammatory"]}, {"id": "r31", "num": 31, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Roasted Sweet Potato & Firm Tofu with Nori Flakes", "meal": "main", "diet": ["vegan", "gf", "df"], "benefit": "Plant protein from whole fermented soybean curd + slow-carb sweet potato resistant starch; a complete Panbiome meal.", "microbe": "Bifidobacteria & Prevotella", "prebiotic": "Type-3 Resistant Starch & Minerals", "plantPoints": 6, "plants": ["Sweet Potato", "Firm Tofu", "Nori Seaweed", "Turmeric", "Sesame Oil", "Garlic"], "servings": 4, "time": "25 min", "img": "https://images.pexels.com/photos/5848469/pexels-photo-5848469.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "medium", "name": "sweet potatoes (orange or purple), cut into 1/2-inch cubes"}, {"qty": 300, "unit": "g", "name": "firm tofu, pressed and cubed"}, {"qty": 2, "unit": "tbsp", "name": "cold-pressed sesame oil"}, {"qty": 1, "unit": "tsp", "name": "turmeric powder and 1 tsp grated fresh ginger"}, {"qty": 2, "unit": "sheets", "name": "roasted nori seaweed, crumbled into flakes"}, {"qty": 1, "unit": "tbsp", "name": "tamari"}], "steps": ["Toss sweet potato cubes with 1 tbsp sesame oil and roast in 200\u00b0C oven for 20 min until caramelized.", "Pan-sear tofu cubes in remaining oil with turmeric and ginger until all sides are crisp and golden.", "Toss roasted sweet potatoes and tofu together with a splash of tamari; garnish heavily with crumbled nori seaweed flakes."], "tip": "The combination of marine seaweed minerals (iodine, magnesium) and root vegetables mirrors the Okinawan coastal soil balance.", "clinical": ["anti-inflammatory"]}, {"id": "r32", "num": 32, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Miso-Glazed Roasted Pumpkin (Kabocha) & Daikon Radish", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Kabocha beta-carotene and daikon digestive enzymes (diastase) accelerate gastric breakdown and nourish mucosal surfaces.", "microbe": "Akkermansia & Faecalibacterium", "prebiotic": "Beta-Carotene & Diastase Enzymes", "plantPoints": 6, "plants": ["Kabocha Pumpkin", "Daikon Radish", "Miso Paste", "Ginger", "Sesame Oil", "Sesame Seeds"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/6607427/pexels-photo-6607427.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 400, "unit": "g", "name": "Kabocha pumpkin, washed, seeds removed, sliced into wedges with skin on"}, {"qty": 200, "unit": "g", "name": "daikon radish, sliced into rounds"}, {"qty": 2, "unit": "tbsp", "name": "brown rice miso paste"}, {"qty": 1, "unit": "tbsp", "name": "warm water & 1 tsp grated fresh ginger"}, {"qty": 1, "unit": "tbsp", "name": "sesame oil"}, {"qty": 1, "unit": "tbsp", "name": "toasted white sesame seeds"}], "steps": ["Toss pumpkin wedges and daikon rounds with sesame oil; roast at 200\u00b0C (400\u00b0F) for 20 min until edges turn golden.", "Whisk miso paste with warm water and grated ginger into a smooth brushing glaze.", "Brush glaze generously over vegetables during the last 5 minutes of roasting; sprinkle with toasted sesame seeds before serving."], "tip": "Always eat the green skin of Kabocha pumpkin \u2014 it is rich in prebiotic insoluble fibres and chlorophyll.", "clinical": ["anti-inflammatory"]}, {"id": "r33", "num": 33, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Hijiki Seaweed & Julienned Carrot Stir-Fry", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Concentrated marine minerals (calcium, iron, magnesium) combined with carrot beta-carotene; stimulates tight-junction protein synthesis.", "microbe": "Akkermansia & Bacteroides", "prebiotic": "Alginates & Soluble Carotenoid Fibre", "plantPoints": 5, "plants": ["Dried Hijiki Seaweed", "Carrot", "Firm Tofu", "Tamari", "Sesame Oil"], "servings": 4, "time": "20 min", "img": "https://images.pexels.com/photos/13677969/pexels-photo-13677969.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 25, "unit": "g", "name": "dried hijiki seaweed (soaks up to 5x in volume)"}, {"qty": 1, "unit": "large", "name": "carrot, julienned into matchsticks"}, {"qty": 150, "unit": "g", "name": "firm tofu, pressed and cut into thin strips"}, {"qty": 1, "unit": "tbsp", "name": "toasted sesame oil"}, {"qty": 1.5, "unit": "tbsp", "name": "tamari & 1 tbsp mirin"}], "steps": ["Soak dried hijiki in cold water for 15 minutes; drain thoroughly in a fine-mesh sieve and rinse well.", "Heat sesame oil in a skillet; stir-fry julienned carrots for 2 min until just softened.", "Add hijiki and tofu strips; season with tamari and mirin, cooking on medium-low for 5 min until flavors integrate."], "tip": "A classic Okinawan side dish served alongside brown rice and miso soup for a complete centenarian longevity lunch.", "clinical": ["anti-inflammatory"]}, {"id": "r34", "num": 34, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Marinated Silken Tofu in Rice Koji & Tamari (Tofuyo Style)", "meal": "side", "diet": ["vegan", "gf", "df"], "benefit": "Microbially pre-digested soy proteins and bioactive isoflavone aglycones with exceptional gut bioavailability.", "microbe": "Aspergillus & Lactobacillus", "prebiotic": "Isoflavone Aglycones & Peptides", "plantPoints": 4, "plants": ["Silken Tofu", "Rice Koji / Shio Koji", "Tamari", "Scallions"], "servings": 4, "time": "10 min (+ 24h marinade)", "img": "https://images.pexels.com/photos/4331490/pexels-photo-4331490.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 300, "unit": "g", "name": "silken or soft tofu, gently pressed for 30 min"}, {"qty": 2, "unit": "tbsp", "name": "shio koji (fermented rice koji paste)"}, {"qty": 1, "unit": "tbsp", "name": "tamari (gluten-free soy sauce)"}, {"qty": 1, "unit": "tsp", "name": "mirin and a dash of grated fresh ginger"}, {"qty": 1, "unit": "stalk", "name": "scallion, finely minced for garnish"}], "steps": ["Wrap pressed silken tofu in paper towels to absorb excess surface moisture, then cut into bite-sized cubes.", "Mix shio koji with tamari, mirin, and grated ginger.", "Coat tofu cubes gently in the koji marinade, cover, and refrigerate for 24 hours. The texture becomes rich and creamy like cheese."], "tip": "Inspired by Okinawan royal 'Tofuyo' \u2014 the rice koji enzymes break down complex plant proteins into easily absorbed free amino acids.", "clinical": ["anti-inflammatory"]}, {"id": "r35", "num": 35, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Uchinanchu Longevity Tonic (Turmeric, Ginger & Citrus)", "meal": "tonic", "diet": ["vegan", "gf", "df"], "benefit": "Curcumin and nobiletin flavonoids suppress enteric pathogen colonization while protecting mucosal blood vessels.", "microbe": "Akkermansia & Bifidobacteria", "prebiotic": "Curcumin, Gingerol & Nobiletin", "plantPoints": 4, "plants": ["Fresh Wild Turmeric (Ukon)", "Fresh Ginger", "Shikuwasa / Calamansi / Lime", "Black Peppercorns"], "servings": 4, "time": "15 min", "img": "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "inches", "name": "fresh turmeric root (ukon), grated or thinly sliced"}, {"qty": 2, "unit": "inches", "name": "fresh ginger root, bruised and sliced"}, {"qty": 4, "unit": "whole", "name": "black peppercorns (activates curcumin by 2,000%)"}, {"qty": 4, "unit": "cups", "name": "filtered spring water"}, {"qty": 2, "unit": "tbsp", "name": "fresh Okinawan shikuwasa juice, calamansi, or lime juice"}, {"qty": 1, "unit": "tsp", "name": "raw unheated honey (optional)"}], "steps": ["In a small pot, simmer sliced fresh turmeric, bruised ginger, and cracked peppercorns in water for 12\u201315 min.", "Strain golden liquor into ceramic cups.", "Allow to cool to warm drinking temperature before stirring in fresh citrus juice and honey (to preserve heat-sensitive enzymes)."], "tip": "Black pepper contains piperine, which blocks hepatic glucuronidation of curcumin, increasing systemic bioavailability up to 2,000%.", "clinical": ["anti-inflammatory"]}, {"id": "r36", "num": 36, "cuisine": "oki", "cuisineName": "Okinawan", "title": "Okinawan Slow Daikon & Kombu Mineral Broth", "meal": "soup", "diet": ["vegan", "gf", "df"], "benefit": "Soluble alginates and daikon potassium create an alkaline, soothing gut bath that accelerates mucosal healing.", "microbe": "Faecalibacterium & Akkermansia", "prebiotic": "Alginates & Insoluble Lignin", "plantPoints": 5, "plants": ["Daikon Radish", "Kombu Kelp", "Ginger", "Tamari", "Scallions"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "large", "name": "daikon radish, peeled and cut into thick 1-inch rounds"}, {"qty": 1, "unit": "large strip", "name": "kombu kelp (about 4x4 inches)"}, {"qty": 1, "unit": "inch", "name": "ginger, sliced into coins"}, {"qty": 5, "unit": "cups", "name": "filtered water"}, {"qty": 2, "unit": "tbsp", "name": "tamari & pinch of sea salt"}, {"qty": 2, "unit": "stalks", "name": "scallions for serving"}], "steps": ["Score an 'X' into the flat surfaces of the daikon rounds so the seaweed dashi penetrates to the core.", "Place daikon, kombu, and ginger in a pot with water; bring to gentle boil, then turn down heat to low.", "Simmer covered for 25\u201330 min until daikon turns completely translucent and fork-tender. Season with tamari and scallions."], "tip": "Daikon radish absorbs the sea-mineral essence of kombu like a sponge; ideal during recovery after antibiotics or stomach upset.", "clinical": ["anti-inflammatory", "low-fodmap", "histamine-conscious", "sibo-friendly"]}, {"id": "r37", "num": 37, "cuisine": "nordic", "cuisineName": "Nordic Longevity", "title": "Sprouted Whole Rye (Rugbr\u00f8d) Toast with Cold-Pressed Flax & Seeds", "meal": "breakfast", "diet": ["vegan", "df", "anti-inflammatory"], "clinical": ["anti-inflammatory"], "benefit": "Rye arabinoxylans and lignans undergo colonic fermentation into enterodiol and enterolactone, protecting cardiometabolic health.", "microbe": "Bacteroides & Prevotella", "prebiotic": "Arabinoxylans & Rye Lignans", "plantPoints": 7, "plants": ["Whole Rye Grain", "Flaxseeds", "Sunflower Seeds", "Pumpkin Seeds", "Sesame Seeds", "Chia Seeds", "Sea Buckthorn"], "servings": 4, "time": "15 min (+ baking)", "img": "https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 4, "unit": "slices", "name": "dense Danish 100% whole rye sourdough (rugbr\u00f8d)"}, {"qty": 2, "unit": "tbsp", "name": "cold-pressed flaxseed oil or rapeseed oil"}, {"qty": 2, "unit": "tbsp", "name": "toasted pumpkin and sunflower seeds"}, {"qty": 1, "unit": "cup", "name": "microgreens (radish or mustard greens)"}, {"qty": 1, "unit": "pinch", "name": "flaky Arctic sea salt and coarse cracked black pepper"}], "steps": ["Toast thin slices of rugbr\u00f8d until crisp on the exterior but dense within.", "Drizzle each slice with cold-pressed flaxseed oil rich in alpha-linolenic acid (ALA).", "Top generously with mixed toasted seeds, microgreens, and a sprinkle of flaky sea salt."], "tip": "Whole rye induces higher satiety and sustained butyrate production across 24 hours compared to refined wheat breads."}, {"id": "r38", "num": 38, "cuisine": "nordic", "cuisineName": "Nordic Longevity", "title": "Nordic Beetroot, Horseradish & Dill Mineral Pot", "meal": "soup", "diet": ["vegan", "gf", "df", "anti-inflammatory"], "clinical": ["anti-inflammatory", "sibo-friendly"], "benefit": "Betalain pigments in beetroot activate Nrf2 antioxidant enzymes, while horseradish sinigrin suppresses colonic dysbiosis.", "microbe": "Faecalibacterium & Akkermansia", "prebiotic": "Betalains, Sinigrin & Pectin", "plantPoints": 6, "plants": ["Red Beetroot", "Horseradish Root", "Fresh Dill", "Carrots", "Leeks", "Apple Cider Vinegar"], "servings": 4, "time": "35 min", "img": "https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 3, "unit": "medium", "name": "beetroots, peeled and cut into cubes"}, {"qty": 2, "unit": "medium", "name": "carrots, sliced"}, {"qty": 1, "unit": "tbsp", "name": "freshly grated horseradish root"}, {"qty": 1, "unit": "bunch", "name": "fresh dill, chopped"}, {"qty": 4, "unit": "cups", "name": "vegetable broth with 1 tbsp raw apple cider vinegar"}, {"qty": 1, "unit": "tbsp", "name": "cold-pressed rapeseed or olive oil"}], "steps": ["Simmer beetroots and carrots in seasoned broth for 25 minutes until tender.", "Blend half the soup for a silky, vibrant magenta texture, returning it to the pot.", "Finish off heat with freshly grated pungent horseradish, chopped fresh dill, and raw vinegar to keep aromatic glucosinolates active."], "tip": "Adding horseradish at the very end preserves the heat-sensitive myrosinase enzyme that converts glucosinolates into bioactive isothiocyanates."}, {"id": "r39", "num": 39, "cuisine": "nordic", "cuisineName": "Nordic Longevity", "title": "Braised Red Cabbage with Wild Lingonberries & Juniper", "meal": "side", "diet": ["vegan", "gf", "df", "anti-inflammatory"], "clinical": ["anti-inflammatory", "histamine-conscious"], "benefit": "Anthocyanins from red cabbage and wild lingonberries stimulate colonic tight-junction claudin-1 expression.", "microbe": "Akkermansia muciniphila", "prebiotic": "Sulfur Glucosinolates & Polyphenols", "plantPoints": 6, "plants": ["Red Cabbage", "Wild Lingonberries (or Cranberries)", "Juniper Berries", "Red Onions", "Apples", "Cloves"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/6607427/pexels-photo-6607427.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 0.5, "unit": "head", "name": "red cabbage, finely shredded"}, {"qty": 0.5, "unit": "cup", "name": "fresh or frozen wild lingonberries (or unsweetened cranberries)"}, {"qty": 1, "unit": "tart", "name": "apple (such as Granny Smith), diced"}, {"qty": 4, "unit": "whole", "name": "juniper berries, lightly crushed"}, {"qty": 2, "unit": "tbsp", "name": "apple cider vinegar and 1 tbsp cold-pressed oil"}], "steps": ["In a heavy-bottomed pot, saut\u00e9 red cabbage and diced apple in oil for 5 minutes.", "Add crushed juniper berries, cloves, apple cider vinegar, and lingonberries.", "Cover and simmer on low for 25 min until cabbage is tender and saturated in deep royal crimson juice."], "tip": "Wild lingonberries contain benzoic acid, a natural antimicrobial that helps keep unwanted bacterial overgrowth in check."}, {"id": "r40", "num": 40, "cuisine": "nordic", "cuisineName": "Nordic Longevity", "title": "Wild Salmon or Sardine Broth with Fennel, Leek & Dill", "meal": "soup", "diet": ["gf", "df", "anti-inflammatory"], "clinical": ["anti-inflammatory", "low-fodmap", "sibo-friendly"], "benefit": "Marine Omega-3 EPA/DHA fatty acids work synergistically with fennel anethole to resolve bowel wall inflammation.", "microbe": "Roseburia & Bifidobacteria", "prebiotic": "Omega-3 Specialized Pro-Resolving Mediators & Pectin", "plantPoints": 5, "plants": ["Fennel Bulb", "Leek Greens", "Fresh Dill", "Carrots", "Lemon"], "servings": 4, "time": "25 min", "img": "https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 400, "unit": "g", "name": "wild-caught salmon fillets or sardines, cut into portions"}, {"qty": 1, "unit": "medium", "name": "fennel bulb, thinly sliced (reserve fronds for garnish)"}, {"qty": 1, "unit": "stalk", "name": "leek (green tops for low-FODMAP option), washed and sliced"}, {"qty": 1, "unit": "cup", "name": "fresh dill fronds, roughly chopped"}, {"qty": 4, "unit": "cups", "name": "water or fish bone mineral stock with juice of half a lemon"}], "steps": ["Simmer sliced fennel and leeks in stock for 12 minutes until soft and fragrant.", "Gently lower in the salmon or sardine pieces and poach on gentle low heat for 6\u20138 minutes.", "Turn off heat; stir in copious fresh dill fronds and lemon juice before serving immediately."], "tip": "Long-chain omega-3s from cold-water fish are converted by intestinal microbes into anti-inflammatory resolvins and protectins."}, {"id": "r41", "num": 41, "cuisine": "nordic", "cuisineName": "Nordic Longevity", "title": "Steel-Cut Oat & Arctic Bilberry Warm Breakfast Crucible", "meal": "breakfast", "diet": ["vegan", "df", "anti-inflammatory"], "clinical": ["anti-inflammatory", "low-fodmap"], "benefit": "Oat beta-glucans form a viscous gel that reduces bile reabsorption, feeding beneficial *Bifidobacterium*.", "microbe": "Bifidobacterium animalis", "prebiotic": "Beta-Glucan Soluble Fibre", "plantPoints": 6, "plants": ["Steel-Cut Oats", "Wild Bilberries (or Blueberries)", "Chia Seeds", "Flaxseed Meal", "Ceylon Cinnamon", "Cardamom"], "servings": 4, "time": "20 min", "img": "https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1.5, "unit": "cups", "name": "steel-cut oats (or whole oat groats)"}, {"qty": 3.5, "unit": "cups", "name": "water or unsweetened almond/oat milk"}, {"qty": 1, "unit": "cup", "name": "wild bilberries or organic blueberries"}, {"qty": 1, "unit": "tbsp", "name": "ground flaxseeds and chia seeds"}, {"qty": 0.5, "unit": "tsp", "name": "crushed cardamom and Ceylon cinnamon"}], "steps": ["Simmer steel-cut oats with cardamom and cinnamon for 18\u201320 minutes until creamy with a pleasant chew.", "Stir in ground flaxseeds and chia seeds in the final minute.", "Ladle into bowls and crown with fresh or thawed wild bilberries, releasing deep purple antioxidant anthocyanins."], "tip": "Steel-cut oats have a dramatically lower glycemic index than instant rolled oats, ensuring slow, uniform colon microbial fermentation."}, {"id": "r42", "num": 42, "cuisine": "nordic", "cuisineName": "Nordic Longevity", "title": "Fermented Cultured Rye & Vegetable 'Kvass' Tonic", "meal": "tonic", "diet": ["vegan", "df", "anti-inflammatory"], "clinical": ["anti-inflammatory"], "benefit": "Enzymatically active lactic acid bacteria produced through wild grain and beet fermentation enhance gastric acidification.", "microbe": "Lactobacillus plantarum", "prebiotic": "Organic Lactic Acid & Micro-Minerals", "plantPoints": 5, "plants": ["Organic Beetroot", "Sourdough Rye Crust", "Ginger Root", "Fresh Mint", "Celtic Sea Salt"], "servings": 6, "time": "10 min (+ 3 days ferment)", "img": "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "medium", "name": "organic beetroots, scrubbed and cubed (do not peel)"}, {"qty": 1, "unit": "crust", "name": "100% rye sourdough bread"}, {"qty": 1, "unit": "inch", "name": "fresh ginger root, bruised"}, {"qty": 1, "unit": "tbsp", "name": "unrefined sea salt"}, {"qty": 6, "unit": "cups", "name": "non-chlorinated spring water"}], "steps": ["Place cubed beetroots, ginger, and rye crust into a sterilized glass Mason jar.", "Dissolve sea salt in non-chlorinated water and pour over the ingredients, leaving 2 inches of headspace.", "Cover with a breathable cloth or airlock lid and ferment at room temperature (18\u201322\u00b0C) for 3 to 4 days until tangy and sparkling."], "tip": "Sip 50\u2013100 ml before lunch to trigger normal vagal nerve stimulation and stomach acid secretion."}, {"id": "r43", "num": 43, "cuisine": "meso", "cuisineName": "Mesoamerican Ancestral", "title": "Heirloom Black Bean & Epazote Cazuela with Avocado", "meal": "main", "diet": ["vegan", "gf", "df", "anti-inflammatory"], "clinical": ["anti-inflammatory", "sibo-friendly"], "benefit": "Epazote's terpenes reduce oligosaccharide flatulence while black bean anthocyanins nourish butyrate-producing *Roseburia*.", "microbe": "Roseburia hominis & Faecalibacterium", "prebiotic": "Resistant Starch & Bean Condensed Tannins", "plantPoints": 7, "plants": ["Black Turtle Beans", "Fresh Epazote Herb", "Avocado", "White Onion", "Garlic", "Cumin", "Lime"], "servings": 4, "time": "45 min", "img": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1.5, "unit": "cups", "name": "heirloom black turtle beans, soaked overnight with kombu"}, {"qty": 2, "unit": "sprigs", "name": "fresh epazote (or Mexican oregano)"}, {"qty": 1, "unit": "medium", "name": "onion and 4 cloves garlic, minced"}, {"qty": 1, "unit": "tsp", "name": "ground cumin and 1 tsp sea salt"}, {"qty": 1, "unit": "whole", "name": "ripe avocado, sliced for serving with fresh lime wedges"}], "steps": ["Simmer soaked black beans with onion, garlic, and fresh epazote for 40\u201350 min until velvety soft.", "Mash a ladleful of beans against the pot side to create a naturally thick, unctuous sauce.", "Season with sea salt, cumin, and ladle into bowls topped with creamy avocado slices and lime juice."], "tip": "Epazote contains ascaridole, an ancestral carminative compound scientifically documented to reduce bean gas and improve gut transit."}, {"id": "r44", "num": 44, "cuisine": "meso", "cuisineName": "Mesoamerican Ancestral", "title": "Nixtamalized Blue Corn Tlacoyos with Nopalitos (Cactus)", "meal": "main", "diet": ["vegan", "gf", "df", "anti-inflammatory"], "clinical": ["anti-inflammatory"], "benefit": "Nixtamalization unlocks bound niacin (vitamin B3) and creates calcium-bound resistant starches with exceptional colonic fermentability.", "microbe": "Bifidobacteria & Prevotella", "prebiotic": "Type-1 Resistant Starch & Cactus Mucilage", "plantPoints": 6, "plants": ["Blue Corn Masa Harina", "Nopales (Prickly Pear Cactus Pads)", "Red Onion", "Cilantro", "Jalape\u00f1o", "Pinto Beans"], "servings": 4, "time": "30 min", "img": "https://images.pexels.com/photos/4331490/pexels-photo-4331490.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 2, "unit": "cups", "name": "heirloom nixtamalized blue corn masa harina"}, {"qty": 1.5, "unit": "cups", "name": "warm water and 0.5 tsp sea salt"}, {"qty": 1, "unit": "cup", "name": "cooked smashed pinto beans (filling)"}, {"qty": 2, "unit": "cups", "name": "fresh cactus pads (nopales), cleaned of spines and diced"}, {"qty": 0.5, "unit": "cup", "name": "fresh cilantro and minced red onion"}], "steps": ["Knead blue corn masa with warm water into soft dough; form into oval cakes stuffed with a spoon of pinto beans.", "Pan-sear tlacoyos on a dry hot cast-iron comal or skillet for 3\u20134 minutes per side.", "Quick-saut\u00e9 diced nopales with cilantro and red onion; pile the warm cactus salad over hot blue corn tlacoyos."], "tip": "Cactus pads (nopales) are rich in viscous soluble mucilage that forms a protective, slippery coating along irritated intestinal mucosa."}, {"id": "r45", "num": 45, "cuisine": "meso", "cuisineName": "Mesoamerican Ancestral", "title": "Ancient Cacao, Roasted Pumpkin Seed & Chile Mole Verde", "meal": "main", "diet": ["vegan", "gf", "df", "anti-inflammatory"], "clinical": ["anti-inflammatory"], "benefit": "Raw cacao flavanols (epicatechin) and pumpkin seed zinc enrich gut barrier tight junctions while stimulating colonic peristalsis.", "microbe": "Lactobacillus & Bifidobacterium", "prebiotic": "Cacao Flavanols & Zinc Prebiotics", "plantPoints": 8, "plants": ["Raw Cacao Nibs / Mass", "Pumpkin Seeds (Pepitas)", "Poblano Chile", "Tomatillos", "Cilantro", "Epazote", "Garlic", "Sesame Seeds"], "servings": 4, "time": "35 min", "img": "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "cup", "name": "raw pumpkin seeds (pepitas), lightly toasted"}, {"qty": 2, "unit": "tbsp", "name": "100% pure unsweetened ceremonial cacao paste or nibs"}, {"qty": 5, "unit": "medium", "name": "green husk tomatillos, husked and boiled for 5 min"}, {"qty": 2, "unit": "whole", "name": "poblano peppers, charred and seeded"}, {"qty": 1, "unit": "bunch", "name": "fresh cilantro and epazote leaves"}, {"qty": 2, "unit": "cups", "name": "vegetable broth or water"}], "steps": ["Blend toasted pepitas, boiled tomatillos, charred poblano chiles, cacao, garlic, and fresh herbs into a smooth emerald puree.", "Heat 1 tbsp avocado oil in a saucepan; pour in the puree and simmer gently for 15 minutes as it thickens into a glossy, velvety mole.", "Serve over roasted root vegetables or simmered black beans with warm corn tortillas."], "tip": "Flavanols in dark ceremonial cacao are proven to selectively stimulate both *Lactobacillus* and *Bifidobacterium* while suppressing *Clostridium perfringens*."}, {"id": "r46", "num": 46, "cuisine": "meso", "cuisineName": "Mesoamerican Ancestral", "title": "Chilled Hibiscus (Flor de Jamaica) & Chia Seed Seed-Glow Infusion", "meal": "tonic", "diet": ["vegan", "gf", "df", "anti-inflammatory"], "clinical": ["anti-inflammatory", "low-fodmap", "histamine-conscious"], "benefit": "Anthocyanins from dried hibiscus petals combined with soluble chia mucilage coat and calm inflamed bowel loops.", "microbe": "Akkermansia & Faecalibacterium", "prebiotic": "Delphinidin Anthocyanins & Chia Mucilage", "plantPoints": 4, "plants": ["Dried Hibiscus Flowers (Flor de Jamaica)", "Chia Seeds", "Fresh Lime", "Fresh Mint"], "servings": 4, "time": "10 min (+ 20 min chill)", "img": "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "cup", "name": "dried organic hibiscus flowers (flor de jamaica)"}, {"qty": 5, "unit": "cups", "name": "filtered boiling water"}, {"qty": 2, "unit": "tbsp", "name": "whole black or white chia seeds"}, {"qty": 2, "unit": "tbsp", "name": "freshly squeezed lime juice"}, {"qty": 1, "unit": "sprig", "name": "fresh garden mint leaves"}], "steps": ["Steep hibiscus flowers in boiling water for 15 minutes until liquid turns deep ruby-violet; strain out petals.", "Stir in whole chia seeds while liquid is warm so they swell into a soft, jelly-like prebiotic matrix.", "Chill thoroughly; finish with freshly squeezed lime juice and bruised mint leaves."], "tip": "Hibiscus contains high concentrations of protocatechuic acid and delphinidin, which directly shield mucosal cells against oxidative stress."}, {"id": "r47", "num": 47, "cuisine": "meso", "cuisineName": "Mesoamerican Ancestral", "title": "Charred Squash Blossom & Zucchini Stew (Calabacitas)", "meal": "side", "diet": ["vegan", "gf", "df", "anti-inflammatory"], "clinical": ["anti-inflammatory", "low-fodmap", "sibo-friendly"], "benefit": "Gentle, non-irritating soluble pectins and lutein carotenoids ideal for sensitive, inflamed digestive tracts.", "microbe": "Faecalibacterium prausnitzii", "prebiotic": "Soluble Pectin & Lutein Carotenoids", "plantPoints": 5, "plants": ["Green Zucchini", "Squash Blossoms", "Tomatoes", "Jalape\u00f1o", "Cilantro"], "servings": 4, "time": "20 min", "img": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 3, "unit": "medium", "name": "green zucchini (or Mexican tatuma squash), diced"}, {"qty": 8, "unit": "fresh", "name": "squash blossoms, stamen removed and gently sliced"}, {"qty": 2, "unit": "ripe", "name": "tomatoes, diced"}, {"qty": 1, "unit": "tbsp", "name": "cold-pressed avocado oil"}, {"qty": 1, "unit": "pinch", "name": "sea salt and chopped cilantro"}], "steps": ["Warm avocado oil in a clay or ceramic skillet; saut\u00e9 diced squash for 5 minutes.", "Add diced tomatoes and sliced squash blossoms; cook on medium-low for 8 minutes until tender and sweet.", "Sprinkle with fresh cilantro and sea salt before serving."], "tip": "Zucchini and summer squash provide delicate, soluble fibres that ferment rapidly in the proximal colon without triggering distension."}, {"id": "r48", "num": 48, "cuisine": "meso", "cuisineName": "Mesoamerican Ancestral", "title": "Spiced Mexican Pumpkin Seed Horchata with Cinnamon & Vanilla", "meal": "tonic", "diet": ["vegan", "gf", "df", "anti-inflammatory"], "clinical": ["anti-inflammatory", "histamine-conscious", "low-fodmap"], "benefit": "Pepita phytosterols and unrefined polyphenols soothe gastric mucosa while serving as a dairy-free prebiotic emulsion.", "microbe": "Bifidobacteria & Akkermansia", "prebiotic": "Phytosterols, Cinnamaldehyde & Magnesium", "plantPoints": 4, "plants": ["Raw Pumpkin Seeds (Pepitas)", "Ceylon Cinnamon Bark", "Pure Mexican Vanilla Bean", "Filtered Water"], "servings": 4, "time": "15 min (+ 4h soak)", "img": "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=800", "ingredients": [{"qty": 1, "unit": "cup", "name": "raw unroasted pumpkin seeds (pepitas)"}, {"qty": 1, "unit": "stick", "name": "Ceylon cinnamon bark"}, {"qty": 4, "unit": "cups", "name": "filtered spring water"}, {"qty": 1, "unit": "tsp", "name": "pure Mexican vanilla extract"}, {"qty": 1, "unit": "pinch", "name": "pink mineral salt"}], "steps": ["Soak raw pumpkin seeds and cinnamon stick in 2 cups warm water for 4 hours to activate seed enzymes.", "Transfer seeds, softened cinnamon, and water into a high-speed blender with remaining 2 cups cold water, vanilla, and salt.", "Blend on high for 2 minutes until frothy and milky white; strain through a nut milk bag or fine sieve into chilled glasses."], "tip": "Ceylon cinnamon contains cinnamaldehyde, which has potent natural antimicrobial properties that curb pathogenic bacterial colonization."}];
+  const MEAL_PLAN = [{"day": 1, "theme": "The Soothing Inoculation", "focus": "Warm, pre-digested, easy-to-absorb foods that calm mucosal inflammation and introduce gentle ferments.", "microbe": "Lactobacillus & Akkermansia", "meals": [{"time": "Morning Tonic", "title": "Uchinanchu Longevity Turmeric Tonic", "recipeId": "r35"}, {"time": "Breakfast", "title": "Traditional Fermented Idli with Coconut Chutney", "recipeId": "r2"}, {"time": "Lunch", "title": "Classic Drumstick & Shallot Sambar with Steamed Brown Rice", "recipeId": "r1"}, {"time": "Digestive Sip", "title": "Pepper Cumin Digestive Rasam", "recipeId": "r3"}, {"time": "Dinner", "title": "Okinawan Slow Daikon & Kombu Mineral Broth with Tofu", "recipeId": "r36"}]}, {"day": 2, "theme": "Lentil & Fibre Seeding", "focus": "Diverse legumes and slow-cooked pulses seeding butyrate production across your colonic transit.", "microbe": "Faecalibacterium prausnitzii & Roseburia", "meals": [{"time": "Breakfast", "title": "Greek Mountain Wild Greens & Leek Scramble", "recipeId": "r18"}, {"time": "Lunch", "title": "Greek Village Bean Soup (Fasolada) with EVOO", "recipeId": "r13"}, {"time": "Snack", "title": "Crispy Spiced Roasted Chickpeas with Za'atar", "recipeId": "r21"}, {"time": "Dinner", "title": "Heirloom Black Bean & Epazote Cazuela with Avocado", "recipeId": "r43"}]}, {"day": 3, "theme": "Polyphenol Rainbow Shower", "focus": "Deeply pigmented anthocyanins, oleuropein, and carotenoids feeding mucus-dwelling Akkermansia.", "microbe": "Akkermansia muciniphila", "meals": [{"time": "Breakfast", "title": "Steel-Cut Oat & Arctic Bilberry Warm Breakfast Crucible", "recipeId": "r41"}, {"time": "Lunch", "title": "Sicilian Eggplant Caponata with Pine Nuts & Capers", "recipeId": "r15"}, {"time": "Digestive Sip", "title": "Chilled Hibiscus & Chia Seed Seed-Glow Infusion", "recipeId": "r46"}, {"time": "Dinner", "title": "Braised Red Cabbage with Wild Lingonberries & Juniper", "recipeId": "r39"}]}, {"day": 4, "theme": "Resistant Starch Deep Loading", "focus": "Retrograded type-3 resistant starches and tubers feeding distal colon microbes to maximize SCFA yield.", "microbe": "Ruminococcus & Bifidobacterium", "meals": [{"time": "Breakfast", "title": "Nixtamalized Blue Corn Tlacoyos with Nopalitos (Cactus)", "recipeId": "r44"}, {"time": "Lunch", "title": "Spanish Escatxada Salt Cod & White Bean Salad with Black Olives", "recipeId": "r22"}, {"time": "Dinner", "title": "Roasted Sweet Potato & Turmeric Tofu Bowl with Nori", "recipeId": "r31"}]}, {"day": 5, "theme": "Multi-Strain Fermentation Flood", "focus": "Live probiotics from wild grain, vegetable, and dairy fermentations paired with soluble plant substrates.", "microbe": "Leuconostoc, Pediococcus & Lactobacillus", "meals": [{"time": "Breakfast", "title": "Sprouted Whole Rye (Rugbr\u00f8d) Toast with Cold-Pressed Flax", "recipeId": "r37"}, {"time": "Lunch", "title": "Ash Gourd Mor Kuzhambu (Cooling Buttermilk Stew)", "recipeId": "r4"}, {"time": "Digestive Sip", "title": "Fermented Cultured Rye & Vegetable 'Kvass' Tonic", "recipeId": "r42"}, {"time": "Dinner", "title": "Miso-Glazed Roasted Pumpkin (Kabocha) & Daikon Radish", "recipeId": "r32"}]}, {"day": 6, "theme": "Ocean Minerals & Fucoidan Shield", "focus": "Sulfated polysaccharides (fucoidan and alginates) and marine omega-3s strengthening the colonic mucin barrier.", "microbe": "Bacteroides thetaiotaomicron & Akkermansia", "meals": [{"time": "Breakfast", "title": "Okinawan Awamori-Style Miso Vegetable Soup with Wakame", "recipeId": "r26"}, {"time": "Lunch", "title": "Chilled Mozuku Seaweed in Fermented Rice Vinegar", "recipeId": "r30"}, {"time": "Dinner", "title": "Wild Salmon or Sardine Broth with Fennel, Leek & Dill", "recipeId": "r40"}]}, {"day": 7, "theme": "The 30-Plant Celebration Feast", "focus": "Hitting and exceeding 30 plant species in a grand multi-culinary celebration of biodiversity.", "microbe": "The Entire Microbial Cloud (>1,000 Species)", "meals": [{"time": "Breakfast", "title": "Fermented Ragi & Whole Rice Porridge (Koozh)", "recipeId": "r10"}, {"time": "Midday Feast", "title": "Ancient Cacao, Roasted Pumpkin Seed & Chile Mole Verde", "recipeId": "r45"}, {"time": "Digestive Sip", "title": "Spiced Mexican Pumpkin Seed Horchata with Cinnamon", "recipeId": "r48"}, {"time": "Dinner", "title": "Moroccan 7-Vegetable Chickpea Tagine with Preserved Lemon", "recipeId": "r14"}]}];
+  const SHOPPING_DATA = {"Fresh Produce (Vegetables, Greens & Roots)": ["Shallots (Sambar Onions) & Red Onions", "Fresh Drumsticks (Moringa Pods)", "Ash Gourd (Winter Melon / Petha)", "Bitter Melon (Goya / Karela)", "Sweet Potatoes (Purple or Orange)", "Kabocha Pumpkin / Butternut Squash", "Daikon Radish & Red Beetroot", "Fresh Horseradish Root", "Nopales (Cleaned Prickly Pear Cactus Pads)", "Green Zucchini & Squash Blossoms", "Green Husk Tomatillos & Poblano Chiles", "Red Cabbage & Lacinato Kale", "Eggplants (Aubergines)", "Vine Tomatoes & Cherry Tomatoes", "Garlic heads, Fresh Ginger & Fresh Turmeric Root (Ukon)", "Fresh Herbs: Coriander, Curry Leaves, Parsley, Basil, Oregano, Dill, Epazote, Mint", "Lemons, Limes & Shikuwasa / Calamansi"], "Legumes, Pulses & Ancient Grains": ["Toor Dal (Yellow Pigeon Peas)", "Urad Dal (Split & Whole Skinned Black Gram)", "Yellow Moong Dal (Split Mung)", "Chana Dal & Roasted Gram (Pottukadlai)", "Heirloom Black Turtle Beans & Pinto Beans", "Dried Chickpeas (Garbanzo Beans)", "Dried White Cannellini Beans", "Finger Millet (Ragi Flour / Grain)", "Parboiled Idli Rice & Short-Grain Brown Rice", "Danish 100% Whole Rye Sourdough (Rugbr\u00f8d)", "Nixtamalized Blue Corn Masa Harina", "Steel-Cut Oats (or Whole Oat Groats)", "100% Buckwheat Soba Noodles (Juwari Soba)", "Bulgur Wheat & Artisanal Sourdough"], "Seaweeds, Ferments & Cultured Foods": ["Kombu Kelp sheets (Dashi Grade)", "Dried Wakame & Hijiki Seaweed", "Roasted Nori Seaweed sheets", "Fresh Mozuku or Arame Seaweed", "Brown Rice or Barley Miso Paste", "Shio Koji (Fermented Rice Koji Paste)", "Cultured Buttermilk or Live Plain Yogurt", "Tamari (Gluten-Free Brewed Soy Sauce)", "Raw Apple Cider Vinegar & Red Wine Vinegar"], "Oils, Seeds, Wild Berries & Healing Spices": ["Cold-Pressed Extra Virgin Olive Oil (Single-Origin, High-Polyphenol)", "Cold-Pressed Flaxseed Oil, Sesame Oil & Virgin Coconut Oil", "Cold-Pressed Avocado Oil", "Raw Pumpkin Seeds (Pepitas), Sunflower Seeds & Chia Seeds", "Raw Pine Nuts, Walnuts & Golden Sesame Seeds", "Pure Unsweetened Ceremonial Cacao Paste / Nibs", "Dried Organic Hibiscus Flowers (Flor de Jamaica)", "Frozen or Fresh Wild Bilberries & Lingonberries (or Cranberries)", "Black Mustard Seeds, Cumin, Fenugreek (Methi) & Coriander Seeds", "Whole Black Peppercorns, Juniper Berries & Ceylon Cinnamon", "Sambar Powder, Rasam Powder & Turmeric", "Sumac & Za'atar spice blend", "Greek Mountain Tea (Sideritis) Dried Herb", "Kalamata Olives & Salt-Packed Capers"]};
+  const BRISTOL_SCALE = [{"type": 1, "name": "Separate Hard Lumps", "desc": "Like nuts (hard to pass). Indicates severe constipation, slow transit (>72h), and mucosal dehydration.", "status": "Severe Slow Transit", "statusClass": "status-alert", "advice": "Prioritize hydration, magnesium, mucilaginous foods (chia, nopales, ash gourd), and gentle movement."}, {"type": 2, "name": "Lumpy Sausage", "desc": "Sausage-shaped but lumpy. Indicates mild constipation and insufficient fermentable soluble fibre.", "status": "Mild Slow Transit", "statusClass": "status-warning", "advice": "Increase cooked lentils, steamed vegetables, and prebiotic kiwi/pectin. Add 1 tbsp cold-pressed olive or flax oil."}, {"type": 3, "name": "Sausage with Cracks", "desc": "Like a sausage with surface cracks. Healthy, normal gut transit (30\u201348 hours).", "status": "Normal / Good", "statusClass": "status-good", "advice": "Solid baseline. Keep expanding your plant diversity toward the 30-plant goal."}, {"type": 4, "name": "Smooth Soft Snake", "desc": "Like a sausage or snake, smooth and soft. The gold-standard indicator of optimal colonic eubiosis and SCFA yield.", "status": "Optimal Eubiosis \ud83c\udf1f", "statusClass": "status-optimal", "advice": "Your microbial rainforest is flourishing! High butyrate, balanced transit (24\u201336h), and healthy mucosal barrier."}, {"type": 5, "name": "Soft Blobs with Clear Edges", "desc": "Soft blobs with clear-cut edges (passed easily). Indicates slightly rapid transit or low insoluble bulking fibre.", "status": "Mild Rapid Transit", "statusClass": "status-warning", "advice": "Add whole grains, cooled resistant starches (sweet potato, brown rice), and cooked pulses to add stool bulk."}, {"type": 6, "name": "Fluffy Ragged Pieces", "desc": "Fluffy pieces with ragged edges, a mushy stool. Indicates hypermotility, mild inflammation, or osmotic dysbiosis.", "status": "Mild Hypermotility / Inflammation", "statusClass": "status-warning", "advice": "Emphasize soothing bone or kombu broths, steamed squash, and temporarily reduce high-raw salads and stimulants."}, {"type": 7, "name": "Entirely Liquid", "desc": "Watery, no solid pieces. Entirely liquid. Indicates acute dysbiosis, viral/bacterial trigger, or food sensitivity.", "status": "Acute Diarrhea / Hypermotility", "statusClass": "status-alert", "advice": "Focus on rehydration (water + electrolytes), soothing rasam or dashi broths, and consult your physician if persistent."}];
 
   let activeFilters = {
     cuisine: 'all',
     diet: 'all',
+    clinical: 'all',
     meal: 'all',
     search: ''
   };
@@ -1647,8 +1922,15 @@
 
   // ── Init on DOM Ready ──────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
+    // Set default today's date in logger
+    const today = new Date().toISOString().split('T')[0];
+    const dateInput = document.getElementById('log-date');
+    if (dateInput) dateInput.value = today;
+
     initWeeklyTracker();
     renderAllRecipes(ALL_RECIPES);
+    renderBristolReference();
+    renderBristolHistory();
     renderResetPlanner();
     renderShoppingList();
   });
@@ -1659,6 +1941,7 @@
     document.getElementById('tab-btn-' + tabId).classList.add('active');
 
     document.getElementById('tab-recipes').style.display = (tabId === 'recipes') ? 'block' : 'none';
+    document.getElementById('tab-bristol').style.display = (tabId === 'bristol') ? 'block' : 'none';
     document.getElementById('tab-reset').style.display = (tabId === 'reset') ? 'block' : 'none';
     document.getElementById('tab-shopping').style.display = (tabId === 'shopping') ? 'block' : 'none';
   }
@@ -1759,7 +2042,6 @@
     const filterType = btn.getAttribute('data-filter');
     const val = btn.getAttribute('data-val');
 
-    // Deselect siblings in group
     btn.parentElement.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
     btn.classList.add('active');
 
@@ -1776,7 +2058,7 @@
       });
     });
     document.getElementById('recipe-search-input').value = '';
-    activeFilters = { cuisine: 'all', diet: 'all', meal: 'all', search: '' };
+    activeFilters = { cuisine: 'all', diet: 'all', clinical: 'all', meal: 'all', search: '' };
     applyFilters();
   }
 
@@ -1791,6 +2073,12 @@
       // Diet check
       if (activeFilters.diet !== 'all' && !recipe.diet.includes(activeFilters.diet)) return false;
 
+      // Clinical tag check
+      if (activeFilters.clinical !== 'all') {
+        const tags = recipe.clinical || [];
+        if (!tags.includes(activeFilters.clinical)) return false;
+      }
+
       // Meal check
       if (activeFilters.meal !== 'all' && recipe.meal !== activeFilters.meal) return false;
 
@@ -1802,6 +2090,7 @@
           recipe.benefit,
           recipe.microbe,
           recipe.prebiotic,
+          ...(recipe.clinical || []),
           ...recipe.plants,
           ...recipe.ingredients.map(i => i.name)
         ].join(' ').toLowerCase();
@@ -1814,7 +2103,7 @@
 
     renderAllRecipes(filtered);
     const countEl = document.getElementById('results-count-text');
-    countEl.innerText = `Showing ${filtered.length} of 36 gut-healing recipes`;
+    countEl.innerText = `Showing ${filtered.length} of 48 gut-healing recipes`;
   }
 
   // ── Render Recipe Cards ───────────────────────────────────────
@@ -1837,13 +2126,18 @@
       const scaleMultiplier = currentServings / baseServings;
 
       const dietTagsHtml = r.diet.map(d => `<span class="diet-mini-tag">${d}</span>`).join('');
-      const tagClass = r.cuisine === 'si' ? 'tag-si' : (r.cuisine === 'med' ? 'tag-med' : 'tag-oki');
+      const clinicalTagsHtml = (r.clinical || []).map(c => `<span class="clinical-mini-tag">${c}</span>`).join('');
+
+      let tagClass = 'tag-si';
+      if (r.cuisine === 'med') tagClass = 'tag-med';
+      else if (r.cuisine === 'oki') tagClass = 'tag-oki';
+      else if (r.cuisine === 'nordic') tagClass = 'tag-nordic';
+      else if (r.cuisine === 'meso') tagClass = 'tag-meso';
 
       const ingredientsHtml = r.ingredients.map(ing => {
         let scaledQty = ing.qty ? (ing.qty * scaleMultiplier) : null;
         let displayQty = '';
         if (scaledQty !== null) {
-          // format clean fraction or decimals
           if (scaledQty % 1 === 0) {
             displayQty = scaledQty.toString();
           } else if (scaledQty === 0.5) {
@@ -1880,7 +2174,7 @@
           <div class="card-content">
             <div class="card-header-meta">
               <span class="recipe-num">Recipe #${r.num}</span>
-              <div class="recipe-diet-tags">${dietTagsHtml}</div>
+              <div class="recipe-diet-tags">${dietTagsHtml}${clinicalTagsHtml}</div>
             </div>
 
             <h3 class="recipe-title">${r.title}</h3>
@@ -1974,6 +2268,132 @@
     printWindow.document.close();
     printWindow.focus();
     setTimeout(() => { printWindow.print(); }, 400);
+  }
+
+  function openPrintableBooklet() {
+    const printWindow = window.open('', '_blank');
+    let bookletHtml = `
+      <html>
+        <head>
+          <title>PANBIOME Recipe Booklet — 48 International Formulations</title>
+          <style>
+            body { font-family: Georgia, serif; line-height: 1.6; padding: 40px; color: #111; max-width: 900px; margin: 0 auto; }
+            h1.booklet-title { font-size: 32px; text-align: center; margin-bottom: 6px; }
+            p.sub { text-align: center; font-style: italic; color: #555; margin-bottom: 40px; }
+            .recipe-entry { page-break-inside: avoid; border-bottom: 2px solid #ddd; padding-bottom: 30px; margin-bottom: 30px; }
+            h2 { font-size: 22px; color: #0e1726; margin-bottom: 4px; }
+            .meta { font-size: 12px; font-family: sans-serif; color: #666; margin-bottom: 12px; }
+            .mech { background: #f7f9fa; border-left: 3px solid #1d6fa5; padding: 8px 12px; font-size: 13px; margin-bottom: 14px; }
+            ul, ol { padding-left: 20px; font-size: 13px; }
+            li { margin-bottom: 4px; }
+            .tip { font-size: 12px; color: #724b0e; background: #fff9ed; padding: 6px 10px; margin-top: 10px; }
+            @media print {
+              body { padding: 0; }
+            }
+          </style>
+        </head>
+        <body>
+          <h1 class="booklet-title">PANBIOME Culinary Companion</h1>
+          <p class="sub">48 Microbial Formulations across South Indian, Mediterranean, Okinawan, Nordic &amp; Mesoamerican Traditions<br>By Dr. Shibichakravarthy Kannan</p>
+    `;
+
+    ALL_RECIPES.forEach(r => {
+      bookletHtml += `
+        <div class="recipe-entry">
+          <h2>#${r.num} ${r.title}</h2>
+          <div class="meta">${r.cuisineName} | Time: ${r.time} | ${r.plantPoints} Plant Points | Target: ${r.microbe}</div>
+          <div class="mech"><strong>Mechanism:</strong> ${r.benefit}</div>
+          <strong>Ingredients:</strong>
+          <ul>
+            ${r.ingredients.map(i => `<li>[ ] ${i.qty ? i.qty + ' ' + i.unit + ' ' : ''}${i.name}</li>`).join('')}
+          </ul>
+          <strong style="display:block; margin-top: 10px;">Steps:</strong>
+          <ol>
+            ${r.steps.map(s => `<li>${s}</li>`).join('')}
+          </ol>
+          <div class="tip">💡 <strong>Clinical Tip:</strong> ${r.tip}</div>
+        </div>
+      `;
+    });
+
+    bookletHtml += `
+        </body>
+      </html>
+    `;
+
+    printWindow.document.write(bookletHtml);
+    printWindow.document.close();
+    printWindow.focus();
+    setTimeout(() => { printWindow.print(); }, 500);
+  }
+
+  // ── Bristol Tracker Logic ─────────────────────────────────────
+  function renderBristolReference() {
+    const container = document.getElementById('bristol-reference-grid');
+    container.innerHTML = BRISTOL_SCALE.map(b => `
+      <div class="bristol-card" onclick="selectBristolCard(${b.type})">
+        <div class="bristol-type-num">
+          <span>Type ${b.type}: ${b.name}</span>
+          <span class="bristol-status-tag ${b.statusClass}">${b.status}</span>
+        </div>
+        <div class="bristol-desc">${b.desc}</div>
+        <div class="bristol-advice-box">
+          <strong>Microbiome Guidance:</strong> ${b.advice}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function selectBristolCard(typeNum) {
+    document.getElementById('log-bristol-type').value = typeNum;
+    showToast(`Selected Bristol Type ${typeNum} in the logger!`);
+    document.getElementById('bristol-form').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function handleBristolSubmit(e) {
+    e.preventDefault();
+    const date = document.getElementById('log-date').value;
+    const type = parseInt(document.getElementById('log-bristol-type').value);
+    const bloat = parseInt(document.getElementById('log-bloat').value);
+    const energy = parseInt(document.getElementById('log-energy').value);
+
+    const logHistory = JSON.parse(localStorage.getItem('panbiome_bristol_log') || '[]');
+    logHistory.unshift({ date, type, bloat, energy });
+    localStorage.setItem('panbiome_bristol_log', JSON.stringify(logHistory));
+
+    renderBristolHistory();
+    showToast('✅ Daily gut biofeedback entry saved!');
+  }
+
+  function renderBristolHistory() {
+    const tbody = document.getElementById('bristol-history-tbody');
+    const logHistory = JSON.parse(localStorage.getItem('panbiome_bristol_log') || '[]');
+
+    if (logHistory.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-faint); padding: 20px;">No entries logged yet. Record your first biofeedback log above!</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = logHistory.map(entry => {
+      const bInfo = BRISTOL_SCALE.find(b => b.type === entry.type) || { name: 'Unknown', status: 'N/A', statusClass: '' };
+      return `
+        <tr>
+          <td><strong>${entry.date}</strong></td>
+          <td>Type ${entry.type} (${bInfo.name})</td>
+          <td><span class="bristol-status-tag ${bInfo.statusClass}">${bInfo.status}</span></td>
+          <td>${entry.bloat} / 10</td>
+          <td>${entry.energy} / 10</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function clearBristolLog() {
+    if (confirm('Clear your Bristol stool and symptom history?')) {
+      localStorage.removeItem('panbiome_bristol_log');
+      renderBristolHistory();
+      showToast('Bristol history cleared.');
+    }
   }
 
   // ── 7-Day Reset Planner Render ────────────────────────────────

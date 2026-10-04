@@ -28,7 +28,7 @@
 ## 🌐 Live Web Companion & Pages
 
 - **Official Landing Page:** [https://musicofthings.github.io/panbiome/](https://musicofthings.github.io/panbiome/)
-- **Free International Recipe Companion & 30-Plant Tracker (36 Recipes):** [https://musicofthings.github.io/panbiome/PANBIOME_Recipe_Book.html](https://musicofthings.github.io/panbiome/PANBIOME_Recipe_Book.html) — includes interactive 30-plant weekly tracker, dynamic serving scaler, 7-day reset schedule, and categorized shopping list.
+- **Free International Recipe Companion & Clinical Suite (48 Recipes):** [https://musicofthings.github.io/panbiome/PANBIOME_Recipe_Book.html](https://musicofthings.github.io/panbiome/PANBIOME_Recipe_Book.html) — includes 48 recipes across 5 world longevity traditions (South Indian, Mediterranean, Okinawan, Nordic, Mesoamerican), interactive 30-plant weekly tracker, Bristol stool diagnostic logger, dynamic serving scaler, 7-day reset schedule, printable booklet mode, and categorized shopping list.
 
 ---
 
