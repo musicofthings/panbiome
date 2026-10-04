@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PANBIOME — Nurturing Your Inner Ecosystem for Lifelong Health | Dr. Shibichakravarthy Kannan</title>
-<meta name="description" content="PANBIOME by Dr. Shibichakravarthy Kannan (MBBS, PhD) — discover the human microbiome as one unified ecosystem, and a practical, science-backed plan to restore it using South Indian, Mediterranean and Okinawan food traditions.">
+<meta name="description" content="PANBIOME by Dr. Shibichakravarthy Kannan (MBBS, PhD) — discover the human microbiome as one unified ecosystem, and a practical, science-backed plan to restore it using South Indian, Mediterranean and Okinawan food traditions. Now available on Amazon Kindle & Paperback.">
 <meta property="og:title" content="PANBIOME — Nurturing Your Inner Ecosystem for Lifelong Health">
-<meta property="og:description" content="You are not just you. You are a superorganism. A physician's guide to restoring the ancient partnership between you and your microbes.">
+<meta property="og:description" content="You are not just you. You are a superorganism. A physician's guide to restoring the ancient partnership between you and your microbes. Now available on Amazon.">
 <meta property="og:type" content="book">
+<meta property="og:image" content="cover-web.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
 <style>
   :root {
     --si-primary: #c0392b;
@@ -21,6 +23,8 @@
     --radius: 16px;
     --font-body: 'Georgia', 'Times New Roman', serif;
     --font-ui: -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --amazon-gold: #ff9900;
+    --amazon-hover: #f78d00;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,14 +40,92 @@
 
   a { color: var(--med-primary); }
 
-  .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── Sticky Top Nav ───────────────────────────────── */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(20, 32, 46, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 0;
+  }
+  .top-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .brand-link {
+    font-family: var(--font-ui);
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .brand-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: rgba(255, 153, 0, 0.22);
+    color: #ffd9a0;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 153, 0, 0.4);
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .nav-links a {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+    transition: color .15s ease;
+  }
+  .nav-links a:hover {
+    color: #fff;
+  }
+  .nav-buy-btn {
+    background: var(--amazon-gold) !important;
+    color: #111 !important;
+    font-weight: 700 !important;
+    padding: 8px 18px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 10px rgba(255, 153, 0, 0.35);
+    transition: transform .15s ease, background .15s ease !important;
+  }
+  .nav-buy-btn:hover {
+    background: var(--amazon-hover) !important;
+    transform: translateY(-1px);
+    color: #000 !important;
+  }
+
+  @media (max-width: 780px) {
+    .nav-links .desktop-only { display: none; }
+    .top-nav { padding: 10px 0; }
+  }
 
   /* ── Hero ─────────────────────────────────────────── */
   .hero {
     background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     color: #fff;
     text-align: center;
-    padding: 90px 24px 80px;
+    padding: 70px 24px 75px;
     position: relative;
     overflow: hidden;
   }
@@ -56,11 +138,43 @@
       radial-gradient(circle at 50% 90%, rgba(41,128,185,0.25), transparent 45%);
     opacity: 0.9;
   }
-  .hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+  .hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+  
+  /* Live Publication Badge */
+  .live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(39, 174, 96, 0.18);
+    border: 1px solid rgba(39, 174, 96, 0.45);
+    color: #72e3a1;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #2ecc71;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(46, 204, 113, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+  }
+
   .eyebrow {
     font-family: var(--font-ui);
     font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
-    color: rgba(255,255,255,0.65); margin-bottom: 22px;
+    color: rgba(255,255,255,0.65); margin-bottom: 14px;
   }
   .hero h1 {
     font-size: clamp(52px, 11vw, 96px);
@@ -76,46 +190,302 @@
   }
   .hero .author span { display:block; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-top:6px; }
 
-  .pillbar { margin: 34px 0 10px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .pillbar { margin: 26px 0 10px; display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
   .pill {
-    font-family: var(--font-ui); font-size: 12px; letter-spacing: 1px;
-    text-transform: uppercase; padding: 7px 16px; border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.9);
+    font-family: var(--font-ui); font-size: 11px; letter-spacing: 1px;
+    text-transform: uppercase; padding: 6px 14px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.06);
   }
 
-  .cta-row { margin-top: 34px; display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+  .cta-row { margin-top: 30px; display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
   .btn {
     font-family: var(--font-ui); font-size: 15px; font-weight: 600;
-    padding: 14px 28px; border-radius: 999px; text-decoration: none;
-    display:inline-block; transition: transform .15s ease, box-shadow .15s ease;
+    padding: 13px 26px; border-radius: 999px; text-decoration: none;
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
   }
   .btn:hover { transform: translateY(-2px); }
-  .btn-primary { background: #ff9f1c; color: #14202e; box-shadow: 0 6px 18px rgba(255,159,28,0.4); }
-  .btn-ghost { background: rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.35); }
-  .cta-note { font-family: var(--font-ui); font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 16px; }
+  
+  .btn-amazon {
+    background: var(--amazon-gold);
+    color: #111;
+    font-weight: 700;
+    box-shadow: 0 6px 22px rgba(255, 153, 0, 0.45);
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+  .btn-amazon:hover {
+    background: var(--amazon-hover);
+    color: #000;
+    box-shadow: 0 8px 28px rgba(255, 153, 0, 0.6);
+  }
+  .btn-ghost {
+    background: rgba(255,255,255,0.09);
+    color:#fff;
+    border:1px solid rgba(255,255,255,0.35);
+  }
+  .btn-ghost:hover {
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+  }
+
+  /* Formats bar */
+  .formats-bar {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+  }
+  .format-tag {
+    background: rgba(255,255,255,0.12);
+    color: #ffd9a0;
+    padding: 3px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: background .15s ease;
+  }
+  .format-tag:hover { background: rgba(255,255,255,0.22); color: #fff; }
+  .store-sep { color: rgba(255,255,255,0.3); }
+  .store-link {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+  }
+  .store-link:hover { color: var(--amazon-gold); }
 
   /* ── Hero with cover ──────────────────────────────── */
-  .hero-grid { display:flex; align-items:center; justify-content:center; gap:56px; flex-wrap:wrap; text-align:left; max-width:1000px; }
-  .book-cover { flex:0 0 auto; }
+  .hero-grid { display:flex; align-items:center; justify-content:center; gap:52px; flex-wrap:wrap; text-align:left; max-width:1020px; }
+  .book-cover { flex:0 0 auto; text-align: center; }
   .book-cover img {
-    width:340px; max-width:72vw; height:auto; border-radius:6px; display:block;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.55), 0 2px 10px rgba(0,0,0,0.45);
+    width:330px; max-width:72vw; height:auto; border-radius:8px; display:block;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.65), 0 3px 12px rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.1);
   }
-  .hero-text { flex:1 1 360px; max-width:460px; }
-  .hero-text .eyebrow { text-align:left; margin-bottom:14px; }
-  .hero-tag { font-size:24px; line-height:1.45; color:#f1ece0; margin:0 0 26px; }
+  .cover-caption {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+  .hero-text { flex:1 1 380px; max-width:480px; }
+  .hero-text .eyebrow { text-align:left; }
+  .hero-tag { font-size:23px; line-height:1.45; color:#f1ece0; margin:0 0 22px; }
   .hero-tag em { color:#ffd9a0; font-style:italic; }
   .hero-text .author { text-align:left; }
-  .hero-text .pillbar, .hero-text .cta-row { justify-content:flex-start; }
-  .hero-text .cta-note { text-align:left; }
+  .hero-text .pillbar, .hero-text .cta-row, .hero-text .formats-bar { justify-content:flex-start; }
   .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
   @media (max-width:760px){
     .hero-grid { text-align:center; gap:36px; }
     .hero-text { flex-basis:100%; }
     .hero-text .eyebrow { text-align:center; }
     .hero-text .author { text-align:center; }
-    .hero-text .pillbar, .hero-text .cta-row { justify-content:center; }
-    .hero-text .cta-note { text-align:center; }
+    .hero-text .pillbar, .hero-text .cta-row, .hero-text .formats-bar { justify-content:center; }
+  }
+
+  /* ── Dedicated Buy Section ────────────────────────── */
+  .buy-section {
+    background: linear-gradient(180deg, #fafaf8 0%, #f2efe9 100%);
+    padding: 70px 0;
+  }
+  .buy-card {
+    background: #fff;
+    border: 1px solid #e0ddd5;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+    padding: 48px;
+    overflow: hidden;
+  }
+  .buy-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .buy-cover-col {
+    text-align: center;
+  }
+  .buy-cover-img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+    display: block;
+    margin: 0 auto;
+  }
+  .edition-badge {
+    margin-top: 14px;
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #27ae60;
+    background: #f0faf4;
+    border: 1px solid #c3e6cb;
+    padding: 5px 12px;
+    border-radius: 999px;
+  }
+  .buy-eyebrow {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--si-primary);
+    margin-bottom: 8px;
+  }
+  .buy-info-col h2 {
+    text-align: left;
+    margin-bottom: 12px;
+  }
+  .buy-lead {
+    font-size: 17px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .buy-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .buy-feat {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--text);
+  }
+  .feat-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .buy-feat strong {
+    display: block;
+    color: var(--ink);
+    font-family: var(--font-ui);
+    font-size: 14px;
+  }
+  .buy-feat span {
+    color: var(--muted);
+    font-size: 13.5px;
+  }
+
+  .format-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+  .format-card {
+    background: #fafaf8;
+    border: 1.5px solid #e4e4e0;
+    border-radius: 12px;
+    padding: 18px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .format-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--amazon-gold);
+    box-shadow: 0 6px 18px rgba(255, 153, 0, 0.18);
+  }
+  .format-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .format-name {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .format-badge {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: #fdf3f2;
+    color: var(--si-primary);
+  }
+  .format-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    line-height: 1.45;
+  }
+  .format-action {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 700;
+    color: #b35900;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .store-links-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    padding-top: 14px;
+    border-top: 1px solid #ebe8e0;
+  }
+  .store-label {
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .store-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1px solid #d0ccc0;
+    padding: 6px 14px;
+    border-radius: 999px;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all .15s ease;
+  }
+  .store-btn:hover {
+    border-color: var(--amazon-gold);
+    color: #994c00;
+    background: #fffdf8;
+  }
+
+  @media (max-width: 820px) {
+    .buy-grid { grid-template-columns: 1fr; gap: 32px; }
+    .buy-card { padding: 30px 20px; }
+    .format-cards-grid { grid-template-columns: 1fr; }
+    .buy-info-col h2 { text-align: center; }
+    .buy-eyebrow { text-align: center; }
+    .buy-lead { text-align: center; }
+    .store-links-row { justify-content: center; }
   }
 
   /* ── Sections ─────────────────────────────────────── */
@@ -159,18 +529,82 @@
     border:1px solid var(--border); border-radius: var(--radius);
     padding: 40px; text-align:center; box-shadow: var(--card-shadow);
   }
+  .recipe-cta-tag {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--si-primary);
+    background: rgba(192,57,43,0.1);
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
   .recipe-cta h3 { font-size: 26px; color: var(--ink); margin-bottom: 10px; }
-  .recipe-cta p { color: var(--muted); max-width: 540px; margin: 0 auto 24px; font-size: 17px; }
+  .recipe-cta p { color: var(--muted); max-width: 580px; margin: 0 auto 24px; font-size: 17px; }
+  .recipe-cta-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+  }
   .btn-recipe { background: var(--si-primary); color:#fff; }
+  .btn-recipe:hover { background: #a93226; color:#fff; }
+  .btn-ghost-dark {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--border);
+  }
+  .btn-ghost-dark:hover {
+    border-color: var(--amazon-gold);
+    color: #994c00;
+    background: #fff;
+  }
 
   /* Footer */
   footer { background: var(--ink); color: rgba(255,255,255,0.75); padding: 50px 24px; font-size: 14px; }
   footer .wrap { text-align:center; }
+  footer .footer-links {
+    margin: 16px 0 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-family: var(--font-ui);
+    font-size: 13px;
+  }
+  footer .footer-links a { color: #ffd9a0; text-decoration: none; }
+  footer .footer-links a:hover { text-decoration: underline; }
   footer .disclaimer { font-family: var(--font-ui); font-size: 12px; color: rgba(255,255,255,0.5); max-width: 680px; margin: 18px auto 0; line-height:1.6; }
   footer a { color: #ffd9a0; }
 </style>
 </head>
 <body>
+
+  <!-- STICKY TOP NAVIGATION -->
+  <nav class="top-nav">
+    <div class="wrap top-nav-inner">
+      <a href="#" class="brand-link">
+        PANBIOME <span class="brand-badge">Book</span>
+      </a>
+      <div class="nav-links">
+        <a href="#book" class="desktop-only">The Book</a>
+        <a href="#inside" class="desktop-only">What's Inside</a>
+        <a href="#concepts" class="desktop-only">Core Principles</a>
+        <a href="#author" class="desktop-only">Author</a>
+        <a href="PANBIOME_Recipe_Book.html">Recipe Companion</a>
+        <a class="nav-buy-btn" href="https://www.amazon.in/dp/B0H592WT5G" target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.54 11.29c-.06.72-.4 1.37-.95 1.83-1.04.87-2.61.9-3.79.08-.43-.3-.72-.75-.84-1.26-.06-.27-.29-.46-.57-.46h-.99c-.35 0-.62.32-.57.67.22 1.48 1.13 2.76 2.45 3.37 1.94.9 4.3.49 5.8-1.03.62-.63 1.04-1.45 1.18-2.35.05-.33-.2-.63-.54-.63h-1.22c-.29 0-.52.21-.55.48zM9.41 7.22c-.37-.09-.76-.09-1.13 0-.96.24-1.69.97-1.93 1.93-.09.37-.09.76 0 1.13.24.96.97 1.69 1.93 1.93.37.09.76.09 1.13 0 .96-.24 1.69-.97 1.93-1.93.09-.37.09-.76 0-1.13-.24-.96-.97-1.69-1.93-1.93zm-1.8 1.99c.14-.56.59-1.01 1.15-1.15.56-.14 1.15.02 1.55.42.4.4.56.99.42 1.55-.14.56-.59 1.01-1.15 1.15-.56.14-1.15-.02-1.55-.42-.4-.4-.56-.99-.42-1.55zM22 6.5l-2.09 7.33A2 2 0 0117.99 15H8.71a2 2 0 01-1.93-1.46L4.31 3.5H2a1 1 0 110-2h3a1 1 0 01.96.73L6.5 4h14.28a1 1 0 01.96 1.28L22 6.5z"/>
+          </svg>
+          Buy on Amazon
+        </a>
+      </div>
+    </div>
+  </nav>
 
   <!-- HERO -->
   <header class="hero">
@@ -178,9 +612,13 @@
       <div class="book-cover">
         <img src="cover-web.jpg" width="625" height="1000"
              alt="PANBIOME — Nurturing Your Inner Ecosystem for Lifelong Health, by Dr. Shibichakravarthy Kannan">
+        <div class="cover-caption">Official Amazon KDP Release</div>
       </div>
       <div class="hero-text">
         <h1 class="sr-only">PANBIOME — Nurturing Your Inner Ecosystem for Lifelong Health</h1>
+        <div class="live-badge">
+          <span class="pulse-dot"></span> Now Published on Amazon KDP
+        </div>
         <div class="eyebrow">A New Science of Health</div>
         <div class="hero-tag">You are not just <em>you</em>. You are a living ecosystem — and this is the guide to restoring it.</div>
         <div class="author">Dr. Shibichakravarthy Kannan
@@ -193,10 +631,22 @@
           <span class="pill">Immunity</span>
         </div>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#book">Discover the Book</a>
+          <a class="btn btn-amazon" href="https://www.amazon.in/dp/B0H592WT5G" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M15.54 11.29c-.06.72-.4 1.37-.95 1.83-1.04.87-2.61.9-3.79.08-.43-.3-.72-.75-.84-1.26-.06-.27-.29-.46-.57-.46h-.99c-.35 0-.62.32-.57.67.22 1.48 1.13 2.76 2.45 3.37 1.94.9 4.3.49 5.8-1.03.62-.63 1.04-1.45 1.18-2.35.05-.33-.2-.63-.54-.63h-1.22c-.29 0-.52.21-.55.48zM9.41 7.22c-.37-.09-.76-.09-1.13 0-.96.24-1.69.97-1.93 1.93-.09.37-.09.76 0 1.13.24.96.97 1.69 1.93 1.93.37.09.76.09 1.13 0 .96-.24 1.69-.97 1.93-1.93.09-.37.09-.76 0-1.13-.24-.96-.97-1.69-1.93-1.93zm-1.8 1.99c.14-.56.59-1.01 1.15-1.15.56-.14 1.15.02 1.55.42.4.4.56.99.42 1.55-.14.56-.59 1.01-1.15 1.15-.56.14-1.15-.02-1.55-.42-.4-.4-.56-.99-.42-1.55zM22 6.5l-2.09 7.33A2 2 0 0117.99 15H8.71a2 2 0 01-1.93-1.46L4.31 3.5H2a1 1 0 110-2h3a1 1 0 01.96.73L6.5 4h14.28a1 1 0 01.96 1.28L22 6.5z"/>
+            </svg>
+            Buy on Amazon
+          </a>
           <a class="btn btn-ghost" href="PANBIOME_Recipe_Book.html">Free Recipe Companion</a>
         </div>
-        <div class="cta-note">Coming soon to Amazon Kindle &amp; paperback.</div>
+        <div class="formats-bar">
+          <span>Formats:</span>
+          <a href="https://www.amazon.in/dp/B0H592WT5G" target="_blank" rel="noopener noreferrer" class="format-tag">Kindle eBook</a>
+          <a href="https://www.amazon.in/dp/B0H592WT5G" target="_blank" rel="noopener noreferrer" class="format-tag">Paperback</a>
+          <span class="store-sep">|</span>
+          <a href="https://www.amazon.in/dp/B0H592WT5G" target="_blank" rel="noopener noreferrer" class="store-link">Amazon India</a>
+          <a href="https://www.amazon.com/dp/B0H592WT5G" target="_blank" rel="noopener noreferrer" class="store-link">Amazon.com (Worldwide)</a>
+        </div>
       </div>
     </div>
   </header>
@@ -213,7 +663,7 @@
   </section>
 
   <!-- WHAT'S INSIDE -->
-  <section class="alt">
+  <section id="inside" class="alt">
     <div class="wrap">
       <h2>What you’ll discover</h2>
       <p class="lead">Eighteen chapters across four parts, plus two intimate, doctor-narrated chapters on women’s health and the first 1,000 days of life.</p>
@@ -243,7 +693,7 @@
   </section>
 
   <!-- KEY CONCEPTS -->
-  <section>
+  <section id="concepts">
     <div class="wrap">
       <h2>Ideas you’ll carry with you</h2>
       <p class="lead">Simple, memorable, and grounded in landmark microbiome research.</p>
@@ -269,7 +719,7 @@
   </section>
 
   <!-- AUTHOR -->
-  <section class="alt">
+  <section id="author" class="alt">
     <div class="wrap author-box">
       <h2>About the author</h2>
       <div class="name">Dr. Shibichakravarthy Kannan, MBBS, PhD</div>
@@ -280,13 +730,102 @@
     </div>
   </section>
 
+  <!-- GET THE BOOK / BUY NOW SHOWCASE -->
+  <section id="buy" class="buy-section">
+    <div class="wrap">
+      <div class="buy-card">
+        <div class="buy-grid">
+          <div class="buy-cover-col">
+            <img src="cover-web.jpg" width="625" height="1000" alt="PANBIOME Book Cover" class="buy-cover-img">
+            <div class="edition-badge">Official KDP Release</div>
+          </div>
+          <div class="buy-info-col">
+            <div class="buy-eyebrow">ORDER YOUR COPY TODAY</div>
+            <h2>Start Nurturing Your Panbiome</h2>
+            <p class="buy-lead">
+              Transform your microbiome through science-backed nutrition, ancient culinary wisdom, and a doctor's clinical blueprint.
+            </p>
+            
+            <div class="buy-features-list">
+              <div class="buy-feat">
+                <span class="feat-icon">📖</span>
+                <div>
+                  <strong>Complete 18-Chapter Protocol + 2 Special Chapters</strong>
+                  <span>Gut–brain axis, immunity, skin &amp; respiratory microbiomes, maternal &amp; women's health.</span>
+                </div>
+              </div>
+              <div class="buy-feat">
+                <span class="feat-icon">🥗</span>
+                <div>
+                  <strong>7-Day Gut Reset &amp; 30-Plant Protocol</strong>
+                  <span>Actionable, day-by-day food plans rooted in South Indian, Mediterranean &amp; Okinawan diets.</span>
+                </div>
+              </div>
+              <div class="buy-feat">
+                <span class="feat-icon">📊</span>
+                <div>
+                  <strong>Personal Panbiome Dashboard</strong>
+                  <span>Self-monitoring tools to track digestion, energy, mental clarity, and metabolic vitality.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="format-cards-grid">
+              <!-- Kindle Card -->
+              <a href="https://www.amazon.in/dp/B0H592WT5G" target="_blank" rel="noopener noreferrer" class="format-card">
+                <div class="format-head">
+                  <span class="format-name">Kindle Edition</span>
+                  <span class="format-badge">Instant Delivery</span>
+                </div>
+                <div class="format-desc">Read on Kindle e-reader, phone, tablet, or PC with the free Kindle App.</div>
+                <div class="format-action">
+                  <span>Buy Kindle eBook</span>
+                  <span class="arrow">→</span>
+                </div>
+              </a>
+
+              <!-- Paperback Card -->
+              <a href="https://www.amazon.in/dp/B0H592WT5G" target="_blank" rel="noopener noreferrer" class="format-card">
+                <div class="format-head">
+                  <span class="format-name">Paperback Edition</span>
+                  <span class="format-badge">Print on Demand</span>
+                </div>
+                <div class="format-desc">High-quality printed book with clear charts, tables, and daily reference guides.</div>
+                <div class="format-action">
+                  <span>Buy Paperback</span>
+                  <span class="arrow">→</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="store-links-row">
+              <span class="store-label">Direct Store Links:</span>
+              <a href="https://www.amazon.in/dp/B0H592WT5G" target="_blank" rel="noopener noreferrer" class="store-btn">
+                🇮🇳 Amazon.in (India)
+              </a>
+              <a href="https://www.amazon.com/dp/B0H592WT5G" target="_blank" rel="noopener noreferrer" class="store-btn">
+                🌐 Amazon.com (Worldwide)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- RECIPE COMPANION -->
-  <section>
+  <section id="recipes">
     <div class="wrap">
       <div class="recipe-cta">
-        <h3>🍲 The free recipe companion</h3>
-        <p>A bonus collection of Panbiome-friendly recipes spanning South Indian, Mediterranean and Okinawan kitchens — every dish chosen to feed your inner rainforest.</p>
-        <a class="btn btn-recipe" href="PANBIOME_Recipe_Book.html">Open the Recipe Book</a>
+        <span class="recipe-cta-tag">FREE COMPANION GUIDE</span>
+        <h3>🍲 The PANBIOME Recipe Companion</h3>
+        <p>A companion collection of 24 gut-nourishing recipes spanning South Indian, Mediterranean, and Okinawan kitchens — every dish designed to feed your inner microbial rainforest.</p>
+        <div class="recipe-cta-btns">
+          <a class="btn btn-recipe" href="PANBIOME_Recipe_Book.html">Explore All 24 Recipes Free</a>
+          <a class="btn btn-ghost-dark" href="https://www.amazon.in/dp/B0H592WT5G" target="_blank" rel="noopener noreferrer">
+            Get the Book on Amazon
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -295,6 +834,14 @@
   <footer>
     <div class="wrap">
       <div>© 2026 Dr. Shibichakravarthy Kannan · <em>PANBIOME</em></div>
+      <div class="footer-links">
+        <a href="#book">The Book</a>
+        <a href="#inside">Chapters</a>
+        <a href="#author">Author</a>
+        <a href="PANBIOME_Recipe_Book.html">Free Recipe Book</a>
+        <a href="https://www.amazon.in/dp/B0H592WT5G" target="_blank" rel="noopener noreferrer">Amazon.in Listing</a>
+        <a href="https://www.amazon.com/dp/B0H592WT5G" target="_blank" rel="noopener noreferrer">Amazon.com Listing</a>
+      </div>
       <p class="disclaimer">This website and the book are for informational and educational purposes only and do not constitute medical advice. Patient stories are composites. Always consult your qualified physician before making health decisions. Microbiome research evolves rapidly.</p>
     </div>
   </footer>

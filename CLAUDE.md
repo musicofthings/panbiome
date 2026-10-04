@@ -5,7 +5,7 @@
 Health/wellness non-fiction book by **Dr. Shibichakravarthy Kannan, MBBS, PhD** (Medical Geneticist & Diagnostics Specialist, Hyderabad). The book explains the human microbiome — gut, skin, oral, respiratory, vaginal — as a unified "Panbiome" ecosystem, drawing on South Indian, Mediterranean, and Okinawan dietary traditions.
 
 **Publisher target:** Amazon KDP (Kindle + paperback)  
-**Status:** Manuscript complete, DOCX built, GitHub Pages recipe companion live
+**Status:** Published on Amazon KDP (ASIN: `B0H592WT5G`), GitHub Pages landing page and recipe companion live with Buy Now links
 
 ---
 
@@ -16,7 +16,8 @@ Health/wellness non-fiction book by **Dr. Shibichakravarthy Kannan, MBBS, PhD** 
 | `panbiome-book-all-chapters.txt` | **Master manuscript source** — all edits go here |
 | `build_kindle_docx.py` | Converts source → `PANBIOME_KindleCreate.docx` |
 | `PANBIOME_KindleCreate.docx` | Output for Kindle Create import (do not edit directly) |
-| `PANBIOME_Recipe_Book.html` / `index.html` | Bonus recipe companion — live on GitHub Pages |
+| `index.html` | Book landing page with Amazon Buy Now buttons & overview |
+| `PANBIOME_Recipe_Book.html` | Bonus 24-recipe companion with sticky buy navigation & upsell |
 | `PANBIOME_Recipe_Book.md` | Markdown source for recipe book |
 | `REVIEW_REPORT_v2.md` | Comprehensive fact-check report (29 issues, all fixed) |
 
@@ -24,13 +25,14 @@ Health/wellness non-fiction book by **Dr. Shibichakravarthy Kannan, MBBS, PhD** 
 
 ## Active work context
 
-**Phase:** Post-production polish  
-**Last completed:** All 29 fact-check fixes applied; DOCX rebuilt (784 paragraphs, 22 chapters); Epilogue Priya return written; Author bio updated; Recipe book HTML published to GitHub Pages  
-**Immediate next steps:**
-1. Enable GitHub Pages: Settings → Pages → Source: main / root → Save  
-   → Site will serve at `https://musicofthings.github.io/panbiome/`
-2. Register ISBN via KDP (auto-assigned) or Nielsen/Bowker
-3. Import `PANBIOME_KindleCreate.docx` into Kindle Create → export `.kpf` → upload to KDP
+**Phase:** Published & Live  
+**Amazon KDP Listing:** `https://www.amazon.in/dp/B0H592WT5G` (ASIN: `B0H592WT5G`)  
+**Worldwide / US Link:** `https://www.amazon.com/dp/B0H592WT5G`  
+**GitHub Pages:** `https://musicofthings.github.io/panbiome/`  
+**Latest completed:**
+1. Published on Amazon KDP (Kindle & Paperback).
+2. Updated `index.html` landing page with live publication badge, sticky navigation with Amazon Buy button, Kindle/Paperback format selection, and dedicated "Order Your Copy" showcase.
+3. Updated `PANBIOME_Recipe_Book.html` with top-nav buy button, KDP publication banner, and comprehensive book showcase upsell card linking directly to Amazon.
 
 ---
 
