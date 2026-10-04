@@ -28,7 +28,7 @@
 ## 🌐 Live Web Companion & Pages
 
 - **Official Landing Page:** [https://musicofthings.github.io/panbiome/](https://musicofthings.github.io/panbiome/)
-- **Free International Recipe Companion (24 Recipes):** [https://musicofthings.github.io/panbiome/PANBIOME_Recipe_Book.html](https://musicofthings.github.io/panbiome/PANBIOME_Recipe_Book.html)
+- **Free International Recipe Companion & 30-Plant Tracker (36 Recipes):** [https://musicofthings.github.io/panbiome/PANBIOME_Recipe_Book.html](https://musicofthings.github.io/panbiome/PANBIOME_Recipe_Book.html) — includes interactive 30-plant weekly tracker, dynamic serving scaler, 7-day reset schedule, and categorized shopping list.
 
 ---
 
