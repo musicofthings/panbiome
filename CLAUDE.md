@@ -26,8 +26,9 @@ Health/wellness non-fiction book by **Dr. Shibichakravarthy Kannan, MBBS, PhD** 
 ## Active work context
 
 **Phase:** Published & Live  
-**Amazon KDP Listing:** `https://www.amazon.in/dp/B0H592WT5G` (ASIN: `B0H592WT5G`)  
-**Worldwide / US Link:** `https://www.amazon.com/dp/B0H592WT5G`  
+**Amazon KDP Paperback:** `https://www.amazon.in/dp/B0H5BPJ8D7` (ASIN: `B0H5BPJ8D7`)  
+**Amazon KDP Kindle eBook:** `https://www.amazon.in/dp/B0H592WT5G` (ASIN: `B0H592WT5G`)  
+**Worldwide Links:** `https://www.amazon.com/dp/B0H5BPJ8D7` (Paperback) · `https://www.amazon.com/dp/B0H592WT5G` (Kindle)  
 **GitHub Pages:** `https://musicofthings.github.io/panbiome/`  
 **Latest completed:**
 1. Published on Amazon KDP (Kindle & Paperback).
